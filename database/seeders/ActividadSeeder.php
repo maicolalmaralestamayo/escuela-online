@@ -1,0 +1,21 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Actividad;
+use Illuminate\Database\Seeder;
+
+class ActividadSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $actividads = [
+            ['id' => 1, 'usuario_id' => 1, 'inicio' => '2025-05-01 10:00:00', 'fin' => '2025-05-31 10:00:00'],
+            ['id' => 2, 'usuario_id' => 2, 'inicio' => '2025-05-01 10:00:00', 'fin' => '2025-05-31 10:00:00'],
+            ['id' => 3, 'usuario_id' => 6, 'inicio' => '2025-05-01 10:00:00', 'fin' => '2025-05-31 10:00:00']];
+
+        foreach ($actividads as $actividad) {
+            Actividad::Create($actividad);
+        }
+    }
+}
