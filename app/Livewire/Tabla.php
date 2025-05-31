@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Genero;
 use Livewire\Component;
 
 class Tabla extends Component
@@ -31,8 +30,10 @@ class Tabla extends Component
 
     public function irPagina($pagina)
     {
-        $this->pagina = $pagina;
-        $this->obtenerDatos($pagina, $this->filas);
+        if ($pagina >= 1 && $pagina <= $this->ultimaPagina) {
+            $this->pagina = $pagina;
+            $this->obtenerDatos($pagina, $this->filas);
+        }
     }
 
     public function cambiarFilas($filas)

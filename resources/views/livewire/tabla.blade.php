@@ -1,5 +1,5 @@
-<div class="card-body table-responsive">
-    <table class="table table-bordered mb-2">
+<div class="card-body">
+    <table class="table table-responsive table-bordered mb-3 ">
         <thead>
             <tr>
                 <th style="width: 0px">
@@ -81,50 +81,47 @@
     <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
         <nav class="">
             <ul class="pagination pagination-sm mb-0">
-                <li class="page-item d-none d-sm-block">
+                <li class="page-item d-none d-sm-block {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="irPagina(1)">
                     <a class="page-link bi bi-arrow-bar-left" href="#" title="Primera página"></a>
                 </li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Anterior" title="Anterior">
-                        <span aria-hidden="true">«</span>
+                <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="irPagina({{ $pagina-1 }})">
+                    <a class="page-link" href="#" title="Anterior">
+                        <span>«</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item disabled"><a class="page-link" href="#">...</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                <li class="page-item active"><a class="page-link" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Siguiente" title="Siguiente">
-                        <span aria-hidden="true">»</span>
+
+                @for ($i = 1; $i < $ultimaPagina+1; $i++)
+                    <li class="page-item"><a class="page-link {{ $i == $pagina ? 'bg-primary text-white disabled' : '' }}" href="#" wire:click="irPagina({{ $i }})">{{ $i }}</a></li>
+                @endfor
+
+                <li class="page-item {{ $pagina == $ultimaPagina ? 'disabled' : '' }}" wire:click="irPagina({{ $pagina+1 }})">
+                    <a class="page-link" href="#" title="Siguiente">
+                        <span>»</span>
                     </a>
                 </li>
-                <li class="page-item d-none d-sm-block">
+                <li class="page-item d-none d-sm-block {{ $pagina == $ultimaPagina ? 'disabled' : '' }}" wire:click="irPagina({{ $ultimaPagina }})">
                     <a class="page-link bi bi-arrow-bar-right" href="#" title="Última página"></a>
                 </li>
             </ul>
         </nav>
 
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-1">
-            <div class="input-group input-group-sm m-1" style="width: 90px;">
-                <span class="input-group-text bg-primary text-white">Ir a</span>
-                <input type="text" class="form-control text-center" value={{ $pagina }} style="min-width: 20px;"
+            <div class="input-group input-group-sm m-1" style="width: auto;">
+                <span class="input-group-text bg-primary text-white">Elementos por página</span>
+                <input type="text" class="form-control text-center" value={{ $filas }} style="max-width: 50px;"
+                    wire:keydown.enter="cambiarFilas($event.target.value)">
+            </div>
+            
+            <div class="input-group input-group-sm m-1" style="width: auto;">
+                <span class="input-group-text bg-primary text-white">Ir a la página</span>
+                <input type="text" class="form-control text-center" value={{ $pagina }} style="max-width: 50px;"
                     wire:keydown.enter="irPagina($event.target.value)">
             </div>
 
-            <div class="input-group input-group-sm m-1" style="width: 140px;">
-                <span class="input-group-text bg-primary text-white">Por página</span>
-                <input type="text" class="form-control text-center" value={{ $filas }} style="min-width: 20px;"
-                    wire:keydown.enter="cambiarFilas($event.target.value)">
-            </div>
-
-            <div class="input-group input-group-sm m-1" style="width: 100px;">
-                <span class="input-group-text bg-primary text-white">Total</span>
-                <input type="text" class="form-control text-center" value={{ $cantidadDatos }} style="min-width: 20px;"
-                    readonly>
+            <div class="input-group input-group-sm m-1" style="width: auto;">
+                <span class="input-group-text bg-primary text-white">Total de datos</span>
+                <input type="text" class="form-control text-center" value={{ $cantidadDatos }} style="max-width: 50px;"
+                    disabled>
             </div>
         </div>
     </div>
