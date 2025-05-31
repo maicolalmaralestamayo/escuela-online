@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Model
@@ -30,5 +31,17 @@ class Usuario extends Model
             'updated_at' => 'Actualización',
             'deleted_at' => 'Eliminación'
         ];
+    }
+
+    public function genero(): BelongsTo
+    {
+
+        return $this->belongsTo(Genero::class);
+    }
+
+    public function rol(): BelongsTo
+    {
+
+        return $this->belongsTo(Rol::class);
     }
 }
