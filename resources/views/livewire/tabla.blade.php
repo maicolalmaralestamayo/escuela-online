@@ -1,83 +1,38 @@
 <div class="card-body">
+    {{-- tabla --}}
     <table class="table table-responsive table-bordered mb-3 ">
+        {{-- cabecera --}}
         <thead>
             <tr>
                 <th style="width: 0px">
-                    <input class="form-check-input" type="checkbox" value="" id="idLabel">
+                    <input class="form-check-input" type="checkbox" value="">
                 </th>
                 <th style="width: 10px">ID</th>
 
-                @foreach ($columnas as $columna)
-                <th>{{ $columna }}</th>
+                @foreach ($campos as $key => $campo)
+                    <th>{{ $key }}</th>
                 @endforeach
 
                 @if ($llavesForaneas)
-                @foreach ($llavesForaneas as $key => $llave)
-                <th>{{ $llave[0] }}</th>
-                @endforeach
+                    @foreach ($llavesForaneas as $key => $llave)
+                        <th>{{ $key }}</th>
+                    @endforeach
                 @endif
 
                 <th style="width: 40px">Operaciones</th>
             </tr>
         </thead>
+
+        {{-- filas (objetos) de la tabla --}}
         <tbody>
-            @foreach ($datosMostrar as $dato)
-            <tr class="align-middle">
-                <td style="width: 0px">
-                    <input class="form-check-input" type="checkbox" value="" id="idLabel">
-                </td>
-                <td>{{ $dato->id }}</td>
-
-                @foreach ($columnas as $key => $columna)
-                <td>{{ $dato->$key }}</td>
-                @endforeach
-
-                @if ($llavesForaneas)
-                @foreach ($llavesForaneas as $key => $llave)
-                <td>{{ $dato->$key[$llave[1]] }}</td>
-                @endforeach
-                @endif
-
-                {{-- botonera de operaciones --}}
-                <td>
-                    <div class="btn-group btn-group-sm">
-                        <button type="button" class="btn btn-danger bi bi-trash" title="Eliminar datos."></button>
-                        <button type="button" class="btn btn-primary bi bi-check2-all"
-                            title="Inspeccionar datos."></button>
-                        <button type="button" class="btn btn-primary bi bi-arrow-repeat"
-                            title="Recargar datos."></button>
-                        <div class="btn-group btn-group-sm  ">
-                            <button type="button" class="btn btn-primary bi bi-share" data-bs-toggle="dropdown"
-                                title="Ver datos de tablas relacionadas.">
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-secondary" href="#">Opción 1</a></li>
-                                <li><a class="dropdown-item text-secondary" href="#">Opción 2</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group btn-group-sm">
-                            <button type="button" class="btn btn-primary dropdown-toggle no-flecha bi bi-three-dots"
-                                data-bs-toggle="dropdown" title="Más opciones.">
-                            </button>
-                            <style>
-                                .no-flecha::after {
-                                    display: none;
-                                }
-                            </style>
-
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-secondary" href="#">Opción 1</a></li>
-                                <li><a class="dropdown-item text-secondary" href="#">Opción 2</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            
+            @foreach ($objetosPaginados as $objeto)
+                @livewire('fila', ['campos' => $campos, 'llavesForaneas' => $llavesForaneas, 'modelo' => $modelo, 'objeto' => $objeto], key($modelo . '-' . $objeto->id))
             @endforeach
         </tbody>
     </table>
 
+    {{-- paginador --}}
     <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
         <nav class="">
             <ul class="pagination pagination-sm mb-0">
@@ -108,8 +63,8 @@
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-1">
             <div class="input-group input-group-sm m-1" style="width: auto;">
                 <span class="input-group-text bg-primary text-white">Elementos por página</span>
-                <input type="text" class="form-control text-center" value={{ $filas }} style="max-width: 50px;"
-                    wire:keydown.enter="cambiarFilas($event.target.value)">
+                <input type="text" class="form-control text-center" value={{ $objetosPagina }} style="max-width: 50px;"
+                    wire:keydown.enter="cambiarObjetosPagina($event.target.value)">
             </div>
             
             <div class="input-group input-group-sm m-1" style="width: auto;">
@@ -120,7 +75,7 @@
 
             <div class="input-group input-group-sm m-1" style="width: auto;">
                 <span class="input-group-text bg-primary text-white">Total de datos</span>
-                <input type="text" class="form-control text-center" value={{ $cantidadDatos }} style="max-width: 50px;"
+                <input type="text" class="form-control text-center" value={{ $totalObjetos }} style="max-width: 50px;"
                     disabled>
             </div>
         </div>

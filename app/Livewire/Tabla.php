@@ -6,63 +6,57 @@ use Livewire\Component;
 
 class Tabla extends Component
 {
-    public $columnas;
+    public $campos;
     public $llavesForaneas;
     public $modelo;
+    public $modeloString;
 
     public $pagina = 1;
     public $totalPaginas;
     public $primeraPagina;
     public $ultimaPagina;
 
-    public $datosTotales;
-    public $cantidadDatos;
-    public $datosMostrar;
-    public $filas;
+    public $coleccion;
+    public $totalObjetos;
 
-    protected function reglas()
-    {
-        return [
-            'filas'   => 'required|integer|min:1',
-            'paginas' => 'required|integer|min:1|max:' . $this->ultimaPagina,
-        ];
-    }
+    public $objetosPaginados;
+    public $objetosPagina;
 
     public function irPagina($pagina)
     {
         if ($pagina >= 1 && $pagina <= $this->ultimaPagina) {
             $this->pagina = $pagina;
-            $this->obtenerDatos($pagina, $this->filas);
+            $this->paginar($pagina, $this->objetosPagina);
         }
     }
 
-    public function cambiarFilas($filas)
+    public function cambiarObjetosPagina($objetosPagina)
     {
-        $this->filas = $filas;
-        $this->obtenerDatos($this->pagina, $filas);
+        $this->objetosPagina = $objetosPagina;
+        $this->paginar($this->pagina, $objetosPagina);
     }
 
-    public function obtenerDatos($pagina, $filas)
+    public function paginar($pagina, $objetosPagina)
     {
-        $this->datosMostrar = $this->datosTotales->forPage($pagina, $filas);
+        $this->objetosPaginados = $this->modeloString::all()->forPage($pagina, $objetosPagina);
 
         $this->pagina = $pagina;
-        $this->filas = $filas;
+        $this->objetosPagina = $objetosPagina;
 
         $this->primeraPagina = 1;
-        $this->ultimaPagina = ceil($this->cantidadDatos / $this->filas);
+        $this->ultimaPagina = ceil($this->totalObjetos / $this->objetosPagina);
     }
 
-    public function mount($columnas, $modelo, &$llavesForaneas = null)
+    public function mount($campos, $llavesForaneas, $modelo)
     {
-        $this->columnas = $columnas;
-        $this->modelo = 'App\\Models\\' . $modelo;
+        $this->campos = $campos;
         $this->llavesForaneas = $llavesForaneas;
+        $this->modelo = $modelo;
 
-        $this->datosTotales = $this->modelo::all();
-        $this->cantidadDatos = $this->datosTotales->count();
+        $this->modeloString = 'App\\Models\\' . $modelo;
+        $this->totalObjetos = $this->modeloString::count();
 
-        $this->obtenerDatos(1, 5);
+        $this->paginar(1, 5);
     }
 
     public function render()

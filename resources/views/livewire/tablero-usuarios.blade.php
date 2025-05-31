@@ -63,17 +63,18 @@
                              </div>
                          </div>
 
-                         @livewire('tabla', ['columnas' => [
-                                                'nombre_1' =>'Nombre', 
-                                                'nombre_2' => 'Segundo nombre',
-                                                'apellido_1' => 'Apellido',
-                                                'apellido_2' => 'Segundo Apellido',
-                                                'dni' => 'DNI'],
-                                            'modelo' => 'Usuario',
+                         @livewire('tabla', ['campos' => [
+                                                'Nombre' => 'nombre_1',
+                                                'Segundo nombre' => 'nombre_2', 
+                                                'Apellido' => 'apellido_1', 
+                                                'Segundo apellido' => 'apellido_2', 
+                                                'DNI' => 'dni'
+                                            ],
                                             'llavesForaneas' => [
-                                                'genero'=> ['Género', 'genero'],
-                                                'rol' => ['Rol', 'rol']
-                                            ]],
+                                                'Género' => ['genero', 'genero'],
+                                                'Rol' => ['rol', 'rol']
+                                             ],
+                                            'modelo' => 'Usuario',],
                                     key('tabla-usuarios'))
                      </div>
                  </div>
