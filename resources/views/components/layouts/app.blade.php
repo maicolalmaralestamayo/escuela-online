@@ -190,8 +190,46 @@
         </footer>
     </div>
 
+<!-- Button trigger modal -->
+<button id='miBoton' type="button" class="btn btn-primary" data-toggle="modal" data-target="#miModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="mi  Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.getElementById('miBoton').addEventListener('click', function() {
+    var myModal = new bootstrap.Modal(document.getElementById('miModal'));
+    myModal.show();
+});
+
+</script>
+
+    {{-- @livewire('modal-eliminar-objeto', key('modal-eliminar-objeto')) --}}
+
     <!--scripts-->
+    {{-- <script src="{{ asset('boostrap/js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('adminLTE/js/overlayscrollbars.browser.es6.min.js') }}"></script>
+    <script src="{{ asset('adminLTE/js/jquery.slim.min.js') }}"></script>
     <script src="{{ asset('adminLTE/js/popper.min.js') }}"></script>
     <script src="{{ asset('adminLTE/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('adminLTE/js/adminlte.js') }}"></script>
