@@ -20,7 +20,10 @@ class Tabla extends Component
 
     public function navegarPagina($pagina)
     {
-        $this->objetosPaginados = $this->modeloString::all()->forPage($pagina, $this->objetosPagina);
+        if ($pagina >= 1 && $pagina <= $this->totalPaginas) {
+            $this->pagina = $pagina;
+            $this->objetosPaginados = $this->modeloString::all()->forPage($pagina, $this->objetosPagina);
+        }
     }
 
     public function mount($campos, $llavesForaneas, $modelo, $pagina, $objetosPagina)

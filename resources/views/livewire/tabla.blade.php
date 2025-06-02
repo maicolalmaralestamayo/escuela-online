@@ -79,10 +79,10 @@
     <div class="d-flex flex-wrap justify-content-center alihn-items-center">
         <nav>
             <ul class="pagination pagination-sm">
-                <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click = "actualizarPagina(1)"><a
+                <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click = "navegarPagina(1)"><a
                         class="page-link" href="#"> Primera </a></li>
                 <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}"
-                    wire:click = "actualizarPagina({{ $pagina - 1 }})"><a class="page-link" href="#"> Anterior
+                    wire:click = "navegarPagina({{ $pagina - 1 }})"><a class="page-link" href="#"> Anterior
                     </a></li>
 
                 @for ($i = 1; $i <= $totalPaginas; $i++)
@@ -91,13 +91,20 @@
                             {{ $i }} </a></li>
                 @endfor
 
-                <li class="page-item" {{ $pagina == $totalPaginas ? 'disabled' : '' }}
-                    wire:click = "actualizarPagina({{ $pagina + 1 }})"><a class="page-link" href="#"> Siguiente
+                <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
+                    wire:click = "navegarPagina({{ $pagina + 1 }})"><a class="page-link" href="#"> Siguiente
                     </a></li>
-                <li class="page-item" {{ $pagina == $totalPaginas ? 'disabled' : '' }}
-                    wire:click = "actualizarPagina({{ $totalPaginas }})"><a class="page-link" href="#"> Última
+                <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
+                    wire:click = "navegarPagina({{ $totalPaginas }})"><a class="page-link" href="#"> Última
                     </a></li>
             </ul>
         </nav>
+
+        <div class="input-group input-group-sm" style="min-width: 150px;">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Ir a la página</div>
+            </div>
+            <input type="text" class="form-control text-center" value={{ $objetosPagina }} style="max-width: 50px;">
+        </div>
     </div>
 </div>
