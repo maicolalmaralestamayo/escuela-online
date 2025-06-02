@@ -18,11 +18,24 @@ class Tabla extends Component
     public $pagina;//número de la página mostrada
     public $totalPaginas;//número de la última página coincide con el total de paginas)
 
+    public function actualizarObjetosPagina($objetos){
+        if ($objetos >= 1 && $objetos <= $this->totalObjetos) {
+            $this->objetosPagina = $objetos;
+            $this->totalPaginas = ceil($this->totalObjetos / $objetos);
+            $this->paginar($this->pagina, $objetos, $this->totalObjetos);
+        }
+    }
+
+    public function paginar($pagina, $objetosPagina, $totalObjetos){
+        $this->totalPaginas = ceil($totalObjetos / $objetosPagina);
+        $this->objetosPaginados = $this->modeloString::all()->forPage($pagina,$objetosPagina);
+    }
+
     public function navegarPagina($pagina)
     {
         if ($pagina >= 1 && $pagina <= $this->totalPaginas) {
             $this->pagina = $pagina;
-            $this->objetosPaginados = $this->modeloString::all()->forPage($pagina, $this->objetosPagina);
+            $this->paginar($pagina, $this->objetosPagina, $this->totalObjetos);
         }
     }
 
@@ -37,9 +50,8 @@ class Tabla extends Component
         
         $this->modeloString = 'App\\Models\\' . $modelo;
         $this->totalObjetos = $this->modeloString::count();
-        $this->totalPaginas = ceil($this->totalObjetos / $objetosPagina);
         
-        $this->navegarPagina($pagina);
+        $this->paginar($pagina, $objetosPagina, $this->totalObjetos);
     }
 
     public function render()

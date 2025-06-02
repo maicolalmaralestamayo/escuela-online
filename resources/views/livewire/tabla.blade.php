@@ -77,7 +77,7 @@
     </table>
 
     <div class="d-flex flex-wrap justify-content-center alihn-items-center">
-        <nav>
+        <nav class="mx-2">
             <ul class="pagination pagination-sm">
                 <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click = "navegarPagina(1)"><a
                         class="page-link" href="#"> Primera </a></li>
@@ -100,11 +100,11 @@
             </ul>
         </nav>
 
-        <div class="input-group input-group-sm" style="min-width: 150px;">
+        <div class="input-group input-group-sm mb-3 col-sm-2">
             <div class="input-group-prepend">
-                <div class="input-group-text">Ir a la página</div>
+                <span class="input-group-text bg-primary">Filas por página</span>
             </div>
-            <input type="text" class="form-control text-center" value={{ $objetosPagina }} style="max-width: 50px;">
+            <input type="text" class="form-control text-center" value={{ $objetosPagina }} wire:keydown.enter="actualizarObjetosPagina($event.target.value)">
         </div>
     </div>
 </div>
