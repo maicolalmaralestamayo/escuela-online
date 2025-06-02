@@ -11,5 +11,25 @@
      </div>
 
      <!-- panel 1 -->
-     @livewire('panel', ['titulo' =>  $titulo , 'pagina' => 1, 'objetoPagina' => 2], key('panel-' . $titulo))
+    @livewire(
+                'tabla',
+                [
+                    'titulo' => 'Tabla Usuarios',
+                    'campos' => [
+                        'Nombre' => 'nombre_1',
+                        'Segundo nombre' => 'nombre_2',
+                        'Apellido' => 'apellido_1',
+                        'Segundo apellido' => 'apellido_2',
+                        'DNI' => 'dni',
+                    ],
+                    'llavesForaneas' => [
+                        'Género' => ['genero', 'genero'],
+                        'Rol' => ['rol', 'rol'],
+                    ],
+                    'modelo' => 'Usuario',
+                    'pagina' => 1,
+                    'objetosPagina' => 5,
+                ],
+                key('tabla-' . $titulo)
+            )
  </div>

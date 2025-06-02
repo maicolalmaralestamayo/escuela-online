@@ -1,178 +1,104 @@
-<div class="table-responsive">
-    <table class="table table-bordered table-sm mx-auto">
-        <thead>
-            <tr>
-                {{-- input --}}
-                <th style="width: 10px">
-                    <input type="checkbox" id="">
-                </th>
+<section class="content">
+    <div class="card">
+        {{-- título + botones de cerrar y minimizar --}}
+        <div class="card-header">
+            <h3 class="card-title"> {{ $titulo }}</h3>
 
-                <th style="width: 10px">ID</th>
-
-                {{-- campos --}}
-                @foreach ($campos as $key => $campo)
-                    <th> {{ $key }} </th>
-                @endforeach
-
-                {{-- llaves foráneas --}}
-                @foreach ($llavesForaneas as $key => $llave)
-                    <th> {{ $key }} </th>
-                @endforeach
-
-                {{-- operaciones (botonera) --}}
-                <th style="width: 40px">Operaciones</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach ($objetosPaginados as $objeto)
-                <tr>
-                    {{-- input + id --}}
-                    <td>
-                        <input type="checkbox" id="">
-                    </td>
-                    <td>
-                        {{ $objeto->id }}
-                    </td>
-
-                    {{-- demás datos --}}
-                    @foreach ($campos as $campo)
-                        <td>
-                            {{ $objeto->$campo }}
-                        </td>
-                    @endforeach
-
-                    {{-- datos de las rrelaciones extremo 1:m --}}
-                    @foreach ($llavesForaneas as $key => $llave)
-                        <td>
-                            {{ $objeto->{$llave[0]}[$llave[1]] }}
-                        </td>
-                    @endforeach
-
-                    {{-- botonera de operaciones --}}
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger fas fa-circle" data-toggle="modal"
-                                data-target="#modalEliminarObjeto" title="Eliminar datos"></button>
-                            <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
-                            <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
-                            <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
-
-                            <div class="btn-group btn-group-sm">
-                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon"
-                                    data-toggle="dropdown">
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Opción 1</a>
-                                    <a class="dropdown-item" href="#">Opción 2</a>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <div class="d-flex flex-wrap justify-content-center alihn-items-center">
-        <nav class="mx-2">
-            <ul class="pagination pagination-sm">
-                <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="navegarPagina(1)"><a
-                        class="page-link" href="#"> Primera </a></li>
-                <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}"
-                    wire:click="navegarPagina({{ $pagina - 1 }})"><a class="page-link" href="#"> Anterior
-                    </a></li>
-
-                @for ($i = 1; $i <= $totalPaginas; $i++)
-                    <li class="page-item {{ $pagina == $i ? 'active' : '' }}" wire:click="navegarPagina({{ $i }})"><a
-                            class="page-link" href="#">
-                            {{ $i }} </a></li>
-                @endfor
-
-                <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
-                    wire:click="navegarPagina({{ $pagina + 1 }})"><a class="page-link" href="#"> Siguiente
-                    </a></li>
-                <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
-                    wire:click="navegarPagina({{ $totalPaginas }})"><a class="page-link" href="#"> Última
-                    </a></li>
-            </ul>
-        </nav>
-
-        <div class="input-group input-group-sm mb-3 col-sm-2">
-            <div class="input-group-prepend">
-                <span class="input-group-text bg-primary">Filas por página</span>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <input type="text" class="form-control text-center" value={{ $objetosPagina }}
-                wire:keydown.enter="actualizarObjetosPagina($event.target.value)">
         </div>
-    </div>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                {{-- input --}}
-                <th style="width: 10px">
-                    <input type="checkbox" id="">
-                </th>
+        {{-- tabla --}}
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm mx-auto">
+                    <thead>
+                        <tr>
+                            {{-- input --}}
+                            <th style="width: 10px">
+                                <input type="checkbox">
+                            </th>
 
-                <th style="width: 10px">ID</th>
+                            <th style="width: 10px">ID</th>
 
-                {{-- campos --}}
-                @foreach ($campos as $key => $campo)
-                    <th> {{ $key }} </th>
-                @endforeach
+                            {{-- campos --}}
+                            @foreach ($campos as $key => $campo)
+                                <th> {{ $key }} </th>
+                            @endforeach
 
-                {{-- llaves foráneas --}}
-                @foreach ($llavesForaneas as $key => $llave)
-                    <th> {{ $key }} </th>
-                @endforeach
+                            {{-- llaves foráneas --}}
+                            @foreach ($llavesForaneas as $key => $llave)
+                                <th> {{ $key }} </th>
+                            @endforeach
 
-                {{-- operaciones (botonera) --}}
-                <th style="width: 40px">Operaciones</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                            {{-- operaciones (botonera) --}}
+                            <th style="width: 40px">Operaciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach ($objetosPaginados as $objeto)
+                            @livewire(
+                                'fila', 
+                                [
+                                    'id' => $objeto->id,
+                                    'campos' => $campos,
+                                    'llavesForaneas' => $llavesForaneas,
+                                    'modelo' => $modelo,
+                                    'modeloString' => $modeloString,
+                                    'objeto' => $objeto
+                                ],
+                                key($modelo . '-' . $objeto->id))
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {{-- paginador --}}
+        <div class="card-footer">
+            <div class="d-flex flex-wrap justify-content-center align-items-center">
+                <nav class="m-1">
+                    <ul class="pagination pagination-sm mb-0"> <!-- Añadí mb-0 -->
+                        <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="navegarPagina(1)">
+                            <a class="page-link" href="#">Primera</a>
+                        </li>
+                        <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}"
+                            wire:click="navegarPagina({{ $pagina - 1 }})">
+                            <a class="page-link" href="#">Anterior</a>
+                        </li>
+
+                        @for ($i = 1; $i <= $totalPaginas; $i++)
+                            <li class="page-item {{ $pagina == $i ? 'active' : '' }}"
+                                wire:click="navegarPagina({{ $i }})">
+                                <a class="page-link" href="#">{{ $i }}</a>
+                            </li>
+                        @endfor
+
+                        <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
+                            wire:click="navegarPagina({{ $pagina + 1 }})">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                        <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
+                            wire:click="navegarPagina({{ $totalPaginas }})">
+                            <a class="page-link" href="#">Última</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="input-group input-group-sm m-1" style="width: auto;"> <!-- Modificado -->
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary">Filas por página</span>
                     </div>
-                </td>
-                <td><span class="badge bg-danger">55%</span></td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" style="width: 70%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-warning">70%</span></td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                    <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar bg-primary" style="width: 30%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-primary">30%</span></td>
-            </tr>
-            <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                    <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar bg-success" style="width: 90%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-success">90%</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                    <input type="text" class="form-control text-center" value="{{ $objetosPagina }}"
+                        wire:keydown.enter="actualizarObjetosPagina($event.target.value)" style="max-width: 50px;">
+                </div>
+            </div>
+        </div>
+</section>

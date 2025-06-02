@@ -6,6 +6,8 @@ use Livewire\Component;
 
 class Tabla extends Component
 {
+    public $titulo;
+    
     public $campos;
     public $llavesForaneas;
     public $modelo;
@@ -39,8 +41,9 @@ class Tabla extends Component
         }
     }
 
-    public function mount($campos, $llavesForaneas, $modelo, $pagina, $objetosPagina)
+    public function mount($titulo, $campos, $llavesForaneas, $modelo, $pagina, $objetosPagina)
     {
+        $this->titulo = $titulo;
         $this->campos = $campos;
         $this->llavesForaneas = $llavesForaneas;
         $this->modelo = $modelo;

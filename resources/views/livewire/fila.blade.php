@@ -1,20 +1,45 @@
-<tr class="align-middle">
-    <td style="width: 0px">
-        <input class="form-check-input" type="checkbox" value="">
+<tr>
+    {{-- input + id --}}
+    <td>
+        <input type="checkbox" @if ($marcada)
+            checked
+        @endif>
+    </td>
+    <td>
+        {{ $objeto->id }}
     </td>
 
-    <td>{{ $objeto->id }}</td>
-
-    @foreach ($campos as $key => $campo)
-        <td>{{ $objeto->$campo }}</td>
+    {{-- demás datos --}}
+    @foreach ($campos as $campo)
+        <td>
+            {{ $objeto->$campo }}
+        </td>
     @endforeach
 
-    @if ($llavesForaneas)
-        @foreach ($llavesForaneas as $key => $llave)
-            <td>{{ $objeto->{$llave[0]}->{$llave[1]} }}</td>
-        @endforeach
-    @endif
+    {{-- datos de las relaciones extremo 1:m --}}
+    @foreach ($llavesForaneas as $key => $llave)
+        <td>
+            {{ $objeto->{$llave[0]}[$llave[1]] }}
+        </td>
+    @endforeach
 
     {{-- botonera de operaciones --}}
-    @livewire('botonera-acciones-fila', ['modelo' => $modelo, 'id' => $objeto->id], key('botonera-'. $modelo. '-' . $objeto->id))
+    <td>
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger fas fa-circle" data-toggle="modal"
+                data-target="#modalEliminarObjeto" title="Eliminar datos"></button>
+            <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
+            <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
+            <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
+
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Opción 1</a>
+                    <a class="dropdown-item" href="#">Opción 2</a>
+                </div>
+            </div>
+        </div>
+    </td>
 </tr>
