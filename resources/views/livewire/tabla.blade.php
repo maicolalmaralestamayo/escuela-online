@@ -1,5 +1,5 @@
-<div>
-    <table class="table table-bordered table-responsive m-3">
+<div class="table-responsive">
+    <table class="table table-bordered table-sm mx-auto">
         <thead>
             <tr>
                 {{-- input --}}
