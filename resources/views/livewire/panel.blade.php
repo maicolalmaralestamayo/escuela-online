@@ -19,16 +19,22 @@
             @livewire(
                 'tabla',[
                     'campos' => [
-                        ['Nombre' => 'nombre_1'],
-                        ['Segundo nombre' => 'nombre_2'],
-                        ['Apellido' => 'apellido_1'],
-                        ['Segundo apellido' => 'apellido_2'],
-                        ['DNI' => 'dni']],
+                        'Nombre' => 'nombre_1',
+                        'Segundo nombre' => 'nombre_2',
+                        'Apellido' => 'apellido_1',
+                        'Segundo apellido' => 'apellido_2',
+                        'DNI' => 'dni'],
                     'llavesForaneas' => [
-                        ['Género' => ['genero', 'genero']],
-                        ['Rol' => ['rol', 'rol']]],
-                    'modelo' => 'Usuario'],
+                        'Género' => ['genero', 'genero'],
+                        'Rol' => ['rol', 'rol']],
+                    'modelo' => 'Usuario',
+                    'pagina' => $pagina,
+                    'objetosPagina' => $objetosPagina],
                 key('tabla-usuarios'))
-        </div>
+
+            @livewire(
+                'paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas],
+                key('paginador-'.$totalPaginas))        
+    </div>
     </div>
 </section>

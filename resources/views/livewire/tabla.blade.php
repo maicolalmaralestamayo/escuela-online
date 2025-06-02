@@ -1,72 +1,74 @@
-<table class="table table-bordered table-responsive">
+<table class="table table-bordered table-responsive m-3 ">
     <thead>
         <tr>
+            {{-- input --}}
+            <th style="width: 10px">
+                <input type="checkbox" id="">
+            </th>
+
             <th style="width: 10px">ID</th>
-            <th>Task</th>
-            <th>Progress</th>
+
+            {{-- campos --}}
+            @foreach ($campos as $key => $campo)
+                <th> {{ $key }} </th>
+            @endforeach
+
+            {{-- llaves foráneas --}}
+            @foreach ($llavesForaneas as $key => $llave)
+                <th> {{ $key }} </th>
+            @endforeach
+
+            {{-- operaciones (botonera) --}}
             <th style="width: 40px">Operaciones</th>
         </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>1.</td>
-            <td>Update software</td>
-            <td>
-                <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                </div>
-            </td>
-            <td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-warning" data-toggle="modal"
-                        data-target="#modalEliminarObjeto">1</button>
-                    <button type="button" class="btn btn-warning">2</button>
-                    <button type="button" class="btn btn-warning">2</button>
-                    <button type="button" class="btn btn-warning">2</button>
-                    <button type="button" class="btn btn-warning">2</button>
+        @foreach ($objetosPaginados as $objeto)
+            <tr>
+                {{-- input + id--}}
+                <td>
+                    <input type="checkbox" id="">
+                </td>
+                <td>
+                    {{$objeto->id}}
+                </td>
 
+                {{-- demás datos --}}
+                @foreach ($campos as $campo)
+                    <td>
+                        {{$objeto->$campo}}
+                    </td>
+                @endforeach
+
+                {{-- datos de las rrelaciones extremo 1:m --}}
+                @foreach ($llavesForaneas as $key => $llave)
+                    <td>
+                        {{$objeto->{$llave[0]}[$llave[1]]}}
+                    </td>
+                @endforeach
+
+                {{-- botonera de operaciones --}}
+                <td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon"
-                            data-toggle="dropdown">
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
+                        <button type="button" class="btn btn-danger fas fa-circle" data-toggle="modal"
+                            data-target="#modalEliminarObjeto" title="Eliminar datos"></button>
+                        <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
+                        <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
+                        <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
+
+                        <div class="btn-group btn-group-sm">
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon"
+                                data-toggle="dropdown">
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Opción 1</a>
+                                <a class="dropdown-item" href="#">Opción 2</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>2.</td>
-            <td>Clean database</td>
-            <td>
-                <div class="progress progress-xs">
-                    <div class="progress-bar bg-warning" style="width: 70%"></div>
-                </div>
-            </td>
-            <td><span class="badge bg-warning">70%</span></td>
-        </tr>
-        <tr>
-            <td>3.</td>
-            <td>Cron job running</td>
-            <td>
-                <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar bg-primary" style="width: 30%"></div>
-                </div>
-            </td>
-            <td><span class="badge bg-primary">30%</span></td>
-        </tr>
-        <tr>
-            <td>4.</td>
-            <td>Fix and squish bugs</td>
-            <td>
-                <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar bg-success" style="width: 90%"></div>
-                </div>
-            </td>
-            <td><span class="badge bg-success">90%</span></td>
-        </tr>
+                </td>
+            </tr>
+        @endforeach
     </tbody>
 </table>
