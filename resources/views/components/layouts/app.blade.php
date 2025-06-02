@@ -247,7 +247,7 @@
     </aside>
 
     <!-- área de trabajo (tablero) -->
-    @livewire('tablero', ['titulo' => 'Tablero Usuarios'], key('tablero-usuario'))
+    @livewire('tablero', ['titulo' => 'Usuarios'], key('tablero-usuario'))
 
     <!-- footer -->
     <footer class="main-footer">

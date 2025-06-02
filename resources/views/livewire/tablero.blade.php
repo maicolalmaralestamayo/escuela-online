@@ -4,12 +4,12 @@
          <div class="container-fluid">
              <div class="row mb-2">
                  <div class="col-sm-6">
-                     <h1 class="m-0">{{ $titulo }}</h1>
+                     <h1 class="m-0">Tablero {{ $titulo }}</h1>
                  </div>
              </div>
          </div>
      </div>
 
      <!-- panel 1 -->
-     @livewire('panel', ['titulo' => 'Tabla Usuarios'], key('panel-usuarios'))
+     @livewire('panel', ['titulo' =>  $titulo , 'pagina' => 1, 'objetoPagina' => 2], key('panel-' . $titulo))
  </div>
