@@ -2,7 +2,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">{{ $titulo }}</h3>
+            <h3 class="card-title">{{ $titulo }} {{ $pagina }}</h3>
 
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -30,11 +30,11 @@
                     'modelo' => 'Usuario',
                     'pagina' => $pagina,
                     'objetosPagina' => $objetosPagina],
-                key('tabla-usuarios'))
+                key('tabla-'.$pagina))
 
             @livewire(
                 'paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas],
-                key('paginador-'.$totalPaginas))        
+                key('paginador'.$pagina))        
     </div>
     </div>
 </section>

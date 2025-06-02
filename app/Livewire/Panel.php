@@ -8,13 +8,20 @@ class Panel extends Component
 {
     public $titulo;
 
-    public $pagina = 1;//número de la página mostrada
+    public $pagina=1;//número de la página mostrada
     public $objetosPagina = 5;//cantidad de objetos por página
-    public $totalPaginas;//total de págionas (coincide con el número de la última página)
+    public $totalPaginas = null;//total de págionas (coincide con el número de la última página)
 
     protected $listeners = [
-        'informarTotalPaginas' => 'actualizarTotalPaginas'
+        'actualizarTotalPaginas' => 'actualizarTotalPaginas',
+        'actualizarPagina' => 'actualizarPagina'
     ];
+
+    public function actualizarPagina($pagina){
+        if ($pagina >= 1 && $pagina <= $this->totalPaginas) {
+            $this->pagina = $pagina;
+        }
+    }
 
     public function actualizarTotalPaginas($totalPaginas){
         $this->totalPaginas = $totalPaginas;
