@@ -1,83 +1,72 @@
-<div class="card-body">
-    {{-- tabla --}}
-    <table class="table table-responsive table-bordered mb-3 ">
-        {{-- cabecera --}}
-        <thead>
-            <tr>
-                <th style="width: 0px">
-                    <input class="form-check-input" type="checkbox" value="">
-                </th>
-                <th style="width: 10px">ID</th>
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th style="width: 10px">ID</th>
+            <th>Task</th>
+            <th>Progress</th>
+            <th style="width: 40px">Operaciones</th>
+        </tr>
+    </thead>
 
-                @foreach ($campos as $key => $campo)
-                    <th>{{ $key }}</th>
-                @endforeach
+    <tbody>
+        <tr>
+            <td>1.</td>
+            <td>Update software</td>
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                </div>
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning" data-toggle="modal"
+                        data-target="#modalEliminarObjeto">1</button>
+                    <button type="button" class="btn btn-warning">2</button>
+                    <button type="button" class="btn btn-warning">2</button>
+                    <button type="button" class="btn btn-warning">2</button>
+                    <button type="button" class="btn btn-warning">2</button>
 
-                @if ($llavesForaneas)
-                    @foreach ($llavesForaneas as $key => $llave)
-                        <th>{{ $key }}</th>
-                    @endforeach
-                @endif
-
-                <th style="width: 40px">Operaciones</th>
-            </tr>
-        </thead>
-
-        {{-- filas (objetos) de la tabla --}}
-        <tbody>
-            
-            @foreach ($objetosPaginados as $objeto)
-                @livewire('fila', ['campos' => $campos, 'llavesForaneas' => $llavesForaneas, 'modelo' => $modelo, 'objeto' => $objeto], key($modelo . '-' . $objeto->id))
-            @endforeach
-        </tbody>
-    </table>
-
-    {{-- paginador --}}
-    <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
-        <nav class="">
-            <ul class="pagination pagination-sm mb-0">
-                <li class="page-item d-none d-sm-block {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="irPagina(1)">
-                    <a class="page-link bi bi-arrow-bar-left" href="#" title="Primera página"></a>
-                </li>
-                <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="irPagina({{ $pagina-1 }})">
-                    <a class="page-link" href="#" title="Anterior">
-                        <span>«</span>
-                    </a>
-                </li>
-
-                @for ($i = 1; $i < $ultimaPagina+1; $i++)
-                    <li class="page-item"><a class="page-link {{ $i == $pagina ? 'bg-primary text-white disabled' : '' }}" href="#" wire:click="irPagina({{ $i }})">{{ $i }}</a></li>
-                @endfor
-
-                <li class="page-item {{ $pagina == $ultimaPagina ? 'disabled' : '' }}" wire:click="irPagina({{ $pagina+1 }})">
-                    <a class="page-link" href="#" title="Siguiente">
-                        <span>»</span>
-                    </a>
-                </li>
-                <li class="page-item d-none d-sm-block {{ $pagina == $ultimaPagina ? 'disabled' : '' }}" wire:click="irPagina({{ $ultimaPagina }})">
-                    <a class="page-link bi bi-arrow-bar-right" href="#" title="Última página"></a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="d-flex flex-wrap justify-content-center align-items-center gap-1">
-            <div class="input-group input-group-sm m-1" style="width: auto;">
-                <span class="input-group-text bg-primary text-white">Elementos por página</span>
-                <input type="text" class="form-control text-center" value={{ $objetosPagina }} style="max-width: 50px;"
-                    wire:keydown.enter="cambiarObjetosPagina($event.target.value)">
-            </div>
-            
-            <div class="input-group input-group-sm m-1" style="width: auto;">
-                <span class="input-group-text bg-primary text-white">Ir a la página</span>
-                <input type="text" class="form-control text-center" value={{ $pagina }} style="max-width: 50px;"
-                    wire:keydown.enter="irPagina($event.target.value)">
-            </div>
-
-            <div class="input-group input-group-sm m-1" style="width: auto;">
-                <span class="input-group-text bg-primary text-white">Total de datos</span>
-                <input type="text" class="form-control text-center" value={{ $totalObjetos }} style="max-width: 50px;"
-                    disabled>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon"
+                            data-toggle="dropdown">
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>Clean database</td>
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-warning">70%</span></td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>Cron job running</td>
+            <td>
+                <div class="progress progress-xs progress-striped active">
+                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-primary">30%</span></td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td>Fix and squish bugs</td>
+            <td>
+                <div class="progress progress-xs progress-striped active">
+                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-success">90%</span></td>
+        </tr>
+    </tbody>
+</table>

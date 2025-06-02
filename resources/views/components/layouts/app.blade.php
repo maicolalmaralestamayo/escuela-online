@@ -247,110 +247,7 @@
     </aside>
 
     <!-- área de trabajo (tablero) -->
-    <div class="content-wrapper">
-      <!-- título del tablero -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Tablero Géneros</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- panel 1 -->
-      <section class="content">
-        <!-- Default box -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Tabla Géneros</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="card-body border-0">
-            <table class="table table-bordered table-responsive">
-              <thead>
-                <tr>
-                  <th style="width: 10px">ID</th>
-                  <th>Task</th>
-                  <th>Progress</th>
-                  <th style="width: 40px">Operaciones</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEliminarObjeto">1</button>
-                        <button type="button" class="btn btn-warning">2</button>
-                        <button type="button" class="btn btn-warning">2</button>
-                        <button type="button" class="btn btn-warning">2</button>
-                        <button type="button" class="btn btn-warning">2</button>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                          </div>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>Clean database</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar bg-warning" style="width: 70%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-warning">70%</span></td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>Cron job running</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar bg-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-primary">30%</span></td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar bg-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-success">90%</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-    </div>
+    @livewire('tablero', ['titulo' => 'Tablero Usuarios'], key('tablero-usuario'))
 
     <!-- footer -->
     <footer class="main-footer">
@@ -404,7 +301,9 @@
   <script src="admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <script src="admin-lte/dist/js/adminlte.js"></script>
   <script src="admin-lte/dist/js/demo.js"></script>
-  <script src="admin-lte/dist/js/pages/dashboard.js"></script>
+
+  {{-- activar solo cuantdo se utilice este tipo de componente --}}
+  {{-- <script src="admin-lte/dist/js/pages/dashboard.js"></script> --}} 
 </body>
 
 </html>
