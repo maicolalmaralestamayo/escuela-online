@@ -20,8 +20,19 @@ class Tabla extends Component
     public $pagina;//número de la página mostrada
     public $totalPaginas;//número de la última página coincide con el total de paginas)
 
+    protected $listeners = [
+        'eliminarObjeto' => 'eliminarObjeto',
+        'navegarPagina' => 'navegarPagina'
+    ];
+
+    public function eliminarObjeto($id){
+        $objeto = $this->modeloString::find($id);
+        $objeto->delete();
+        $this->paginar($this->pagina, $this->objetosPagina, $this->totalObjetos);
+    }
+
     public function actualizarObjetosPagina($objetos){
-        if ($objetos >= 1 && $objetos <= $this->totalObjetos) {
+        if ($objetos >= 1) {
             $this->objetosPagina = $objetos;
             $this->totalPaginas = ceil($this->totalObjetos / $objetos);
             $this->paginar($this->pagina, $objetos, $this->totalObjetos);

@@ -45,16 +45,17 @@
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
                             @livewire(
-                                'fila', 
+                                'fila',
                                 [
                                     'id' => $objeto->id,
                                     'campos' => $campos,
                                     'llavesForaneas' => $llavesForaneas,
                                     'modelo' => $modelo,
                                     'modeloString' => $modeloString,
-                                    'objeto' => $objeto
+                                    'objeto' => $objeto,
                                 ],
-                                key($modelo . '-' . $objeto->id))
+                                key($modelo . '-' . $objeto->id)
+                            )
                         @endforeach
                     </tbody>
                 </table>
@@ -64,33 +65,7 @@
         {{-- paginador --}}
         <div class="card-footer">
             <div class="d-flex flex-wrap justify-content-center align-items-center">
-                <nav class="m-1">
-                    <ul class="pagination pagination-sm mb-0"> <!-- Añadí mb-0 -->
-                        <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}" wire:click="navegarPagina(1)">
-                            <a class="page-link" href="#">Primera</a>
-                        </li>
-                        <li class="page-item {{ $pagina == 1 ? 'disabled' : '' }}"
-                            wire:click="navegarPagina({{ $pagina - 1 }})">
-                            <a class="page-link" href="#">Anterior</a>
-                        </li>
-
-                        @for ($i = 1; $i <= $totalPaginas; $i++)
-                            <li class="page-item {{ $pagina == $i ? 'active' : '' }}"
-                                wire:click="navegarPagina({{ $i }})">
-                                <a class="page-link" href="#">{{ $i }}</a>
-                            </li>
-                        @endfor
-
-                        <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
-                            wire:click="navegarPagina({{ $pagina + 1 }})">
-                            <a class="page-link" href="#">Siguiente</a>
-                        </li>
-                        <li class="page-item {{ $pagina == $totalPaginas ? 'disabled' : '' }}"
-                            wire:click="navegarPagina({{ $totalPaginas }})">
-                            <a class="page-link" href="#">Última</a>
-                        </li>
-                    </ul>
-                </nav>
+                @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' . $objetosPagina . '-' . $pagina))
 
                 <div class="input-group input-group-sm m-1" style="width: auto;"> <!-- Modificado -->
                     <div class="input-group-prepend">
@@ -102,3 +77,5 @@
             </div>
         </div>
 </section>
+
+@livewire('modal-eliminar-objeto', [], key('modal-eliminar-objeto'))

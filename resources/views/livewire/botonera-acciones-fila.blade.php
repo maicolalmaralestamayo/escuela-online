@@ -1,32 +1,16 @@
-<td>
+<div class="btn-group">
+    <button type="button" class="btn btn-danger fas fa-circle" data-toggle="modal" data-target="#modalEliminarObjeto"
+        title="Eliminar datos" wire:click="eliminarObjeto"></button>
+    <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
+    <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
+    <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
+
     <div class="btn-group btn-group-sm">
-        <button type="button" class="btn btn-danger bi bi-trash" title="Eliminar datos" data-toggle="modal" data-target="#modal-eliminar-objeto"></button>
-        <button type="button" class="btn btn-primary bi bi-check2-all" title="Inspeccionar datos"></button>
-        <button type="button" class="btn btn-primary bi bi-arrow-repeat" title="Recargar datos"></button>
-        <div class="btn-group btn-group-sm  ">
-            <button type="button" class="btn btn-primary bi bi-share" data-bs-toggle="dropdown"
-                title="Ver datos de tablas relacionadas">
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-secondary" href="#">Opción 1</a></li>
-                <li><a class="dropdown-item text-secondary" href="#">Opción 2</a></li>
-            </ul>
-        </div>
-
-        <div class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-primary dropdown-toggle no-flecha bi bi-three-dots"
-                data-bs-toggle="dropdown" title="Más opciones">
-            </button>
-            <style>
-                .no-flecha::after {
-                    display: none;
-                }
-            </style>
-
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-secondary" href="#">Opción 1</a></li>
-                <li><a class="dropdown-item text-secondary" href="#">Opción 2</a></li>
-            </ul>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Opción 1</a>
+            <a class="dropdown-item" href="#">Opción 2</a>
         </div>
     </div>
-</td>
+</div>
