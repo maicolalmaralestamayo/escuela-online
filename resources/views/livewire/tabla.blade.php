@@ -65,7 +65,7 @@
         {{-- paginador --}}
         <div class="card-footer">
             <div class="d-flex flex-wrap justify-content-center align-items-center">
-                @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' . $objetosPagina . '-' . $pagina))
+                @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' . $pagina . '-' . $objetosPagina. '-' . $totalObjetos))
 
                 <div class="input-group input-group-sm m-1" style="width: auto;">
                     <div class="input-group-prepend">

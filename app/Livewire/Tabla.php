@@ -28,28 +28,36 @@ class Tabla extends Component
     public function eliminarObjeto($id){
         $objeto = $this->modeloString::find($id);
         $objeto->delete();
-        $this->paginar($this->pagina, $this->objetosPagina, $this->totalObjetos);
+
+        $this->totalObjetos = $this->modeloString::count();
+        if ($this->pagina >= $this->totalPaginas) {
+            $this->pagina = $this->totalPaginas;
+        }
+        $this->paginar();
     }
 
     public function actualizarObjetosPagina($objetos){
         if ($objetos >= 1) {
             $this->objetosPagina = $objetos;
-            $this->totalPaginas = ceil($this->totalObjetos / $objetos);
-            $this->paginar($this->pagina, $objetos, $this->totalObjetos);
+            $this->paginar();
         }
-    }
-
-    public function paginar($pagina, $objetosPagina, $totalObjetos){
-        $this->totalPaginas = ceil($totalObjetos / $objetosPagina);
-        $this->objetosPaginados = $this->modeloString::all()->forPage($pagina,$objetosPagina);
     }
 
     public function navegarPagina($pagina)
     {
         if ($pagina >= 1 && $pagina <= $this->totalPaginas) {
             $this->pagina = $pagina;
-            $this->paginar($pagina, $this->objetosPagina, $this->totalObjetos);
+            $this->paginar();
         }
+    }
+
+    public function paginar(){
+        $this->totalObjetos = $this->modeloString::count();
+        $this->totalPaginas = ceil($this->totalObjetos / $this->objetosPagina);
+        if ($this->pagina > $this->totalPaginas) {
+            $this->pagina = $this->totalPaginas;
+        }
+        $this->objetosPaginados = $this->modeloString::all()->forPage($this->pagina,$this->objetosPagina);
     }
 
     public function mount($titulo, $campos, $llavesForaneas, $modelo, $pagina, $objetosPagina)
@@ -65,7 +73,7 @@ class Tabla extends Component
         $this->modeloString = 'App\\Models\\' . $modelo;
         $this->totalObjetos = $this->modeloString::count();
         
-        $this->paginar($pagina, $objetosPagina, $this->totalObjetos);
+        $this->paginar();
     }
 
     public function render()
