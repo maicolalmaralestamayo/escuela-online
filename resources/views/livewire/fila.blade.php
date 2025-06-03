@@ -1,9 +1,7 @@
 <tr>
     {{-- input + id --}}
     <td>
-        <input type="checkbox" @if ($marcado)
-            checked
-        @endif wire:change="setMarcado($event.target.checked)"> {{ $marcado }}
+        <input type="checkbox" @if ($marcado) checked @endif wire:change="setMarcado($event.target.checked)"> {{ $marcado }}
     </td>
     <td>
         {{ $objeto->id }}
