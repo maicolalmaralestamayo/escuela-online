@@ -15,7 +15,7 @@ class Fila extends Component
     public $marcado = false;
 
     protected $listeners = [
-        'actualizarMarcado' => 'actualizarMarcado',
+        'setMarcado' => 'setMarcado',
         'eliminarMasivo' => 'eliminarMasivo'
     ];
 
@@ -25,11 +25,11 @@ class Fila extends Component
             $objeto = $this->modeloString::find($this->id);
             $objeto->delete();
 
-            $this->dispatch('actualizarTotalObjetos')->to('tabla');
+            $this->dispatch('setTotalObjetos')->to('tabla');
         }
     }
 
-    public function actualizarMarcado($estado)
+    public function setMarcado($estado)
     {
         $this->marcado = $estado;
     }

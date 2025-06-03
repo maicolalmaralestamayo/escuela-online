@@ -9,8 +9,8 @@ class Paginador extends Component
     public $pagina;
     public $totalPaginas;
 
-    public function navegarPagina($pagina){
-        $this->dispatch('navegarPagina', $pagina)->to('tabla');
+    public function setPagina($pagina){
+        $this->dispatch('setPagina', $pagina)->to('tabla');
     }
 
     public function mount($pagina, $totalPaginas){

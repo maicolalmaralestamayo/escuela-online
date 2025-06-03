@@ -24,7 +24,7 @@
                         <tr>
                             {{-- input --}}
                             <th style="width: 10px">
-                                <input type="checkbox" wire:change="actualizarMarcado($event.target.checked)">
+                                <input type="checkbox" wire:change="setMarcado($event.target.checked)">
                             </th>
 
                             <th style="width: 10px">ID</th>
@@ -74,7 +74,7 @@
                         <span class="input-group-text bg-primary">Filas por página</span>
                     </div>
                     <input type="text" class="form-control text-center" value="{{ $objetosPagina }}"
-                        wire:keydown.enter="actualizarObjetosPagina($event.target.value)" style="max-width: 50px;">
+                        wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;">
                 </div>
             </div>
         </div>

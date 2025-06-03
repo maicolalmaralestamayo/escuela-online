@@ -12,36 +12,38 @@ class Usuario extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function columnRename(){
+    static public function vistaCampos(){
         return [
-            'id' => 'ID',
-
-            'nombre_1' => 'Primer Nombre',
-            'nombre_2' => 'Segundo Nombre',
-            'apellido_1' => 'Primer Apellido',
-            'apellido_2' => 'Segundo Apellido',
-            'correo' => 'Correo',
-            'celular' => 'Celular',
-            'dni' => 'DNI',
-            'genero_id' => 'Género',
-            'rol_id' => 'Rol',
-
-            'observacion' => 'Observación',
-            'created_at' => 'Creación',
-            'updated_at' => 'Actualización',
-            'deleted_at' => 'Eliminación'
+            'principales' => [
+                'id' => 'ID',
+                'nombre_1' => 'Nombre',
+                'nombre_2' => 'Segundo Nombre',
+                'apellido_1' => 'Apellido',
+                'apellido_2' => 'Segundo Apellido',
+                'dni' => 'DNI',
+            ],
+            'secundarios' => [
+                'observacion' => 'Observación'
+            ],
+            'foraneos' => [
+                'genero' => ['Género' => 'genero'],
+                'rol' => ['Rol' => 'rol'],
+            ],
+            'dateTimes' => [
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
+                'deleted_at' => 'Eliminación'
+            ]
         ];
     }
 
     public function genero(): BelongsTo
     {
-
         return $this->belongsTo(Genero::class);
     }
 
     public function rol(): BelongsTo
     {
-
         return $this->belongsTo(Rol::class);
     }
 }
