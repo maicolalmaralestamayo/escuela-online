@@ -67,7 +67,7 @@
             <div class="d-flex flex-wrap justify-content-center align-items-center">
                 @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' . $objetosPagina . '-' . $pagina))
 
-                <div class="input-group input-group-sm m-1" style="width: auto;"> <!-- Modificado -->
+                <div class="input-group input-group-sm m-1" style="width: auto;">
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-primary">Filas por página</span>
                     </div>
@@ -79,3 +79,4 @@
 </section>
 
 @livewire('modal-eliminar-objeto', [], key('modal-eliminar-objeto'))
+@livewire('modal-objeto-eliminado', [], key('modal-objeto-eliminado'))

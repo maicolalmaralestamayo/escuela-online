@@ -11,6 +11,7 @@ class BotoneraAccionesFila extends Component
 
     public function eliminarObjeto(){
         $this->dispatch('eliminarObjeto', $this->id)->to('modal-eliminar-objeto');
+        $this->dispatch('eliminarObjeto', $this->id)->to('modal-objeto-eliminado');
     }
 
     public function mount($modelo, $id){

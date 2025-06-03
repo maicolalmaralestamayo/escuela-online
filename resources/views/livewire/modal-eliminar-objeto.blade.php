@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" wire:click="eliminarObjeto">Eliminar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" wire:click="eliminarObjeto" data-toggle="modal" data-target="#modalObjetoEliminado">Eliminar</button>
             </div>
         </div>
     </div>
