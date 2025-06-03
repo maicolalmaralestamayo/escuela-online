@@ -12,7 +12,15 @@ class Fila extends Component
     public $modelo;
     public $modeloString;
     public $objeto;
-    public $marcada = false;
+    public $marcado = false;
+
+    protected $listeners = [
+        'actualizarMarcado' => 'actualizarMarcado'
+    ];
+
+    public function actualizarMarcado($estado){
+        $this->marcado = $estado;
+    }
 
     public function mount($id, $campos, $llavesForaneas, $modelo, $modeloString, $objeto){
         $this->id = $id;

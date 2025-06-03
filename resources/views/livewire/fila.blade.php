@@ -1,7 +1,7 @@
 <tr>
     {{-- input + id --}}
     <td>
-        <input type="checkbox" @if ($marcada)
+        <input type="checkbox" @if ($marcado)
             checked
         @endif>
     </td>

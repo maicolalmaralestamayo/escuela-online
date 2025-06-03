@@ -7,6 +7,7 @@ use Livewire\Component;
 class Tabla extends Component
 {
     public $titulo;
+    public $marcado=false;
     
     public $campos;
     public $llavesForaneas;
@@ -24,6 +25,11 @@ class Tabla extends Component
         'eliminarObjeto' => 'eliminarObjeto',
         'navegarPagina' => 'navegarPagina'
     ];
+
+    public function actualizarMarcado($estado){
+        $this->marcado = $estado;
+        $this->dispatch('actualizarMarcado', $estado)->to('fila');
+    }
 
     public function eliminarObjeto($id){
         $objeto = $this->modeloString::find($id);

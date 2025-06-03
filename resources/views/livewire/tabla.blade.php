@@ -22,7 +22,7 @@
                         <tr>
                             {{-- input --}}
                             <th style="width: 10px">
-                                <input type="checkbox">
+                                <input type="checkbox" wire:change="actualizarMarcado($event.target.checked)">
                             </th>
 
                             <th style="width: 10px">ID</th>
