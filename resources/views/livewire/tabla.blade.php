@@ -16,6 +16,8 @@
 
         {{-- tabla --}}
         <div class="card-body">
+            @livewire('botonera-acciones-tabla', [], key('botonera-acciones-tabla'))
+            
             <div class="table-responsive">
                 <table class="table table-bordered table-sm mx-auto">
                     <thead>
@@ -80,3 +82,5 @@
 
 @livewire('modal-eliminar-objeto', [], key('modal-eliminar-objeto'))
 @livewire('modal-objeto-eliminado', [], key('modal-objeto-eliminado'))
+@livewire('modal-eliminar-masivo', [], key('modal-eliminar-masivo'))
+@livewire('modal-masivo-eliminado', [], key('modal-masivo-eliminado'))

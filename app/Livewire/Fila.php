@@ -15,14 +15,27 @@ class Fila extends Component
     public $marcado = false;
 
     protected $listeners = [
-        'actualizarMarcado' => 'actualizarMarcado'
+        'actualizarMarcado' => 'actualizarMarcado',
+        'eliminarMasivo' => 'eliminarMasivo'
     ];
 
-    public function actualizarMarcado($estado){
+    public function eliminarMasivo()
+    {
+        if ($this->marcado == true) {
+            $objeto = $this->modeloString::find($this->id);
+            $objeto->delete();
+
+            $this->dispatch('actualizarTotalObjetos')->to('tabla');
+        }
+    }
+
+    public function actualizarMarcado($estado)
+    {
         $this->marcado = $estado;
     }
 
-    public function mount($id, $campos, $llavesForaneas, $modelo, $modeloString, $objeto){
+    public function mount($id, $campos, $llavesForaneas, $modelo, $modeloString, $objeto)
+    {
         $this->id = $id;
         $this->campos = $campos;
         $this->llavesForaneas = $llavesForaneas;
@@ -30,7 +43,7 @@ class Fila extends Component
         $this->modeloString = $modeloString;
         $this->objeto = $objeto;
     }
-    
+
     public function render()
     {
         return view('livewire.fila');

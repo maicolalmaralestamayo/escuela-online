@@ -23,8 +23,22 @@ class Tabla extends Component
 
     protected $listeners = [
         'eliminarObjeto' => 'eliminarObjeto',
-        'navegarPagina' => 'navegarPagina'
+        'navegarPagina' => 'navegarPagina',
+        'eliminarMasivo' => 'eliminarMasivo',
+        'actualizarTotalObjetos' => 'actualizarTotalObjetos'
     ];
+
+    public function actualizarTotalObjetos(){
+        $this->totalObjetos = $this->modeloString::count();
+        if ($this->pagina >= $this->totalPaginas) {
+            $this->pagina = $this->totalPaginas;
+        }
+        $this->paginar();
+    }
+
+    public function eliminarMasivo(){
+        $this->dispatch('eliminarMasivo')->to('fila');
+    }
 
     public function actualizarMarcado($estado){
         $this->marcado = $estado;
@@ -35,11 +49,7 @@ class Tabla extends Component
         $objeto = $this->modeloString::find($id);
         $objeto->delete();
 
-        $this->totalObjetos = $this->modeloString::count();
-        if ($this->pagina >= $this->totalPaginas) {
-            $this->pagina = $this->totalPaginas;
-        }
-        $this->paginar();
+        $this->actualizarTotalObjetos();
     }
 
     public function actualizarObjetosPagina($objetos){
