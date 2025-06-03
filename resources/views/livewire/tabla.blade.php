@@ -56,7 +56,7 @@
                                     'modeloString' => $modeloString,
                                     'objeto' => $objeto,
                                 ],
-                                key($modelo . '-' . $objeto->id)
+                                key('fila-' . $modelo . '-' . $objeto->id)
                             )
                         @endforeach
                     </tbody>

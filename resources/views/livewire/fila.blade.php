@@ -3,7 +3,7 @@
     <td>
         <input type="checkbox" @if ($marcado)
             checked
-        @endif wire:change="actualizarMarcado($event.target.checked)">
+        @endif wire:change="actualizarMarcado($event.target.checked)"> {{ $marcado }}
     </td>
     <td>
         {{ $objeto->id }}
