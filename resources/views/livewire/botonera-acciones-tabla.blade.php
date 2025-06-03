@@ -1,5 +1,5 @@
 <div class="btn-group mb-3">
-    <button type="button" class="btn btn-danger"  title="Eliminar datos marcados" data-toggle="modal" data-target="#modalEliminarMasivo" wire:click="eliminarMasivo"><i class="fas fa-trash"></i> </button>
+    <button type="button" class="btn btn-danger"  title="Eliminar datos marcados" data-toggle="modal" data-target="#modalEliminarMasivo"><i class="fas fa-trash"></i> </button>
     <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
     <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
     <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>

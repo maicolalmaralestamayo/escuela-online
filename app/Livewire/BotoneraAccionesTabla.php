@@ -8,7 +8,7 @@ class BotoneraAccionesTabla extends Component
 {
     public function eliminarMasivo(){
         $this->dispatch('eliminarMasivo')->to('modal-eliminar-masivo');
-        $this->dispatch('eliminarMasivo')->to('modal-masivo-eliminado');
+        // $this->dispatch('eliminarMasivo')->to('modal-masivo-eliminado');
     }
     
     public function render()
