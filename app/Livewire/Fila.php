@@ -12,16 +12,20 @@ class Fila extends Component
     public $modelo;
     public $modeloString;
     public $objeto;
-    public $marcado = false;
+    public $estado = false;
 
+    public function invertirEstado(){
+        $this->estado = !$this->estado;
+    }
+    
     protected $listeners = [
-        'setMarcado' => 'setMarcado',
+        'setEstadoGeneral' => 'setEstadoGeneral',
         'eliminarMasivo' => 'eliminarMasivo'
     ];
 
     public function eliminarMasivo()
     {
-        if ($this->marcado == true) {
+        if ($this->estado == true) {
             $objeto = $this->modeloString::find($this->id);
             $objeto->delete();
 
@@ -29,10 +33,16 @@ class Fila extends Component
         }
     }
 
-    public function setMarcado($estado)
-    {
-        $this->marcado = $estado;
+    public function setEstadoGeneral($estado){
+        $this->estado = $estado;
     }
+
+    /* public function setestadoIndividual($estado){
+        $this->estado = $estado;
+        if ($this->estado == false) {
+            $this->dispatch('setDesestadoGeneral')->to('fila-cabecera');
+        }
+    } */
 
     public function mount($id, $campos, $llavesForaneas, $modelo, $modeloString, $objeto)
     {

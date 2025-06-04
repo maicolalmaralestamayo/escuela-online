@@ -278,7 +278,7 @@
   <script src="admin-lte/plugins/summernote/summernote-bs4.min.js"></script>
   <script src="admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <script src="admin-lte/dist/js/adminlte.js"></script>
-  <script src="admin-lte/dist/js/demo.js"></script>
+  {{-- <script src="admin-lte/dist/js/demo.js"></script> --}}
 
   {{-- activar solo cuantdo se utilice este tipo de componente --}}
   {{-- <script src="admin-lte/dist/js/pages/dashboard.js"></script> --}} 

@@ -7,7 +7,6 @@ use Livewire\Component;
 class Tabla extends Component
 {
     public $titulo;
-    public $marcado=false;
     
     public $campos;
     public $llavesForaneas;
@@ -25,7 +24,8 @@ class Tabla extends Component
         'eliminarObjeto' => 'eliminarObjeto',
         'setPagina' => 'setPagina',
         'eliminarMasivo' => 'eliminarMasivo',
-        'setTotalObjetos' => 'setTotalObjetos'
+        'setTotalObjetos' => 'setTotalObjetos',
+        'setMarcado' => 'desmarcar'
     ];
 
     public function setTotalObjetos(){
@@ -38,11 +38,6 @@ class Tabla extends Component
 
     public function eliminarMasivo(){
         $this->dispatch('eliminarMasivo')->to('fila');
-    }
-
-    public function setMarcado($estado){
-        $this->marcado = $estado;
-        $this->dispatch('setMarcado', $estado)->to('fila');
     }
 
     public function eliminarObjeto($id){

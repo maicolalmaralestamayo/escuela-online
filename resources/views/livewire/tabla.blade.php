@@ -5,10 +5,10 @@
             <h3 class="card-title"> {{ $titulo }}</h3>
 
             <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Minimizar">
                     <i class="fas fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Cerrar">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -20,29 +20,7 @@
             
             <div class="table-responsive">
                 <table class="table table-bordered table-sm mx-auto">
-                    <thead>
-                        <tr>
-                            {{-- input --}}
-                            <th style="width: 10px">
-                                <input type="checkbox" wire:change="setMarcado($event.target.checked)">
-                            </th>
-
-                            <th style="width: 10px">ID</th>
-
-                            {{-- campos --}}
-                            @foreach ($campos as $key => $campo)
-                                <th> {{ $key }} </th>
-                            @endforeach
-
-                            {{-- llaves foráneas --}}
-                            @foreach ($llavesForaneas as $key => $llave)
-                                <th> {{ $key }} </th>
-                            @endforeach
-
-                            {{-- operaciones (botonera) --}}
-                            <th style="width: 40px">Operaciones</th>
-                        </tr>
-                    </thead>
+                    @livewire('fila-cabecera', ['modelo' => $modelo, 'modeloString' => $modeloString], key('fila-cabecera-' . $modelo))
 
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
