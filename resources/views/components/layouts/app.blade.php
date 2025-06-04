@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <link rel="stylesheet" href="admin-lte/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="admin-lte/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -185,7 +186,7 @@
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link"> <!--active para activar-->
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-people"></i>
                 <p>
                   Personas
                   <i class="right fas fa-angle-left"></i>
