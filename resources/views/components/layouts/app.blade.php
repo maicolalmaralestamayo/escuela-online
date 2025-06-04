@@ -183,18 +183,22 @@
         <nav class="mt-2 nav-light">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-            @livewire('sub-menu', [
-                      'cabecera' => ['icono' => 'people', 'titulo' => 'Personas'],
-                      'opciones' => [
-                        ['icono' => 'person-check', 'titulo' => 'Roles', 'tablero' => 'Tablero Roles'],
-                        ['icono' => 'gender-ambiguous', 'titulo' => 'Géneros', 'tablero' => 'Tablero Géneros'],
-                        ['icono' => 'person', 'titulo' => 'Usuarios', 'tablero' => 'Tablero Usuarios'],
-                        ['icono' => 'person-fill', 'titulo' => 'Administradores', 'tablero' => 'Tablero Administradores'],
-                        ['icono' => 'person-fill', 'titulo' => 'Directivos', 'tablero' => 'Tablero Directivos'],
-                        ['icono' => 'person-fill', 'titulo' => 'Docentes', 'tablero' => 'Tablero Docentes'],
-                        ['icono' => 'person-fill', 'titulo' => 'Tutores', 'tablero' => 'Tablero Tutores'],
-                        ['icono' => 'person-fill', 'titulo' => 'Alumnos', 'tablero' => 'Tablero Alumnos']],
-                      'id' => 'sub-menu-personas'], key('sub-menu-personas'))
+            @livewire(
+              'sub-menu', 
+              [
+                'cabecera' => ['icono' => 'people', 'titulo' => 'Personas'],
+                'opciones' => [
+                    ['icono' => 'person-check', 'titulo' => 'Roles', 'tablero' => 'Tablero Roles'],
+                    ['icono' => 'gender-ambiguous', 'titulo' => 'Géneros', 'tablero' => 'Tablero Géneros'],
+                    ['icono' => 'person', 'titulo' => 'Usuarios', 'tablero' => 'Tablero Usuarios'],
+                    ['icono' => 'person-fill', 'titulo' => 'Administradores', 'tablero' => 'Tablero Administradores'],
+                    ['icono' => 'person-fill', 'titulo' => 'Directivos', 'tablero' => 'Tablero Directivos'],
+                    ['icono' => 'person-fill', 'titulo' => 'Docentes', 'tablero' => 'Tablero Docentes'],
+                    ['icono' => 'person-fill', 'titulo' => 'Tutores', 'tablero' => 'Tablero Tutores'],
+                    ['icono' => 'person-fill', 'titulo' => 'Alumnos', 'tablero' => 'Tablero Alumnos'] ],
+                'id' => 'sub-menu-personas'
+              ],
+              key('sub-menu-personas'))
           </ul>
         </nav>
       </div>

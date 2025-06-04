@@ -8,8 +8,15 @@
     </a>
     <ul class="nav nav-treeview">
         @foreach ($opciones as $opcion)
-            @livewire('opcion-sub-menu',['icono' => $opcion['icono'], 'titulo' => $opcion['titulo'], 'tablero' => $opcion['tablero'], 'id' => $id . '-opcion-' . $loop->index],
-                    key($id . '-opcion-' . $loop->index))
+            @livewire( 'opcion-sub-menu',
+                [
+                    'icono' => $opcion['icono'], 
+                    'titulo' => $opcion['titulo'], 
+                    'tablero' => $opcion['tablero'], 
+                    'id' => $id . '-opcion-' . $loop->index
+                ],
+                key($id . '-opcion-' . $loop->index)
+            )
         @endforeach
     </ul>
 </li>

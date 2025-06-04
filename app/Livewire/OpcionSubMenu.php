@@ -17,7 +17,7 @@ class OpcionSubMenu extends Component
         'desmarcar' => 'desmarcar'
     ];
 
-    public function seleccionar(){
+    public function click(){
         $this->dispatch('desmarcar')->to(OpcionSubMenu::class);
         $this->dispatch('marcar')->self();
         $this->dispatch('tablero', area: $this->tablero)->to(tablero::class);

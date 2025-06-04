@@ -1,4 +1,4 @@
-<li class="nav-item" wire:click="seleccionar">
+<li class="nav-item" wire:click="click">
     <a href="#" class="nav-link @if ($marcado)
         active
     @endif">
