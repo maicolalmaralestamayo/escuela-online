@@ -2,17 +2,18 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\Prop;
 use Livewire\Component;
 
 class SubMenu extends Component
 {
-    public $opcionesMenu;
-    public $id;
+    public $cabecera;//cabecera del submenú, es decir la opción que lo desplegará
+    public $opciones;//opciones del submenú
+    public $id;//identificador del submenú
 
-    public function mount($opcionesMenu, $id)
+    public function mount($cabecera, $opciones, $id)
     {
-        $this->opcionesMenu = $opcionesMenu;
+        $this->cabecera = $cabecera;
+        $this->opciones = $opciones;
         $this->id = $id;
     }
 

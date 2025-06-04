@@ -2,39 +2,41 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class OpcionSubMenu extends Component
 {
-    public $marcado = false;
-    public $icono;
-    public $titulo;
-    public $id;
-    public $areaTrabajo;
+    public $marcado = false;//si está marcada o no
+    public $icono;//ícono de la opción
+    public $titulo;//título de la opción
+    public $id;//identificador de la opción
+    public $tablero;//tablero que mostrará
+
+    protected $listeners = [
+        'marcar' => 'marcar',
+        'desmarcar' => 'desmarcar'
+    ];
 
     public function seleccionar(){
         $this->dispatch('desmarcar')->to(OpcionSubMenu::class);
         $this->dispatch('marcar')->self();
-        $this->dispatch('areaTrabajo', area: $this->areaTrabajo)->to(AreaTrabajo::class);
+        $this->dispatch('tablero', area: $this->tablero)->to(tablero::class);
     }
 
-    #[On('marcar')]
     public function marcar(){
         $this->marcado = true;
     }
     
-    #[On('desmarcar')]
     public function desmarcar(){
         $this->marcado = false;
     }
 
-    public function mount($icono, $titulo, $id, $areaTrabajo)
+    public function mount($icono, $titulo, $id, $tablero)
     {
         $this->icono = $icono;
         $this->titulo = $titulo;
         $this->id = $id;
-        $this->areaTrabajo = $areaTrabajo;
+        $this->tablero = $tablero;
     }
     
     public function render()

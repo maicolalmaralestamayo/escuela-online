@@ -1,22 +1,15 @@
-<li class="nav-item">
+<li class="nav-item menu-open">
     <a href="#" class="nav-link">
-        <i class="nav-icon bi bi-{{ $opcionesMenu['icono'] }}"></i>
+        <i class="nav-icon bi bi-{{ $cabecera['icono'] }}"></i>
         <p>
-            {{ $opcionesMenu['titulo'] }}
-            <i class="nav-arrow bi bi-chevron-right"></i>
+            {{ $cabecera['titulo'] }}
+            <i class="right bi bi-chevron-left"></i>
         </p>
     </a>
     <ul class="nav nav-treeview">
-        @foreach ($opcionesMenu['opciones'] as $opcion)
-            <livewire:opcionSubMenu
-                :icono="$opcion['icono']"
-                :titulo="$opcion['titulo']"
-                :areaTrabajo="$opcion['areaTrabajo']"
-                id="{{ $this->id }}-opcion-{{ $loop->index }}"
-
-                wire:key="{{ $this->id }}-opcion-{{ $loop->index }}"
-                wire:ref="{{ $this->id }}-opcion-{{ $loop->index }}"
-            />
+        @foreach ($opciones as $opcion)
+            @livewire('opcion-sub-menu',['icono' => $opcion['icono'], 'titulo' => $opcion['titulo'], 'tablero' => $opcion['tablero'], 'id' => $id . '-opcion-' . $loop->index],
+                    key($id . '-opcion-' . $loop->index))
         @endforeach
     </ul>
 </li>

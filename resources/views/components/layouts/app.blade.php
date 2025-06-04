@@ -22,7 +22,6 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="admin-lte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -184,64 +183,18 @@
         <nav class="mt-2 nav-light">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link"> <!--active para activar-->
-                <i class="nav-icon fas fa-people"></i>
-                <p>
-                  Personas
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Roles</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Usuarios</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Géneros</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Estructura
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Grados</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Secsiones</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Aulas</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+            @livewire('sub-menu', [
+                      'cabecera' => ['icono' => 'people', 'titulo' => 'Personas'],
+                      'opciones' => [
+                        ['icono' => 'person-check', 'titulo' => 'Roles', 'tablero' => 'Tablero Roles'],
+                        ['icono' => 'gender-ambiguous', 'titulo' => 'Géneros', 'tablero' => 'Tablero Géneros'],
+                        ['icono' => 'person', 'titulo' => 'Usuarios', 'tablero' => 'Tablero Usuarios'],
+                        ['icono' => 'person-fill', 'titulo' => 'Administradores', 'tablero' => 'Tablero Administradores'],
+                        ['icono' => 'person-fill', 'titulo' => 'Directivos', 'tablero' => 'Tablero Directivos'],
+                        ['icono' => 'person-fill', 'titulo' => 'Docentes', 'tablero' => 'Tablero Docentes'],
+                        ['icono' => 'person-fill', 'titulo' => 'Tutores', 'tablero' => 'Tablero Tutores'],
+                        ['icono' => 'person-fill', 'titulo' => 'Alumnos', 'tablero' => 'Tablero Alumnos']],
+                      'id' => 'sub-menu-personas'], key('sub-menu-personas'))
           </ul>
         </nav>
       </div>
@@ -282,7 +235,7 @@
   {{-- <script src="admin-lte/dist/js/demo.js"></script> --}}
 
   {{-- activar solo cuantdo se utilice este tipo de componente --}}
-  {{-- <script src="admin-lte/dist/js/pages/dashboard.js"></script> --}} 
+  {{-- <script src="admin-lte/dist/js/pages/dashboard.js"></script> --}}
 </body>
 
 </html>
