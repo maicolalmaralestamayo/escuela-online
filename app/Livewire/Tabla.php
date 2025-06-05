@@ -24,10 +24,18 @@ class Tabla extends Component
         'confirmarEliminarObjeto' => 'setTotalObjetos',
         'setPagina' => 'setPagina',
         'setTotalObjetos' => 'setTotalObjetos',
-        'setMarcado' => 'desmarcar'
+        'setEstado' => 'setEstado',
     ];
 
+    public function solicitarEliminarMasivo(){
+        $this->dispatch('solicitarEliminarMasivo', $this->objeto->id)->to(ModalEliminarMasivo::class);
+    }
+
     public function setEstado($estado){
+        $this->estado = $estado;
+    }
+
+    public function setEstadoTablaToFila($estado){
         $this->estado = $estado;
         $this->dispatch('setEstado', $this->estado)->to(Fila::class);//envía el estado actualizado a las Filas
     }

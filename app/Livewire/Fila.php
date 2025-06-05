@@ -14,6 +14,7 @@ class Fila extends Component
     public $estado = false;
     protected $listeners = [
         'confirmarEliminarObjeto' => 'confirmarEliminarObjeto',
+        'confirmarEliminarMasivo' => 'confirmarEliminarMasivo',
         'setEstado' => 'setEstado'
     ];
 
@@ -29,17 +30,20 @@ class Fila extends Component
         }
     }
 
-    public function setEstado($estado){
-        $this->estado = $estado;
-    }
-    
-    public function eliminarMasivo()
+    public function confirmarEliminarMasivo()
     {
         if ($this->estado == true) {
             $objeto = $this->modeloString::find($this->objeto->id);
             $objeto->delete();
 
             $this->dispatch('setTotalObjetos')->to(Tabla::class);
+        }
+    }
+
+    public function setEstado($estado){
+        $this->estado = $estado;
+        if (!$this->estado) {
+            $this->dispatch('setEstado', false)->to(Tabla::class);
         }
     }
 

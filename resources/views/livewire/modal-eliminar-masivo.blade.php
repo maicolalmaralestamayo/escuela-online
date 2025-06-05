@@ -8,11 +8,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                Está a punto de eliminar varios datos. La acción de eliminar varios datos es irreversible. Realmente desea eliminar los datos con identificadores ???
+                Está a punto de eliminar varios datos. La acción de eliminar varios datos es irreversible. Realmente desea eliminar varios datos ???
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalMasivoEliminado">Eliminar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalMasivoEliminado" wire:click="confirmarEliminarMasivo">Eliminar</button>
             </div>
         </div>
     </div>

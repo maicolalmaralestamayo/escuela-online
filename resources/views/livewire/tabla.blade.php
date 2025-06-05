@@ -17,9 +17,10 @@
         {{-- tabla --}}
         <div class="card-body">
             <div class="table-responsive">
+                {{-- botonera de acciones de la tabla --}}
                 <div class="btn-group mb-3">
                     <button type="button" class="btn btn-danger" title="Eliminar datos marcados" data-toggle="modal"
-                        data-target="#modalEliminarMasivo"><i class="fas fa-trash"></i> </button>
+                        data-target="#modalEliminarMasivo"><i class="bi bi-trash"></i> </button>
                     <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
                     <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
                     <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
@@ -42,7 +43,7 @@
                             {{-- input --}}
                             <td>
                                 <input type="checkbox" id='checkbox0'
-                                    wire:change='setEstado($event.target.checked)'>{{$estado}}
+                                    wire:change='setEstadoTablaToFila($event.target.checked)'>{{$estado}}
                             </td>
 
                             {{-- campos --}}
@@ -97,3 +98,5 @@
 
 @livewire('modal-eliminar-objeto', key('modal-eliminar-objeto'))
 @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
+@livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
+@livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))

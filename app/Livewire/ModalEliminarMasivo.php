@@ -6,8 +6,8 @@ use Livewire\Component;
 
 class ModalEliminarMasivo extends Component
 {
-    public function eliminarMasivo(){
-        $this->dispatch('eliminarMasivo', $this->ids)->to('tabla');
+    public function confirmarEliminarMasivo(){
+        $this->dispatch('confirmarEliminarMasivo')->to(Fila::class);
     }
     
     public function render()
