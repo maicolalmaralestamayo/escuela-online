@@ -62,7 +62,17 @@
         <!-- submenúes -->
         <nav class="mt-2 nav-light">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+            @livewire(
+              'sub-menu', 
+              [
+                'cabecera' => ['icono' => 'clipboard-data', 'titulo' => 'Paneles de comando'],
+                'opciones' => [
+                    ['icono' => 'people', 'titulo' => 'Personas', 'tituloTablero' => 'Comando de personas'],
+                    ['icono' => 'mortarboard', 'titulo' => 'Estructura', 'tituloTablero' => 'Comando de estructura']],
+                'nombreSubMenu' => 'sub-menu-personas'
+              ],
+              key('sub-menu-personas'))
+            
             @livewire(
               'sub-menu', 
               [
