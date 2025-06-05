@@ -29,6 +29,7 @@ class Tabla extends Component
 
     public function setEstado($estado){
         $this->estado = $estado;
+        $this->dispatch('setEstado', $this->estado)->to(Fila::class);//envía el estado actualizado a las Filas
     }
 
     public function setTotalObjetos(){

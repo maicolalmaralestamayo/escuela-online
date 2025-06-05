@@ -1,7 +1,9 @@
 <tr>
     {{-- input + id --}}
     <td>
-        <input type="checkbox" id='checkbox{{$objeto->id}}' wire:change='invertirEstado'>{{$estado}}
+        <input type="checkbox" id='checkbox{{$objeto->id}}' wire:change='setEstado($event.target.checked)'  @if ($estado)
+            checked            
+        @endif>{{$estado}}
     </td>
 
     {{-- campos principales --}}

@@ -28,10 +28,6 @@ class Fila extends Component
             $this->dispatch('confirmarEliminarObjeto', $this->objeto->id)->to(Tabla::class);
         }
     }
-    
-    public function invertirEstado(){
-        $this->estado = !$this->estado;
-    }
 
     public function setEstado($estado){
         $this->estado = $estado;
@@ -47,12 +43,13 @@ class Fila extends Component
         }
     }
 
-    public function mount($campos, $modelo, $modeloString, $objeto)
+    public function mount($campos, $modelo, $modeloString, $objeto, $estado)
     {
         $this->campos = $campos;
         $this->modelo = $modelo;
         $this->modeloString = $modeloString;
         $this->objeto = $objeto;
+        $this->estado = $estado;
     }
 
     public function render()

@@ -16,24 +16,38 @@
 
         {{-- tabla --}}
         <div class="card-body">
-            {{-- @livewire('botonera-acciones-tabla', [], key('botonera-acciones-tabla')) --}}
-
             <div class="table-responsive">
-                <table class="table table-bordered table-sm mx-auto">
-                    {{-- @livewire('fila-cabecera', ['modelo' => $modelo, 'modeloString' => $modeloString],
-                    key('fila-cabecera-' . $modelo)) --}}
+                <div class="btn-group mb-3">
+                    <button type="button" class="btn btn-danger" title="Eliminar datos marcados" data-toggle="modal"
+                        data-target="#modalEliminarMasivo"><i class="fas fa-trash"></i> </button>
+                    <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
+                    <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
+                    <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
 
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon"
+                            data-toggle="dropdown">
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Opción 1</a>
+                            <a class="dropdown-item" href="#">Opción 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-sm mx-auto">
+                    {{-- cabecera --}}
                     <thead>
                         <tr>
                             {{-- input --}}
                             <td>
                                 <input type="checkbox" id='checkbox0'
-                                    wire:change='invertirEstado'>{{$estado}}
+                                    wire:change='setEstado($event.target.checked)'>{{$estado}}
                             </td>
 
                             {{-- campos --}}
                             @foreach ($campos['principales'] as $key => $campo)
-                                <th> {{ $campo }} </th>
+                            <th> {{ $campo }} </th>
                             @endforeach
 
                             {{-- llaves foráneas --}}
@@ -41,22 +55,23 @@
                             <th> {{ key($campo) }} </th>
                             @endforeach
 
-                            {{-- operaciones (botonera) --}}
+                            {{-- operaciones --}}
                             <th style="width: 40px">Operaciones</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
-                            @livewire( 'fila',
-                                [
-                                    'campos' => $campos,
-                                    'modelo' => $modelo,
-                                    'modeloString' => $modeloString,
-                                    'objeto' => $objeto,
-                                ],
-                                key('fila' . $objeto->id)
-                            )
+                        @livewire( 'fila',
+                        [
+                        'campos' => $campos,
+                        'modelo' => $modelo,
+                        'modeloString' => $modeloString,
+                        'objeto' => $objeto,
+                        'estado' => $estado
+                        ],
+                        key('fila' . $objeto->id.$estado)
+                        )
                         @endforeach
                     </tbody>
                 </table>
