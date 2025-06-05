@@ -21,7 +21,7 @@
                 <div class="btn-group mb-3">
                     <button type="button" class="btn btn-danger" title="Eliminar datos marcados" data-toggle="modal"
                         data-target="#modalEliminarMasivo"><i class="bi bi-trash"></i> </button>
-                    <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
+                    <button type="button" class="btn btn-primary  bi bi-arrow-counterclockwise" title="Recargar datos de la tabla" wire:click='recargarDatos'></button>
                     <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
                     <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
 

@@ -18,6 +18,6 @@
             'pagina' => 1,
             'objetosPagina' => 5,
         ],
-        key('tabla')
+        key('tabla-usuarios')
     )
  </div>

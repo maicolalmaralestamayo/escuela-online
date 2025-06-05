@@ -24,8 +24,12 @@ class Tabla extends Component
     protected $listeners = [
         'confirmarEliminarObjeto' => 'setTotalObjetos',
         'setPagina' => 'setPagina',
-        'setTotalObjetos' => 'setTotalObjetos'
+        'setTotalObjetos' => 'setTotalObjetos',
     ];
+
+    public function recargarDatos(){
+        $this->dispatch('recargarObjeto')->to(Fila::class);
+    }
 
     public function invertirEstadoFilas(){
         $this->estadoFilas = !$this->estadoFilas;

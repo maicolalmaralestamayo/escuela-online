@@ -14,7 +14,8 @@ class Fila extends Component
     protected $listeners = [
         'confirmarEliminarObjeto' => 'confirmarEliminarObjeto',
         'confirmarEliminarMasivo' => 'confirmarEliminarMasivo',
-        'setEstadoFila' => 'setEstadoFila'
+        'setEstadoFila' => 'setEstadoFila',
+        'recargarObjeto' => 'recargarObjeto'
     ];
 
     public function recargarObjeto(){
