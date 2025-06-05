@@ -14,8 +14,17 @@ class Fila extends Component
     protected $listeners = [
         'confirmarEliminarObjeto' => 'confirmarEliminarObjeto',
         'confirmarEliminarMasivo' => 'confirmarEliminarMasivo',
-        'setEstado' => 'setEstado'
+        'setEstadoFila' => 'setEstadoFila'
     ];
+
+    public function recargarObjeto(){
+        $objeto = $this->modeloString::find($this->objeto->id);
+        $this->objeto = $objeto;
+    }
+
+    public function setEstadoFila($estado){
+        $this->estado = $estado;
+    }
 
     public function solicitarEliminarObjeto(){
         $this->dispatch('solicitarEliminarObjeto', $this->objeto->id)->to(ModalEliminarObjeto::class);
@@ -41,9 +50,6 @@ class Fila extends Component
 
     public function setEstado($estado){
         $this->estado = $estado;
-        if (!$this->estado) {
-            $this->dispatch('setEstadoCabecera', false)->to(Tabla::class);
-        }
     }
 
     public function mount($campos, $modelo, $modeloString, $objeto, $estado)

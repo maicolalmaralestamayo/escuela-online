@@ -36,8 +36,32 @@
                     </div>
                 </div>
 
+                <br>
+                
                 <table class="table table-bordered table-sm mx-auto">
-                    @livewire('fila-cabecera', ['campos' => $campos, 'estado' => $estadoFilaCabecera], key('fila-cabecera' . $estadoFilaCabecera))
+                    <thead>
+                        <tr>
+                            {{-- input --}}
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-warning" title="Marcar todas las filas" wire:click='invertirEstadoFilas'>
+                                    <span class="icon bi bi-check2-square"></span>
+                                </button>
+                            </td>
+
+                            {{-- campos --}}
+                            @foreach ($campos['principales'] as $key => $campo)
+                                <th> {{ $campo }} </th>
+                            @endforeach
+
+                            {{-- llaves foráneas --}}
+                            @foreach ($campos['foraneos'] as $key => $campo)
+                                <th> {{ key($campo) }} </th>
+                            @endforeach
+
+                            {{-- operaciones --}}
+                            <th style="width: 40px">Operaciones</th>
+                        </tr>
+                    </thead>
 
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
@@ -47,9 +71,9 @@
                         'modelo' => $modelo,
                         'modeloString' => $modeloString,
                         'objeto' => $objeto,
-                        'estado' => $estadoFilaBody
+                        'estado' => $estadoFilas
                         ],
-                        key('fila' . $objeto->id . $estadoFilaBody)
+                        key('fila-body' . $objeto->id . $estadoFilas)
                         )
                         @endforeach
                     </tbody>
@@ -65,9 +89,17 @@
 
                 <div class="input-group input-group-sm m-1" style="width: auto;">
                     <div class="input-group-prepend">
-                        <span class="input-group-text bg-primary">Filas por página</span>
+                        <span class="input-group-text bg-primary">Datos por página</span>
                     </div>
-                    <input type="text" class="form-control text-center" value="{{ $objetosPagina }}"
+                    <input type="text" class="form-control text-center" value={{ $objetosPagina }}
+                        wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;">
+                </div>
+
+                <div class="input-group input-group-sm m-1" style="width: auto;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary">Total de datos</span>
+                    </div>
+                    <input type="text" class="form-control text-center" value={{ $totalObjetos }} readonly
                         wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;">
                 </div>
             </div>

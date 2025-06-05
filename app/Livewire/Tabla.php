@@ -19,24 +19,17 @@ class Tabla extends Component
     public $pagina;//número de la página mostrada
     public $totalPaginas;//número de la última página coincide con el total de paginas)
 
-    public $estadoFilaCabecera=false;
-    public $estadoFilaBody=false;
+    public $estadoFilas=false;
 
     protected $listeners = [
         'confirmarEliminarObjeto' => 'setTotalObjetos',
         'setPagina' => 'setPagina',
-        'setTotalObjetos' => 'setTotalObjetos',
-        'setEstadoFilas' => 'setEstadoFilas',
-        'setEstadoCabecera' => 'setEstadoCabecera'
+        'setTotalObjetos' => 'setTotalObjetos'
     ];
 
-    public function setEstadoCabecera($estado){
-        $this->estadoFilaCabecera = $estado;
-    }
-
-    public function setEstadoFilas($estado){
-        $this->estadoFilaCabecera = $estado;
-        $this->estadoFilaBody = $estado;
+    public function invertirEstadoFilas(){
+        $this->estadoFilas = !$this->estadoFilas;
+        $this->dispatch('setEstadoFila', $this->estadoFilas)->to(Fila::class);
     }
 
     public function solicitarEliminarMasivo(){

@@ -1,7 +1,7 @@
 <tr>
     {{-- input + id --}}
-    <td>
-        <input type="checkbox" id='checkbox{{$objeto->id}}' wire:change='setEstado($event.target.checked)'  @if ($estado) checked @endif>{{$estado}}
+    <td class="text-center">
+        <input type="checkbox" id='checkbox{{$objeto->id}}' wire:change='setEstado($event.target.checked)'  @if ($estado) checked @endif>
     </td>
 
     {{-- campos principales --}}
@@ -24,7 +24,7 @@
             <button type="button" class="btn btn-danger" title="Eliminar datos" data-toggle="modal"
                 data-target="#modalEliminarObjeto" wire:click="solicitarEliminarObjeto"><i class="bi bi-trash"></i>
             </button>
-            <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
+            <button type="button" class="btn btn-primary bi bi-arrow-counterclockwise" title="Recargar datos" wire:click='recargarObjeto'></button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
 
