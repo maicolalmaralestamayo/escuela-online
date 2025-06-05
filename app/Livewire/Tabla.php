@@ -18,26 +18,29 @@ class Tabla extends Component
 
     public $pagina;//número de la página mostrada
     public $totalPaginas;//número de la última página coincide con el total de paginas)
-    public $estado=false;//estado de marcado masivo
+
+    public $estadoFilaCabecera=false;
+    public $estadoFilaBody=false;
 
     protected $listeners = [
         'confirmarEliminarObjeto' => 'setTotalObjetos',
         'setPagina' => 'setPagina',
         'setTotalObjetos' => 'setTotalObjetos',
-        'setEstado' => 'setEstado',
+        'setEstadoFilas' => 'setEstadoFilas',
+        'setEstadoCabecera' => 'setEstadoCabecera'
     ];
+
+    public function setEstadoCabecera($estado){
+        $this->estadoFilaCabecera = $estado;
+    }
+
+    public function setEstadoFilas($estado){
+        $this->estadoFilaCabecera = $estado;
+        $this->estadoFilaBody = $estado;
+    }
 
     public function solicitarEliminarMasivo(){
         $this->dispatch('solicitarEliminarMasivo', $this->objeto->id)->to(ModalEliminarMasivo::class);
-    }
-
-    public function setEstado($estado){
-        $this->estado = $estado;
-    }
-
-    public function setEstadoTablaToFila($estado){
-        $this->estado = $estado;
-        $this->dispatch('setEstado', $this->estado)->to(Fila::class);//envía el estado actualizado a las Filas
     }
 
     public function setTotalObjetos(){

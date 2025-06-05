@@ -37,29 +37,7 @@
                 </div>
 
                 <table class="table table-bordered table-sm mx-auto">
-                    {{-- cabecera --}}
-                    <thead>
-                        <tr>
-                            {{-- input --}}
-                            <td>
-                                <input type="checkbox" id='checkbox0'
-                                    wire:change='setEstadoTablaToFila($event.target.checked)'>{{$estado}}
-                            </td>
-
-                            {{-- campos --}}
-                            @foreach ($campos['principales'] as $key => $campo)
-                            <th> {{ $campo }} </th>
-                            @endforeach
-
-                            {{-- llaves foráneas --}}
-                            @foreach ($campos['foraneos'] as $key => $campo)
-                            <th> {{ key($campo) }} </th>
-                            @endforeach
-
-                            {{-- operaciones --}}
-                            <th style="width: 40px">Operaciones</th>
-                        </tr>
-                    </thead>
+                    @livewire('fila-cabecera', ['campos' => $campos, 'estado' => $estadoFilaCabecera], key('fila-cabecera' . $estadoFilaCabecera))
 
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
@@ -69,9 +47,9 @@
                         'modelo' => $modelo,
                         'modeloString' => $modeloString,
                         'objeto' => $objeto,
-                        'estado' => $estado
+                        'estado' => $estadoFilaBody
                         ],
-                        key('fila' . $objeto->id.$estado)
+                        key('fila' . $objeto->id . $estadoFilaBody)
                         )
                         @endforeach
                     </tbody>

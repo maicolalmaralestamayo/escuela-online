@@ -7,11 +7,10 @@ use Livewire\Component;
 class Fila extends Component
 {
     public $campos;
-    public $llavesForaneas;
     public $modelo;
     public $modeloString;
     public $objeto;
-    public $estado = false;
+    public $estado;
     protected $listeners = [
         'confirmarEliminarObjeto' => 'confirmarEliminarObjeto',
         'confirmarEliminarMasivo' => 'confirmarEliminarMasivo',
@@ -43,7 +42,7 @@ class Fila extends Component
     public function setEstado($estado){
         $this->estado = $estado;
         if (!$this->estado) {
-            $this->dispatch('setEstado', false)->to(Tabla::class);
+            $this->dispatch('setEstadoCabecera', false)->to(Tabla::class);
         }
     }
 
