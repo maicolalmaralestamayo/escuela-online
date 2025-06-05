@@ -1,4 +1,4 @@
-<li class="nav-item menu-open">
+<li class="nav-item menu-close">
     <a href="#" class="nav-link">
         <i class="nav-icon bi bi-{{ $cabecera['icono'] }}"></i>
         <p>
