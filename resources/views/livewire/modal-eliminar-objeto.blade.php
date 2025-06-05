@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Está a punto de eliminar los datos. La acción de eliminar los datos es irreversible. Realmente desea eliminar los datos con identificador ???
+                Está a punto de eliminar los datos. La acción de eliminar los datos es irreversible. Realmente desea eliminar los datos ???
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -16,18 +16,41 @@
 
         {{-- tabla --}}
         <div class="card-body">
-            @livewire('botonera-acciones-tabla', [], key('botonera-acciones-tabla'))
-            
+            {{-- @livewire('botonera-acciones-tabla', [], key('botonera-acciones-tabla')) --}}
+
             <div class="table-responsive">
                 <table class="table table-bordered table-sm mx-auto">
-                    @livewire('fila-cabecera', ['modelo' => $modelo, 'modeloString' => $modeloString], key('fila-cabecera-' . $modelo))
+                    {{-- @livewire('fila-cabecera', ['modelo' => $modelo, 'modeloString' => $modeloString],
+                    key('fila-cabecera-' . $modelo)) --}}
+
+                    <thead>
+                        <tr>
+                            {{-- input --}}
+                            <td>
+                                <input type="checkbox" id='checkbox0'
+                                    wire:change='invertirEstado'>{{$estado}}
+                            </td>
+
+                            {{-- campos --}}
+                            @foreach ($campos['principales'] as $key => $campo)
+                                <th> {{ $campo }} </th>
+                            @endforeach
+
+                            {{-- llaves foráneas --}}
+                            @foreach ($campos['foraneos'] as $key => $campo)
+                            <th> {{ key($campo) }} </th>
+                            @endforeach
+
+                            {{-- operaciones (botonera) --}}
+                            <th style="width: 40px">Operaciones</th>
+                        </tr>
+                    </thead>
 
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
                             @livewire( 'fila',
                                 [
                                     'campos' => $campos,
-                                    'llavesForaneas' => $llavesForaneas,
                                     'modelo' => $modelo,
                                     'modeloString' => $modeloString,
                                     'objeto' => $objeto,
@@ -43,7 +66,8 @@
         {{-- paginador --}}
         <div class="card-footer">
             <div class="d-flex flex-wrap justify-content-center align-items-center">
-                @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' . $pagina . '-' . $objetosPagina. '-' . $totalObjetos))
+                @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' .
+                $pagina . '-' . $objetosPagina. '-' . $totalObjetos))
 
                 <div class="input-group input-group-sm m-1" style="width: auto;">
                     <div class="input-group-prepend">

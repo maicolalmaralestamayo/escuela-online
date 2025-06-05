@@ -1,37 +1,29 @@
 <tr>
     {{-- input + id --}}
     <td>
-        @if ($estado == true)
-        <input type="checkbox" wire:click='invertirEstado()' checked>
-        @else
-        <input type="checkbox" wire:click='invertirEstado()'>
-        @endif
-
-        {{$estado}}
-    </td>
-    <td>
-        {{ $objeto->id }}
+        <input type="checkbox" id='checkbox{{$objeto->id}}' wire:change='invertirEstado'>{{$estado}}
     </td>
 
-    {{-- demás datos --}}
-    @foreach ($campos as $campo)
-    <td>
-        {{ $objeto->$campo }}
-    </td>
+    {{-- campos principales --}}
+    @foreach ($campos['principales'] as $key => $value)
+        <td>
+            {{ $objeto->$key}}
+        </td>
     @endforeach
 
     {{-- datos de las relaciones extremo 1:m --}}
-    @foreach ($llavesForaneas as $key => $llave)
-    <td>
-        {{ $objeto->{$llave[0]}[$llave[1]] }}
-    </td>
+    @foreach ($campos['foraneos'] as $key => $value)
+        <td>
+            {{ $objeto->$key[current($value)] }}
+        </td>
     @endforeach
 
     {{-- botonera de operaciones --}}
     <td>
         <div class="btn-group">
             <button type="button" class="btn btn-danger" title="Eliminar datos" data-toggle="modal"
-                data-target="#modalEliminarObjeto" wire:click="solicitarEliminarObjeto"><i class="bi bi-trash"></i> </button>
+                data-target="#modalEliminarObjeto" wire:click="solicitarEliminarObjeto"><i class="bi bi-trash"></i>
+            </button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Detalles"></button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>

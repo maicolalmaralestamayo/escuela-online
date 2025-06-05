@@ -9,7 +9,6 @@ class Tabla extends Component
     public $titulo;
     
     public $campos;
-    public $llavesForaneas;
     public $modelo;
     public $modeloString;
 
@@ -19,6 +18,7 @@ class Tabla extends Component
 
     public $pagina;//número de la página mostrada
     public $totalPaginas;//número de la última página coincide con el total de paginas)
+    public $estado=false;//estado de marcado masivo
 
     protected $listeners = [
         'confirmarEliminarObjeto' => 'setTotalObjetos',
@@ -26,6 +26,10 @@ class Tabla extends Component
         'setTotalObjetos' => 'setTotalObjetos',
         'setMarcado' => 'desmarcar'
     ];
+
+    public function setEstado($estado){
+        $this->estado = $estado;
+    }
 
     public function setTotalObjetos(){
         $this->totalObjetos = $this->modeloString::count();
@@ -59,11 +63,9 @@ class Tabla extends Component
         $this->objetosPaginados = $this->modeloString::all()->forPage($this->pagina,$this->objetosPagina);
     }
 
-    public function mount($titulo, $campos, $llavesForaneas, $modelo, $pagina, $objetosPagina)
+    public function mount($titulo, $modelo, $pagina, $objetosPagina)
     {
         $this->titulo = $titulo;
-        $this->campos = $campos;
-        $this->llavesForaneas = $llavesForaneas;
         $this->modelo = $modelo;
 
         $this->pagina = $pagina;
@@ -71,6 +73,7 @@ class Tabla extends Component
         
         $this->modeloString = 'App\\Models\\' . $modelo;
         $this->totalObjetos = $this->modeloString::count();
+        $this->campos = $this->modeloString::vistaCampos();
         
         $this->paginar();
     }
