@@ -6,18 +6,18 @@ use Livewire\Component;
 
 class ModalEliminarObjeto extends Component
 {
-    public $id;
-
+    public $idObjeto;
+    
     protected $listeners = [
-        'eliminarObjeto' => 'actualizarId'
+        'solicitarEliminarObjeto' => 'solicitarEliminarObjeto'
     ];
 
-    public function actualizarId($id){
-        $this->id = $id;
+    public function solicitarEliminarObjeto($idObjeto){
+        $this->idObjeto = $idObjeto;
     }
 
-    public function eliminarObjeto(){
-        $this->dispatch('eliminarObjeto', $this->id)->to('tabla');
+    public function confirmarEliminarObjeto(){
+        $this->dispatch('confirmarEliminarObjeto', $this->idObjeto)->to(Fila::class);
     }
     
     public function render()

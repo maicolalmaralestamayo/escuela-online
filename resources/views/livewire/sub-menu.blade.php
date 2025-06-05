@@ -12,10 +12,9 @@
                 [
                     'icono' => $opcion['icono'], 
                     'titulo' => $opcion['titulo'], 
-                    'tablero' => $opcion['tablero'], 
-                    'id' => $id . '-opcion-' . $loop->index
+                    'tituloTablero' => $opcion['tituloTablero'], 
                 ],
-                key($id . '-opcion-' . $loop->index)
+                key( $nombreSubMenu . $loop->index)
             )
         @endforeach
     </ul>

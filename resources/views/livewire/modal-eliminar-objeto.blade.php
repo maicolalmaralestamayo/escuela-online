@@ -8,11 +8,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                Está a punto de eliminar los datos. La acción de eliminar los datos es irreversible. Realmente desea eliminar los datos con identificador {{$id}} ???
+                Está a punto de eliminar los datos. La acción de eliminar los datos es irreversible. Realmente desea eliminar los datos con identificador ???
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" wire:click="eliminarObjeto" data-toggle="modal" data-target="#modalObjetoEliminado">Eliminar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" wire:click="confirmarEliminarObjeto" data-toggle="modal" data-target="#modalObjetoEliminado">Eliminar</button>
             </div>
         </div>
     </div>

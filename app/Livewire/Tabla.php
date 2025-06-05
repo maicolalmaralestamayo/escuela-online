@@ -21,9 +21,8 @@ class Tabla extends Component
     public $totalPaginas;//número de la última página coincide con el total de paginas)
 
     protected $listeners = [
-        'eliminarObjeto' => 'eliminarObjeto',
+        'confirmarEliminarObjeto' => 'setTotalObjetos',
         'setPagina' => 'setPagina',
-        'eliminarMasivo' => 'eliminarMasivo',
         'setTotalObjetos' => 'setTotalObjetos',
         'setMarcado' => 'desmarcar'
     ];
@@ -34,17 +33,6 @@ class Tabla extends Component
             $this->pagina = $this->totalPaginas;
         }
         $this->paginar();
-    }
-
-    public function eliminarMasivo(){
-        $this->dispatch('eliminarMasivo')->to('fila');
-    }
-
-    public function eliminarObjeto($id){
-        $objeto = $this->modeloString::find($id);
-        $objeto->delete();
-
-        $this->setTotalObjetos();
     }
 
     public function setObjetosPagina($objetos){

@@ -24,17 +24,15 @@
 
                     <tbody>
                         @foreach ($objetosPaginados as $objeto)
-                            @livewire(
-                                'fila',
+                            @livewire( 'fila',
                                 [
-                                    'id' => $objeto->id,
                                     'campos' => $campos,
                                     'llavesForaneas' => $llavesForaneas,
                                     'modelo' => $modelo,
                                     'modeloString' => $modeloString,
                                     'objeto' => $objeto,
                                 ],
-                                key('fila-' . $modelo . '-' . $objeto->id)
+                                key('fila' . $objeto->id)
                             )
                         @endforeach
                     </tbody>
@@ -58,7 +56,5 @@
         </div>
 </section>
 
-@livewire('modal-eliminar-objeto', [], key('modal-eliminar-objeto'))
-@livewire('modal-objeto-eliminado', [], key('modal-objeto-eliminado'))
-@livewire('modal-eliminar-masivo', [], key('modal-eliminar-masivo'))
-@livewire('modal-masivo-eliminado', [], key('modal-masivo-eliminado'))
+@livewire('modal-eliminar-objeto', key('modal-eliminar-objeto'))
+@livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))

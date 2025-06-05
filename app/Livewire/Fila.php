@@ -6,47 +6,44 @@ use Livewire\Component;
 
 class Fila extends Component
 {
-    public $id;
     public $campos;
     public $llavesForaneas;
     public $modelo;
     public $modeloString;
     public $objeto;
     public $estado = false;
+    protected $listeners = [
+        'confirmarEliminarObjeto' => 'confirmarEliminarObjeto'
+    ];
 
+    public function solicitarEliminarObjeto(){
+        $this->dispatch('solicitarEliminarObjeto', $this->objeto->id)->to(ModalEliminarObjeto::class);
+    }
+
+    public function confirmarEliminarObjeto($idObjeto){
+        if ($this->objeto->id == $idObjeto) {
+            $objeto = $this->modeloString::find($idObjeto);
+            $objeto->delete();
+            $this->dispatch('confirmarEliminarObjeto', $this->objeto->id)->to(Tabla::class);
+        }
+    }
+    
     public function invertirEstado(){
         $this->estado = !$this->estado;
     }
     
-    protected $listeners = [
-        'setEstadoGeneral' => 'setEstadoGeneral',
-        'eliminarMasivo' => 'eliminarMasivo'
-    ];
-
     public function eliminarMasivo()
     {
         if ($this->estado == true) {
-            $objeto = $this->modeloString::find($this->id);
+            $objeto = $this->modeloString::find($this->objeto->id);
             $objeto->delete();
 
             $this->dispatch('setTotalObjetos')->to('tabla');
         }
     }
 
-    public function setEstadoGeneral($estado){
-        $this->estado = $estado;
-    }
-
-    /* public function setestadoIndividual($estado){
-        $this->estado = $estado;
-        if ($this->estado == false) {
-            $this->dispatch('setDesestadoGeneral')->to('fila-cabecera');
-        }
-    } */
-
-    public function mount($id, $campos, $llavesForaneas, $modelo, $modeloString, $objeto)
+    public function mount($campos, $llavesForaneas, $modelo, $modeloString, $objeto)
     {
-        $this->id = $id;
         $this->campos = $campos;
         $this->llavesForaneas = $llavesForaneas;
         $this->modelo = $modelo;
