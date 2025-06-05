@@ -6,28 +6,28 @@ use Livewire\Component;
 
 class OpcionSubMenu extends Component
 {
-    public $marcado = false;//si está marcada o no la opción
     public $icono;//ícono de la opción
     public $titulo;//título de la opción
     public $tituloTablero;//título del tablero
+    public $estado=false;//estado, si está marcada la opción o no
 
     protected $listeners = [
-        'marcar' => 'marcar',
-        'desmarcar' => 'desmarcar'
+        'marcarOpcion' => 'marcarOpcion',
+        'desmarcarOpcion' => 'desmarcarOpcion'
     ];
 
-    public function click(){
-        $this->dispatch('desmarcar')->to(OpcionSubMenu::class);
-        $this->dispatch('marcar')->self();
-        $this->dispatch('setTitulo', $this->tituloTablero)->to(Tablero::class);
+    public function marcarOpcion(){
+        $this->estado = true;
     }
 
-    public function marcar(){
-        $this->marcado = true;
+    public function desmarcarOpcion(){
+        $this->estado = false;
     }
-    
-    public function desmarcar(){
-        $this->marcado = false;
+
+    public function click(){
+        $this->estado = true;
+        $this->dispatch('desmarcarOpcion')->to(OpcionSubMenu::class);
+        $this->dispatch('marcarOpcion')->self();
     }
 
     public function mount($icono, $titulo, $tituloTablero)
