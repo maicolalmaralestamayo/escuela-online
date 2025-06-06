@@ -6,16 +6,7 @@ use Livewire\Component;
 
 class Tablero extends Component
 {
-    public $titulo;//título del tablero
-
-    protected $listeners = [
-        'setTitulo' => 'setTitulo'
-    ];
-
-    public function setTitulo($titulo){
-        $this->titulo = $titulo;
-        /* $this->refresh(); */
-    }   
+    public $titulo;
 
     public function mount($titulo){
         $this->titulo = $titulo;

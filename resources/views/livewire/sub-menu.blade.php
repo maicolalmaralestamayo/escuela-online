@@ -13,6 +13,7 @@
                     'icono' => $opcion['icono'], 
                     'titulo' => $opcion['titulo'], 
                     'tituloTablero' => $opcion['tituloTablero'], 
+                    'codigoTablero' => $opcion['codigoTablero'], 
                 ],
                 key( $nombreSubMenu . $loop->index)
             )

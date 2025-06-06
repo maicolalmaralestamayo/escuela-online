@@ -9,6 +9,7 @@ class OpcionSubMenu extends Component
     public $icono;//ícono de la opción
     public $titulo;//título de la opción
     public $tituloTablero;//título del tablero
+    public $codigoTablero;//código para saer cuál renderizar
     public $estado=false;//estado, si está marcada la opción o no
 
     protected $listeners = [
@@ -28,13 +29,16 @@ class OpcionSubMenu extends Component
         $this->estado = true;
         $this->dispatch('desmarcarOpcion')->to(OpcionSubMenu::class);
         $this->dispatch('marcarOpcion')->self();
+
+        $this->dispatch('setTablero', titulo: $this->tituloTablero)->to(Html::class);
     }
 
-    public function mount($icono, $titulo, $tituloTablero)
+    public function mount($icono, $titulo, $tituloTablero, $codigoTablero)
     {
         $this->icono = $icono;
         $this->titulo = $titulo;
         $this->tituloTablero = $tituloTablero;
+        $this->codigoTablero = $codigoTablero;
     }
     
     public function render()
