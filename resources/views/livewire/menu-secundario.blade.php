@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- logo + nombre de la aplicación -->
     @livewire('NombreAplicacion', 
         ['nombreAplicacion' => 'Escuela Online',

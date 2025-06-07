@@ -90,7 +90,7 @@
         @case('10')
             @livewire('tabla', 
                 ['titulo' => 'Tabla Calificaciones por cursos',
-                'modelo' => 'Aula',
+                'modelo' => 'CalificacionAsignaturaAlumno',
                 'pagina' => 1, 
                 'objetosPagina' => 5])
         @break
