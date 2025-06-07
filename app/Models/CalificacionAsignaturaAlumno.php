@@ -21,15 +21,18 @@ class CalificacionAsignaturaAlumno extends Model
                 'observacion' => 'Observación',
             ],
             'foraneos' => [
-                'usuario' => ['Nombre' => 'nombre_1'],
-                'usuario' => ['Segundo Nombre' => 'nombre_2'],
-                'usuario' => ['Apellido' => 'apellido_1'],
-                'usuario' => ['Segundo Apellido' => 'apellido_2'],
+                'usuario' => [['nombre_1' => 'Nombre'],
+                              ['nombre_2' => 'Segundo nombre'],
+                              ['apellido_1' => 'Apellido'],
+                              ['apellido_2' => 'Segundo apellido']],
+                'asignatura' => [['asignatura' => 'Asignatura']],
+                'grado' => [['grado' => 'Grado']],
+                'calificacion' => [['calificacion' => 'Calificación']],
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',
                 'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación',
+                'deleted_at' => 'Eliminación', 
             ]
         ];
     }
@@ -41,5 +44,23 @@ class CalificacionAsignaturaAlumno extends Model
 
     public function usuario(){
         return $this->alumno->usuario();
+    }
+
+    public function AsignaturaGrado(): BelongsTo
+    {
+        return $this->belongsTo(AsignaturaGrado::class);
+    }
+
+    public function asignatura(){
+        return $this->AsignaturaGrado->asignatura();
+    }
+
+    public function grado(){
+        return $this->AsignaturaGrado->grado();
+    }
+
+    public function Calificacion(): BelongsTo
+    {
+        return $this->belongsTo(Calificacion::class);
     }
 }

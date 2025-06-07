@@ -22,10 +22,10 @@ class Alumno extends Model
                 // 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'usuario' => ['Nombre' => 'nombre_1'],
-                'usuario' => ['Segundo Nombre' => 'nombre_2'],
-                'usuario' => ['Apellido' => 'apellido_1'],
-                'usuario' => ['Segundo apellido' => 'apellido_2'],
+                'usuario' => [['nombre_1' => 'Nombre'],
+                              ['nombre_2' => 'Segundo nombre'],
+                              ['apellido_1' => 'Apellido'],
+                              ['apellido_2' => 'Segundo apellido']]
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',

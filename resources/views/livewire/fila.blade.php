@@ -13,10 +13,14 @@
     @endforeach
 
     {{-- datos de las relaciones extremo 1:m --}}
-    @foreach ($campos['foraneos'] as $key => $value)
-    <td>
-        {{ $objeto->$key[current($value)] }}
-    </td>
+    @foreach ($campos['foraneos'] as $relacion => $columnas)
+        @foreach ($columnas as $campos2)
+            @foreach ($campos2 as $campoBd => $campoVista)
+                <td>
+                    {{ $objeto->$relacion[$campoBd] }}
+                </td>
+            @endforeach
+        @endforeach
     @endforeach
 
     {{-- botonera de operaciones --}}

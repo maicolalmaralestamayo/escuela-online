@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Aula extends Model
@@ -15,15 +16,14 @@ class Aula extends Model
         return [
             'principales' => [
                 'id' => 'ID',
-                'grado_id' => 'Grado',
-                'seccion_id' => 'Sección',
+                
             ],
             'secundarios' => [
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                /* 'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'], */
+                'grado' => [['grado' => 'Grado']],
+                'seccion' => [['seccion' => 'Sección']],
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',
@@ -31,5 +31,15 @@ class Aula extends Model
                 'deleted_at' => 'Eliminación'
             ]
         ];
+    }
+
+    public function grado(): BelongsTo
+    {
+        return $this->belongsTo(Grado::class);
+    }
+
+    public function seccion(): BelongsTo
+    {
+        return $this->belongsTo(Seccion::class);
     }
 }

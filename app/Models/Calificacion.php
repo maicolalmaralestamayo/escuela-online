@@ -15,7 +15,7 @@ class Calificacion extends Model
         return [
             'principales' => [
                 'id' => 'ID',
-                'calificacion' => 'Calificacion',
+                'calificacion' => 'Calificación',
                 'abreviatura' => 'Abreviatura',
             ],
             'secundarios' => [

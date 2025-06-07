@@ -26,8 +26,8 @@ class Usuario extends Model
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'],
+                'genero' => [['genero' => 'Género']],
+                'rol' => [['rol' => 'Rol']],
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',

@@ -23,7 +23,8 @@
                                     data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash"></i>
                                 </button>
                                 <button type="button" class="btn btn-primary  bi bi-arrow-counterclockwise"
-                                    title="Recargar datos de la tabla" wire:click='recargarDatos' wire:confirm="Are you sure you want to delete this post?"></button>
+                                    title="Recargar datos de la tabla" wire:click='recargarDatos'
+                                    wire:confirm="Are you sure you want to delete this post?"></button>
                                 <button type="button" class="btn btn-primary fas fa-circle"
                                     title="Datos relacionados"></button>
                                 <button type="button" class="btn btn-primary fas fa-circle"
@@ -54,13 +55,21 @@
                                         </td>
 
                                         {{-- campos --}}
-                                        @foreach ($campos['principales'] as $key => $campo)
-                                        <th> {{ $campo }} </th>
+                                        @foreach ($campos['principales'] as $campoBd => $campoVista)
+                                            <th>
+                                                {{ $campoVista }}
+                                            </th>    
                                         @endforeach
 
                                         {{-- llaves foráneas --}}
-                                        @foreach ($campos['foraneos'] as $key => $campo)
-                                        <th> {{ key($campo) }} </th>
+                                        @foreach ($campos['foraneos'] as $relacion => $columnas)
+                                            @foreach ($columnas as $campos2)
+                                                @foreach ($campos2 as $campoBd => $campoVista)
+                                                    <th>
+                                                        {{ $campoVista }}
+                                                    </th>
+                                                @endforeach
+                                            @endforeach
                                         @endforeach
 
                                         {{-- operaciones --}}
@@ -113,7 +122,7 @@
             </div>
         </div>
     </div>
-    
+
     @livewire('modal-eliminar-objeto', key('modal-eliminar-objeto'))
     @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
     @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
