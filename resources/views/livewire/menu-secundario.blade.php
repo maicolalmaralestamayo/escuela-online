@@ -2,7 +2,7 @@
     <!-- logo + nombre de la aplicación -->
     @livewire('NombreAplicacion', 
         ['nombreAplicacion' => 'Escuela Online',
-         'logoAplicacion' => 'admin-lte/dist/img/AdminLTELogo.png'],
+         'logoAplicacion' => 'admin-lte/dist/img/logo.png'],
 
         key('nombre-aplicacion'))
 
