@@ -7,17 +7,31 @@
         </p>
     </a>
 
-    {{-- me quede en la opcion 11 --}}
+    {{-- me quede en la opcion 14 --}}
 
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Personas', 
-        'iconoSubmenu' => 'people', 
+        'iconoSubmenu' => 'person', 
         'opcionesSubmenu' => [
             ['tituloOpcion' => 'Usuarios',
-             'iconoOpcion' => 'person', 
+             'iconoOpcion' => 'people', 
              'tituloAreaTrabajo' => 'Área de Usuarios', 
              'codigoAreaTrabajo' => '01'],
 
+            ['tituloOpcion' => 'Géneros',
+             'iconoOpcion' => 'gender-ambiguous', 
+             'tituloAreaTrabajo' => 'Área de Géneros', 
+             'codigoAreaTrabajo' => '02'],
+             
+             ['tituloOpcion' => 'Roles',
+             'iconoOpcion' => 'person-check', 
+             'tituloAreaTrabajo' => 'Área de Roles', 
+             'codigoAreaTrabajo' => '03']]])
+    
+    @livewire('Submenu', 
+        ['tituloSubmenu' => 'Estructura docente', 
+        'iconoSubmenu' => 'diagram-3', 
+        'opcionesSubmenu' => [
             ['tituloOpcion' => 'Directivos',
              'iconoOpcion' => 'person-check', 
              'tituloAreaTrabajo' => 'Área de Directivos', 
@@ -36,20 +50,10 @@
             ['tituloOpcion' => 'Alumnos',
              'iconoOpcion' => 'person-check', 
              'tituloAreaTrabajo' => 'Área de Alumno', 
-             'codigoAreaTrabajo' => '14'],
-
-            ['tituloOpcion' => 'Géneros',
-             'iconoOpcion' => 'gender-ambiguous', 
-             'tituloAreaTrabajo' => 'Área de Géneros', 
-             'codigoAreaTrabajo' => '02'],
-             
-             ['tituloOpcion' => 'Roles',
-             'iconoOpcion' => 'person-check', 
-             'tituloAreaTrabajo' => 'Área de Roles', 
-             'codigoAreaTrabajo' => '03']]])
+             'codigoAreaTrabajo' => '14'],]])
 
     @livewire('Submenu', 
-        ['tituloSubmenu' => 'Estructura docente', 
+        ['tituloSubmenu' => 'Estructura escolar', 
         'iconoSubmenu' => 'mortarboard', 
         'opcionesSubmenu' => [
             ['tituloOpcion' => 'Grados',
