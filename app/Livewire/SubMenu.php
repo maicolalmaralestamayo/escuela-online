@@ -4,21 +4,20 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class SubMenu extends Component
+class Submenu extends Component
 {
-    public $cabecera;//cabecera del submenú, es decir la opción que lo desplegará
-    public $opciones;//opciones del submenú
-    public $nombreSubMenu;//nombre dek submenu que servirá para identificarlo
+    public $tituloSubmenu;
+    public $iconoSubmenu;
+    public $opcionesSubmenu;
 
-    public function mount($cabecera, $opciones, $nombreSubMenu)
-    {
-        $this->cabecera = $cabecera;
-        $this->opciones = $opciones;
-        $this->nombreSubMenu = $nombreSubMenu;
+    public function mount($tituloSubmenu, $iconoSubmenu, $opcionesSubmenu){
+        $this->tituloSubmenu = $tituloSubmenu;
+        $this->iconoSubmenu = $iconoSubmenu;
+        $this->opcionesSubmenu = $opcionesSubmenu;
     }
-
+    
     public function render()
     {
-        return view('livewire.sub-menu');
+        return view('livewire.submenu');
     }
 }

@@ -1,32 +1,25 @@
-<main class="app-main">
-    @switch($areaTrabajo)
-        @case('roles')
-            @livewire('TableroRoles', ['nombre' => 'Roles'])
-            @break
-        @case('usuarios')
-            @livewire('TableroUsuarios', ['nombre' => 'Usuarios'])
-            @break
-        @case('administradores')
-            @livewire('TableroAdministradores', ['nombre' => 'Administradores'])
-            @break
-        @case('directivos')
-            @livewire('TableroDirectivos', ['nombre' => 'Directivos'])
-            @break
-        @case('docentes')
-            @livewire('TableroDocentes', ['nombre' => 'Docentes'])
-            @break
-        @case('tutores')
-            @livewire('TableroTutores', ['nombre' => 'Tutores'])
-            @break
-        @case('alumnos')
-            @livewire('TableroAlumnos', ['nombre' => 'Alumnos'])
-            @break
-        @case('contactos')
-            @livewire('TableroContactos', ['nombre' => 'Contactos'])
-            @break
-        @case('generos')
-            @livewire('TableroGeneros', ['nombre' => 'Géneros'])
-            @break
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"> {{ $tituloAreaTrabajo }} {{$codigoAreaTrabajo }} </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @switch($codigoAreaTrabajo)
+        @case('00')
+            maicol
+        @break
+        
+        @case('01')
+            @livewire('TablaUsuarios')
+        @break
+        
         @default
+            
     @endswitch
-</main>
+</div>

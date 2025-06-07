@@ -6,14 +6,14 @@ use Livewire\Component;
 
 class Html extends Component
 {
-    public $titulo='Tablero Principal';
-
-    protected $listeners = [
-        'setTablero' => 'setTablero'
-    ];
+    public $tituloAreaTrabajo = 'Tablero Principal';
+    public $codigoAreaTrabajo = '00';
     
-    public function setTablero ($titulo){
-        $this->titulo = $titulo;
+    protected $listeners = [ 'setAreaTrabajo' ];
+
+    public function setAreaTrabajo($tituloAreaTrabajo, $codigoAreaTrabajo){
+        $this->tituloAreaTrabajo  = $tituloAreaTrabajo;
+        $this->codigoAreaTrabajo = $codigoAreaTrabajo;
     }
 
     public function render()

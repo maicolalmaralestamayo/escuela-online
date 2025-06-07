@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class MenuSecundario extends Component
+class TablaGeneros extends Component
 {
     public function render()
     {
-        return view('livewire.menu-secundario');
+        return view('livewire.tabla-generos');
     }
 }

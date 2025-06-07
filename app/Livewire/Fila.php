@@ -18,9 +18,13 @@ class Fila extends Component
         'recargarObjeto' => 'recargarObjeto'
     ];
 
-    public function recargarObjeto(){
-        $objeto = $this->modeloString::find($this->objeto->id);
+    public function mount($campos, $modelo, $modeloString, $objeto, $estado)
+    {
+        $this->campos = $campos;
+        $this->modelo = $modelo;
+        $this->modeloString = $modeloString;
         $this->objeto = $objeto;
+        $this->estado = $estado;
     }
 
     public function setEstadoFila($estado){
@@ -50,15 +54,6 @@ class Fila extends Component
     }
 
     public function setEstado($estado){
-        $this->estado = $estado;
-    }
-
-    public function mount($campos, $modelo, $modeloString, $objeto, $estado)
-    {
-        $this->campos = $campos;
-        $this->modelo = $modelo;
-        $this->modeloString = $modeloString;
-        $this->objeto = $objeto;
         $this->estado = $estado;
     }
 

@@ -26,7 +26,7 @@
                 data-target="#modalEliminarObjeto" wire:click="solicitarEliminarObjeto"><i class="bi bi-trash"></i>
             </button>
             <button type="button" class="btn btn-primary bi bi-arrow-counterclockwise" title="Recargar datos"
-                wire:click='recargarObjeto'></button>
+                wire:click="$refresh"></button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
             <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
 
