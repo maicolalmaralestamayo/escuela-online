@@ -127,6 +127,13 @@
                 'objetosPagina' => 5])
         @break
         
+        @case('15')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Tipos de contenido',
+                'modelo' => 'TipoContenido',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
         
         @default
             {{--  --}}

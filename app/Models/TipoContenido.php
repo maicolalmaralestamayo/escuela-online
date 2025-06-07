@@ -11,16 +11,26 @@ class TipoContenido extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function columnRename(){
+    static public function vistaCampos(){
         return [
-            'id' => 'ID',
-
-            'tipo' => 'Tipo',
-            
-            'observacion' => 'Observación',
-            'created_at' => 'Creación',
-            'updated_at' => 'Actualización',
-            'deleted_at' => 'Eliminación'
+            'principales' => [
+                'id' => 'ID',
+                'tipo' => 'Tipo de contenido',
+                'observacion' => 'Observación',
+            ],
+            'secundarios' => [
+                // 'observacion' => 'Observación'
+            ],
+            'foraneos' => [
+                // 'genero' => ['genero' => 'Género'],
+                // 'rol' => ['rol' => 'Rol'],
+            ],
+            'dateTimes' => [
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
+                'deleted_at' => 'Eliminación'
+            ]
         ];
     }
+
 }

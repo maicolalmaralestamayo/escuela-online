@@ -29,5 +29,10 @@
              'iconoOpcion' => 'gender-ambiguous', 
              'tituloAreaTrabajo' => 'Área de Géneros', 
              'codigoAreaTrabajo' => '02'],
+
+            ['tituloOpcion' => 'Tipos de contenido',
+             'iconoOpcion' => 'collection-play', 
+             'tituloAreaTrabajo' => 'Área de Tipos de contenido', 
+             'codigoAreaTrabajo' => '15'],
            ]])
 </li>
