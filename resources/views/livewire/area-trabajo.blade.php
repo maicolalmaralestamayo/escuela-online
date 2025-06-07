@@ -118,6 +118,15 @@
                 'pagina' => 1, 
                 'objetosPagina' => 5])
         @break
+
+        @case('14')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Alumno',
+                'modelo' => 'Alumno',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+        
         
         @default
             {{--  --}}

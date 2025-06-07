@@ -33,6 +33,11 @@
              'tituloAreaTrabajo' => 'Área de Docentes', 
              'codigoAreaTrabajo' => '13'],
 
+            ['tituloOpcion' => 'Alumnos',
+             'iconoOpcion' => 'person-check', 
+             'tituloAreaTrabajo' => 'Área de Alumno', 
+             'codigoAreaTrabajo' => '14'],
+
             ['tituloOpcion' => 'Géneros',
              'iconoOpcion' => 'gender-ambiguous', 
              'tituloAreaTrabajo' => 'Área de Géneros', 
