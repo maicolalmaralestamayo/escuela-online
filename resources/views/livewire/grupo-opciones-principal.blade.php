@@ -1,33 +1,12 @@
 <li class="nav-item menu-open">
     <a href="#" class="nav-link">
-        <i class="nav-icon bi bi-{{ $iconoGrupo }}"></i>
+        <i class="nav-icon bi bi-buildings"></i>
         <p>
-            {{ $tituloGrupo }}
+            Escuela
             <i class="right fas fa-angle-left"></i>
         </p>
     </a>
 
-    {{-- me quede en la opcion 14 --}}
-
-    @livewire('Submenu', 
-        ['tituloSubmenu' => 'Personas', 
-        'iconoSubmenu' => 'person', 
-        'opcionesSubmenu' => [
-            ['tituloOpcion' => 'Usuarios',
-             'iconoOpcion' => 'people', 
-             'tituloAreaTrabajo' => 'Área de Usuarios', 
-             'codigoAreaTrabajo' => '01'],
-
-            ['tituloOpcion' => 'Géneros',
-             'iconoOpcion' => 'gender-ambiguous', 
-             'tituloAreaTrabajo' => 'Área de Géneros', 
-             'codigoAreaTrabajo' => '02'],
-             
-             ['tituloOpcion' => 'Roles',
-             'iconoOpcion' => 'person-check', 
-             'tituloAreaTrabajo' => 'Área de Roles', 
-             'codigoAreaTrabajo' => '03']]])
-    
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Estructura docente', 
         'iconoSubmenu' => 'diagram-3', 
