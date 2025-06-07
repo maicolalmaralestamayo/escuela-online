@@ -11,17 +11,28 @@ class Genero extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function columnRename(){
+    static public function vistaCampos(){
         return [
-            'id' => 'ID',
-
-            'genero' => 'Género',
-            'abreviatura' => 'Abreviatura',
-            
-            'observacion' => 'Observación',
-            'created_at' => 'Creación',
-            'updated_at' => 'Actualización',
-            'deleted_at' => 'Eliminación'
+            'principales' => [
+                'id' => 'ID',
+                'genero' => 'Género',
+                'nombre_2' => 'Segundo Nombre',
+                'apellido_1' => 'Apellido',
+                'apellido_2' => 'Segundo Apellido',
+                'dni' => 'DNI',
+            ],
+            'secundarios' => [
+                'observacion' => 'Observación'
+            ],
+            'foraneos' => [
+                'genero' => ['Género' => 'genero'],
+                'rol' => ['Rol' => 'rol'],
+            ],
+            'dateTimes' => [
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
+                'deleted_at' => 'Eliminación'
+            ]
         ];
     }
 }
