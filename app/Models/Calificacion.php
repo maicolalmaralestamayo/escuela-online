@@ -11,18 +11,26 @@ class Calificacion extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function columnRename(){
+    static public function vistaCampos(){
         return [
-            'id' => 'ID',
-
-            'calificacion' => 'Calificación',
-            'abreviatura' => 'breviatura',
-            'descripcion' => 'Descripción',
-            
-            'observacion' => 'Observación',
-            'created_at' => 'Creación',
-            'updated_at' => 'Actualización',
-            'deleted_at' => 'Eliminación'
+            'principales' => [
+                'id' => 'ID',
+                'calificacion' => 'Calificacion',
+                'abreviatura' => 'Abreviatura',
+            ],
+            'secundarios' => [
+                'descripcion' => 'Descripcion',
+                'observacion' => 'Observación'
+            ],
+            'foraneos' => [
+                // 'genero' => ['Género' => 'genero'],
+                // 'rol' => ['Rol' => 'rol'],
+            ],
+            'dateTimes' => [
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
+                'deleted_at' => 'Eliminación'
+            ]
         ];
     }
 }

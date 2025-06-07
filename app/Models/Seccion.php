@@ -11,16 +11,24 @@ class Seccion extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function columnRename(){
+    static public function vistaCampos(){
         return [
-            'id' => 'ID',
-
-            'seccion' => 'Sección',
-            
-            'observacion' => 'Observación',
-            'created_at' => 'Creación',
-            'updated_at' => 'Actualización',
-            'deleted_at' => 'Eliminación'
+            'principales' => [
+                'id' => 'ID',
+                'seccion' => 'Sección',
+            ],
+            'secundarios' => [
+                'observacion' => 'Observación'
+            ],
+            'foraneos' => [
+                /* 'genero' => ['Género' => 'genero'],
+                'rol' => ['Rol' => 'rol'], */
+            ],
+            'dateTimes' => [
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
+                'deleted_at' => 'Eliminación'
+            ]
         ];
     }
 }

@@ -16,17 +16,14 @@ class Genero extends Model
             'principales' => [
                 'id' => 'ID',
                 'genero' => 'Género',
-                'nombre_2' => 'Segundo Nombre',
-                'apellido_1' => 'Apellido',
-                'apellido_2' => 'Segundo Apellido',
-                'dni' => 'DNI',
+                'abreviatura' => 'Abreviatura'
             ],
             'secundarios' => [
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'],
+                /* 'genero' => ['Género' => 'genero'],
+                'rol' => ['Rol' => 'rol'], */
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',

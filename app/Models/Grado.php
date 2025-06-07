@@ -11,17 +11,25 @@ class Grado extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function columnRename(){
+    static public function vistaCampos(){
         return [
-            'id' => 'ID',
-            
-            'grado' => 'Grado',
-            'abreviatura' => 'Abreviatura',
-            
-            'observacion' => 'Observación',
-            'created_at' => 'Creación',
-            'updated_at' => 'Actualización',
-            'deleted_at' => 'Eliminación'
+            'principales' => [
+                'id' => 'ID',
+                'grado' => 'Grado',
+                'abreviatura' => 'Abreviatura',
+            ],
+            'secundarios' => [
+                'observacion' => 'Observación'
+            ],
+            'foraneos' => [
+                /* 'genero' => ['Género' => 'genero'],
+                'rol' => ['Rol' => 'rol'], */
+            ],
+            'dateTimes' => [
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
+                'deleted_at' => 'Eliminación'
+            ]
         ];
     }
 }

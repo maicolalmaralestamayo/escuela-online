@@ -31,6 +31,69 @@
                 'pagina' => 1, 
                 'objetosPagina' => 5])
         @break
+
+        @case('03')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Roles',
+                'modelo' => 'Rol',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+        @case('04')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Grados',
+                'modelo' => 'Grado',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('05')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Secciones',
+                'modelo' => 'Seccion',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('06')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Aulas',
+                'modelo' => 'Aula',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('07')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Asignaturas',
+                'modelo' => 'Asignatura',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('08')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Cursos',
+                'modelo' => 'AsignaturaGrado',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('09')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Tipos de calificaciones',
+                'modelo' => 'Calificacion',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('10')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Calificaciones por cursos',
+                'modelo' => 'Aula',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
         
         @default
             {{--  --}}

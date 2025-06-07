@@ -15,18 +15,14 @@ class Rol extends Model
         return [
             'principales' => [
                 'id' => 'ID',
-                'nombre_1' => 'Nombre',
-                'nombre_2' => 'Segundo Nombre',
-                'apellido_1' => 'Apellido',
-                'apellido_2' => 'Segundo Apellido',
-                'dni' => 'DNI',
+                'rol' => 'Rol',
             ],
             'secundarios' => [
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'],
+                /* 'genero' => ['Género' => 'genero'],
+                'rol' => ['Rol' => 'rol'], */
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',
