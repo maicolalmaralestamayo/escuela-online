@@ -77,16 +77,16 @@
 
                                 <tbody>
                                     @foreach ($objetosPaginados as $objeto)
-                                    @livewire( 'fila',
-                                    [
-                                    'campos' => $campos,
-                                    'modelo' => $modelo,
-                                    'modeloString' => $modeloString,
-                                    'objeto' => $objeto,
-                                    'estado' => $estadoFilas
-                                    ],
-                                    key('fila-body' . $objeto->id . $estadoFilas)
-                                    )
+                                        @livewire( 'fila',
+                                            [
+                                            'campos' => $campos,
+                                            'modelo' => $modelo,
+                                            'modeloString' => $modeloString,
+                                            'objeto' => $objeto,
+                                            'estado' => $estadoFilas
+                                            ],
+                                            
+                                            key('fila-body' . $objeto->id . $estadoFilas) )
                                     @endforeach
                                 </tbody>
                             </table>
@@ -106,7 +106,7 @@
                             <span class="input-group-text bg-primary">Datos por página</span>
                         </div>
                         <input type="text" class="form-control text-center" value={{ $objetosPagina }}
-                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;">
+                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;" name='datos-por-pagina'>
                     </div>
 
                     <div class="input-group input-group-sm m-1" style="width: auto;">
@@ -114,7 +114,7 @@
                             <span class="input-group-text bg-primary">Total de datos</span>
                         </div>
                         <input type="text" class="form-control text-center" value={{ $totalObjetos }} readonly
-                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;">
+                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;" name='total-de-datos'>
                     </div>
                 </div>
             </div>
