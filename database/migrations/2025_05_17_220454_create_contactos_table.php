@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('contactos', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('usuario_id')->constrained();
             $table->string('correo')->unique();
             $table->string('celular')->unique();
 

@@ -7,6 +7,8 @@
         </p>
     </a>
 
+    {{-- me quede en la opcion 11 --}}
+
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Personas', 
         'iconoSubmenu' => 'people', 
@@ -14,7 +16,22 @@
             ['tituloOpcion' => 'Usuarios',
              'iconoOpcion' => 'person', 
              'tituloAreaTrabajo' => 'Área de Usuarios', 
-             'codigoAreaTrabajo' => '01'], 
+             'codigoAreaTrabajo' => '01'],
+
+            ['tituloOpcion' => 'Directivos',
+             'iconoOpcion' => 'person-check', 
+             'tituloAreaTrabajo' => 'Área de Directivos', 
+             'codigoAreaTrabajo' => '11'],
+
+            ['tituloOpcion' => 'Docentes',
+             'iconoOpcion' => 'person-check', 
+             'tituloAreaTrabajo' => 'Área de Docentes', 
+             'codigoAreaTrabajo' => '12'],
+
+            ['tituloOpcion' => 'Tutores',
+             'iconoOpcion' => 'person-check', 
+             'tituloAreaTrabajo' => 'Área de Docentes', 
+             'codigoAreaTrabajo' => '13'],
 
             ['tituloOpcion' => 'Géneros',
              'iconoOpcion' => 'gender-ambiguous', 

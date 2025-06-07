@@ -14,12 +14,10 @@
 
     {{-- datos de las relaciones extremo 1:m --}}
     @foreach ($campos['foraneos'] as $relacion => $columnas)
-        @foreach ($columnas as $campos2)
-            @foreach ($campos2 as $campoBd => $campoVista)
-                <td>
-                    {{ $objeto->$relacion[$campoBd] }}
-                </td>
-            @endforeach
+        @foreach ($columnas as $campoBd => $campoVista)
+            <td>
+                {{ $objeto->$relacion[$campoBd] }}
+            </td>
         @endforeach
     @endforeach
 

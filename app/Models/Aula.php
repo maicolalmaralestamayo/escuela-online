@@ -22,8 +22,8 @@ class Aula extends Model
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'grado' => [['grado' => 'Grado']],
-                'seccion' => [['seccion' => 'Sección']],
+                'grado' => ['grado' => 'Grado'],
+                'seccion' => ['seccion' => 'Sección'],
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',

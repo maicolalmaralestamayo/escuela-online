@@ -13,6 +13,7 @@ return new class extends Migration
             
             
             $table->foreignId('usuario_id')->constrained()->unique();
+            $table->foreignId('contacto_id')->constrained()->unique();
             $table->foreignId('aula_id')->constrained()->unique();
 
             $table->string('observacion')->nullable();

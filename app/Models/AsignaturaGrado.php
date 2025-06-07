@@ -21,8 +21,8 @@ class AsignaturaGrado extends Model
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'asignatura' => [['asignatura' => 'Asignatura']],
-                'grado' => [['grado' => 'Grado']],
+                'asignatura' => ['asignatura' => 'Asignatura'],
+                'grado' => ['grado' => 'Grado'],
             ],
             'dateTimes' => [
                 'created_at' => 'Creación',

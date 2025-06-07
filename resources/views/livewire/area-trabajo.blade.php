@@ -94,6 +94,30 @@
                 'pagina' => 1, 
                 'objetosPagina' => 5])
         @break
+
+        @case('11')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Directivos',
+                'modelo' => 'Directivo',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('12')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Docentes',
+                'modelo' => 'Docente',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('13')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Tutores',
+                'modelo' => 'Tutor',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
         
         @default
             {{--  --}}

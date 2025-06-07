@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('usuario_id')->constrained()->unique();
+            $table->foreignId('contacto_id')->constrained()->unique();
 
             $table->string('observacion')->nullable();
             $table->timestamps();

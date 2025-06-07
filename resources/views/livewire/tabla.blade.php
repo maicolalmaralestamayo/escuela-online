@@ -63,12 +63,10 @@
 
                                         {{-- llaves foráneas --}}
                                         @foreach ($campos['foraneos'] as $relacion => $columnas)
-                                            @foreach ($columnas as $campos2)
-                                                @foreach ($campos2 as $campoBd => $campoVista)
-                                                    <th>
-                                                        {{ $campoVista }}
-                                                    </th>
-                                                @endforeach
+                                            @foreach ($columnas as $campoBd => $campoVista)
+                                                <th>
+                                                    {{ $campoVista }}
+                                                </th>
                                             @endforeach
                                         @endforeach
 
