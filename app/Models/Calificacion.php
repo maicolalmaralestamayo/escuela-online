@@ -26,10 +26,10 @@ class Calificacion extends Model
                 // 'genero' => ['Género' => 'genero'],
                 // 'rol' => ['Rol' => 'rol'],
             ],
-            'dateTimes' => [
+            'timeStamps' => [
                 'created_at' => 'Creación',
                 'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación'
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }

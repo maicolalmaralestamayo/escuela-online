@@ -29,10 +29,10 @@ class Usuario extends Model
                 'genero' => ['genero' => 'Género'],
                 'rol' => ['rol' => 'Rol'],
             ],
-            'dateTimes' => [
+            'timeStamps' => [
                 'created_at' => 'Creación',
                 'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación'
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }

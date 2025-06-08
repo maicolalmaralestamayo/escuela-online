@@ -134,6 +134,22 @@
                 'pagina' => 1, 
                 'objetosPagina' => 5])
         @break
+
+        @case('16')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Actividades',
+                'modelo' => 'Actividad',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
+
+        @case('17')
+            @livewire('tabla', 
+                ['titulo' => 'Tabla Recursos',
+                'modelo' => 'Contenido',
+                'pagina' => 1, 
+                'objetosPagina' => 5])
+        @break
         
         @default
             {{--  --}}

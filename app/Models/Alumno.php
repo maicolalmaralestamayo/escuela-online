@@ -39,10 +39,10 @@ class Alumno extends Model
                     'seccion' => 'Sección',
                 ],
             ],
-            'dateTimes' => [
+            'timeStamps' => [
                 'created_at' => 'Creación',
                 'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación'
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }

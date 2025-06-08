@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('contenidos', function (Blueprint $table) {
             $table->id();
 
+            $table->string('contenido')->unique();//nombre del contenido
             $table->foreignId('usuario_id')->constrained();//quien subió el contenido
             $table->foreignId('tipo_contenido_id')->constrained();
             $table->string('path')->unique();

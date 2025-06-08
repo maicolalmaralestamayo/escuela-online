@@ -24,10 +24,10 @@ class AsignaturaGrado extends Model
                 'asignatura' => ['asignatura' => 'Asignatura'],
                 'grado' => ['grado' => 'Grado'],
             ],
-            'dateTimes' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación'
+            'timeStamps' => [
+                // 'created_at' => 'Creación',
+                // 'updated_at' => 'Actualización',
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }

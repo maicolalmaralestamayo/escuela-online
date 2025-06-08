@@ -11,9 +11,12 @@ return new class extends Migration
         Schema::create('actividads', function (Blueprint $table) {
             $table->id();
             
+            $table->string('actividad')->unique();
+            $table->string('descripcion')->unique();//enunciado
             $table->foreignId('usuario_id')->constrained();//creador de la actividad
             $table->timestamp('inicio');
             $table->timestamp('fin');
+            $table->foreignId('asignatura_grado_id')->nullable()->constrained()->default(null);
            
             $table->string('observacion')->nullable();
             $table->timestamps();

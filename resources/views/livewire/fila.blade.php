@@ -21,6 +21,13 @@
         @endforeach
     @endforeach
 
+    {{-- campos timeStamps --}}
+    @foreach ($campos['timeStamps'] as $campoBd => $campoVista)
+        <td>
+            {{ $objeto->$campoBd }}
+        </td>
+    @endforeach
+
     {{-- botonera de operaciones --}}
     <td>
         <div class="btn-group">

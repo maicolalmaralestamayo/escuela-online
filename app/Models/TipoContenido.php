@@ -25,10 +25,10 @@ class TipoContenido extends Model
                 // 'genero' => ['genero' => 'Género'],
                 // 'rol' => ['rol' => 'Rol'],
             ],
-            'dateTimes' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación'
+            'timeStamps' => [
+                // 'created_at' => 'Creación',
+                // 'updated_at' => 'Actualización',
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }

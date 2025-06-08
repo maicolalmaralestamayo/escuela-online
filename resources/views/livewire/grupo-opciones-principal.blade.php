@@ -66,11 +66,25 @@
              
              ['tituloOpcion' => 'Tipos de calific.',
              'iconoOpcion' => 'filetype-aac', 
-             'tituloAreaTrabajo' => 'Área de tipos de calificaciones', 
+             'tituloAreaTrabajo' => 'Área de Tipos de calificaciones', 
              'codigoAreaTrabajo' => '09'],
              
              ['tituloOpcion' => 'Calificaciones (Cursos)',
              'iconoOpcion' => 'journal-check', 
-             'tituloAreaTrabajo' => 'Área de calificaciones por cursos', 
+             'tituloAreaTrabajo' => 'Área de Calificaciones por cursos', 
              'codigoAreaTrabajo' => '10']]])
+
+    @livewire('Submenu', 
+        ['tituloSubmenu' => 'Evaluación', 
+        'iconoSubmenu' => 'speedometer2', 
+        'opcionesSubmenu' => [
+            ['tituloOpcion' => 'Actividades',
+             'iconoOpcion' => 'pencil-square', 
+             'tituloAreaTrabajo' => 'Área de Actividades', 
+             'codigoAreaTrabajo' => '16'], 
+
+            ['tituloOpcion' => 'Recursos',
+             'iconoOpcion' => 'collection-play-fill', 
+             'tituloAreaTrabajo' => 'Área de Recursos', 
+             'codigoAreaTrabajo' => '17'],]])
 </li>

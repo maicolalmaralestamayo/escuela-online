@@ -3,7 +3,7 @@
         <div class="card card-default">
             {{-- cabecera --}}
             <div class="card-header">
-                <h3 class="card-title">Tabla Usuarios</h3>
+                <h3 class="card-title"> {{ $titulo }} </h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -46,7 +46,7 @@
                             <table class="table table-bordered table-sm mx-auto">
                                 <thead>
                                     <tr>
-                                        {{-- input --}}
+                                        {{-- check --}}
                                         <td class="text-center">
                                             <button class="btn btn-sm btn-warning" title="Marcar todas las filas"
                                                 wire:click='invertirEstadoFilas'>
@@ -54,20 +54,27 @@
                                             </button>
                                         </td>
 
-                                        {{-- campos --}}
+                                        {{-- campos principales --}}
                                         @foreach ($campos['principales'] as $campoBd => $campoVista)
                                             <th>
                                                 {{ $campoVista }}
                                             </th>    
                                         @endforeach
 
-                                        {{-- llaves foráneas --}}
+                                        {{-- campos foráneos --}}
                                         @foreach ($campos['foraneos'] as $relacion => $columnas)
                                             @foreach ($columnas as $campoBd => $campoVista)
                                                 <th>
                                                     {{ $campoVista }}
                                                 </th>
                                             @endforeach
+                                        @endforeach
+
+                                        {{-- llaves timeStamps --}}
+                                        @foreach ($campos['timeStamps'] as $campoBd => $campoVista)
+                                            <th>
+                                                {{ $campoVista }}
+                                            </th>
                                         @endforeach
 
                                         {{-- operaciones --}}

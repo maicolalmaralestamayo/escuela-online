@@ -29,10 +29,10 @@ class CalificacionAsignaturaAlumno extends Model
                 'grado' => ['grado' => 'Grado'],
                 'calificacion' => ['calificacion' => 'Calificación'],
             ],
-            'dateTimes' => [
+            'timeStamps' => [
                 'created_at' => 'Creación',
                 'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación', 
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }

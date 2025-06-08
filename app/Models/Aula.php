@@ -25,10 +25,10 @@ class Aula extends Model
                 'grado' => ['grado' => 'Grado'],
                 'seccion' => ['seccion' => 'Sección'],
             ],
-            'dateTimes' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                'deleted_at' => 'Eliminación'
+            'timeStamps' => [
+                // 'created_at' => 'Creación',
+                // 'updated_at' => 'Actualización',
+                // 'deleted_at' => 'Eliminación'
             ]
         ];
     }
