@@ -12,11 +12,48 @@ class Fila extends Component
     public $objeto;
     public $estado;
     protected $listeners = [
-        'confirmarEliminarObjeto' => 'confirmarEliminarObjeto',
-        'confirmarEliminarMasivo' => 'confirmarEliminarMasivo',
-        'setEstadoFila' => 'setEstadoFila',
-        'recargarObjeto' => 'recargarObjeto'
+        'confirmarEliminarObjeto',
+        'confirmarEliminarMasivo',
+        'setEstadoFila',
+        'actualizar'
     ];
+
+    //OK
+    public function setEstadoFila($estado){
+        $this->estado = $estado;
+    }
+
+    public function setEstado($estado){
+        $this->estado = $estado;
+    }
+
+    //OK
+    public function solicitarEliminarObjeto(){
+        $this->dispatch('solicitarEliminarObjeto', $this->objeto->id)->to(ModalEliminarObjeto::class);
+    }
+
+    //OK
+    public function confirmarEliminarObjeto($idObjeto){
+        if ($this->objeto->id == $idObjeto) {
+            $objeto = $this->modeloString::find($idObjeto);
+            $objeto->delete();
+            $this->dispatch('paginar')->to(Tabla::class);
+        }
+    }
+
+    //OK
+    public function confirmarEliminarMasivo()
+    {
+        if ($this->estado == true) {
+            $objeto = $this->modeloString::find($this->objeto->id);
+            $objeto->delete();
+        }
+    }
+
+    //OK
+    public function actualizar(){
+        $this->dispatch('refresh');
+    }
 
     public function mount($campos, $modelo, $modeloString, $objeto, $estado)
     {
@@ -24,36 +61,6 @@ class Fila extends Component
         $this->modelo = $modelo;
         $this->modeloString = $modeloString;
         $this->objeto = $objeto;
-        $this->estado = $estado;
-    }
-
-    public function setEstadoFila($estado){
-        $this->estado = $estado;
-    }
-
-    public function solicitarEliminarObjeto(){
-        $this->dispatch('solicitarEliminarObjeto', $this->objeto->id)->to(ModalEliminarObjeto::class);
-    }
-
-    public function confirmarEliminarObjeto($idObjeto){
-        if ($this->objeto->id == $idObjeto) {
-            $objeto = $this->modeloString::find($idObjeto);
-            $objeto->delete();
-            $this->dispatch('confirmarEliminarObjeto', $this->objeto->id)->to(Tabla::class);
-        }
-    }
-
-    public function confirmarEliminarMasivo()
-    {
-        if ($this->estado == true) {
-            $objeto = $this->modeloString::find($this->objeto->id);
-            $objeto->delete();
-
-            $this->dispatch('setTotalObjetos')->to(Tabla::class);
-        }
-    }
-
-    public function setEstado($estado){
         $this->estado = $estado;
     }
 

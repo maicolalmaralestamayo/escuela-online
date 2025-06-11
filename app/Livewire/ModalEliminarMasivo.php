@@ -8,6 +8,7 @@ class ModalEliminarMasivo extends Component
 {
     public function confirmarEliminarMasivo(){
         $this->dispatch('confirmarEliminarMasivo')->to(Fila::class);
+        $this->dispatch('paginar')->to(Tabla::class);
     }
     
     public function render()

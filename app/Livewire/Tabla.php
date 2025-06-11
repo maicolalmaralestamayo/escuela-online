@@ -22,24 +22,28 @@ class Tabla extends Component
     public $estadoFilas=false;
 
     protected $listeners = [
-        'confirmarEliminarObjeto' => 'setTotalObjetos',
-        'setPagina' => 'setPagina',
-        'setTotalObjetos' => 'setTotalObjetos',
+        'confirmarEliminarObjeto',
+        'setPagina',
+        'setTotalObjetos',
+        'paginar'
     ];
-
-    public function recargarDatos(){
-        $this->dispatch('recargarObjeto')->to(Fila::class);
-    }
 
     public function invertirEstadoFilas(){
         $this->estadoFilas = !$this->estadoFilas;
         $this->dispatch('setEstadoFila', $this->estadoFilas)->to(Fila::class);
     }
 
+    //OK
     public function solicitarEliminarMasivo(){
         $this->dispatch('solicitarEliminarMasivo', $this->objeto->id)->to(ModalEliminarMasivo::class);
     }
 
+    //OK
+    public function actualizarMasivo(){
+        $this->dispatch('actualizar')->to(Fila::class);
+    }
+
+    //OK
     public function setTotalObjetos(){
         $this->totalObjetos = $this->modeloString::count();
         if ($this->pagina >= $this->totalPaginas) {
@@ -48,6 +52,7 @@ class Tabla extends Component
         $this->paginar();
     }
 
+    //OK
     public function setObjetosPagina($objetos){
         if ($objetos >= 1) {
             $this->objetosPagina = $objetos;
@@ -55,6 +60,7 @@ class Tabla extends Component
         }
     }
 
+    //OK
     public function setPagina($pagina)
     {
         if ($pagina >= 1 && $pagina <= $this->totalPaginas) {
@@ -63,6 +69,7 @@ class Tabla extends Component
         }
     }
 
+    //OK
     public function paginar(){
         $this->totalObjetos = $this->modeloString::count();
         $this->totalPaginas = ceil($this->totalObjetos / $this->objetosPagina);

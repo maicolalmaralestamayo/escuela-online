@@ -31,22 +31,22 @@
     {{-- botonera de operaciones --}}
     <td>
         <div class="btn-group">
-            <button type="button" class="btn btn-danger" title="Eliminar datos" data-toggle="modal"
-                data-target="#modalEliminarObjeto" wire:click="solicitarEliminarObjeto"><i class="bi bi-trash"></i>
+            <button type="button" class="btn btn-danger" title="Eliminar" data-toggle="modal"
+                data-target="#modalEliminarObjeto" wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto"><i class="bi bi-trash"></i>
             </button>
-            <button type="button" class="btn btn-primary bi bi-arrow-counterclockwise" title="Recargar datos"
-                wire:click="$refresh"></button>
-            <button type="button" class="btn btn-primary fas fa-circle" title="Datos relacionados"></button>
-            <button type="button" class="btn btn-primary fas fa-circle" title="Sincronizar datos"></button>
+            
+            <button type="button" class="btn btn-warning bi bi-database-down" title="Recargar" wire:click="actualizar"></button>
 
-            <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+            <button type="button" class="btn btn-primary bi bi-info-circle" title="Detalles" data-toggle="modal" data-target="#modalDetallesObjeto"></button>
+            
+            <!--<div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-dark dropdown-toggle dropdown-icon" data-toggle="dropdown">
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Opción 1</a>
                     <a class="dropdown-item" href="#">Opción 2</a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </td>
 </tr>

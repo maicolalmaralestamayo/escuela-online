@@ -9,7 +9,7 @@ class ModalEliminarObjeto extends Component
     public $idObjeto;
     
     protected $listeners = [
-        'solicitarEliminarObjeto' => 'solicitarEliminarObjeto'
+        'solicitarEliminarObjeto'
     ];
 
     public function solicitarEliminarObjeto($idObjeto){

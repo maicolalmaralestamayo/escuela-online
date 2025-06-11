@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->string('dni', 8)->unique();
             $table->foreignId('genero_id')->constrained();
-            $table->foreignId('rol_id')->constrained();
+            // $table->foreignId('rol_id')->constrained();
 
             $table->string('observacion')->nullable();
             $table->timestamps();

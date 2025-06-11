@@ -22,15 +22,16 @@
                                 <button type="button" class="btn btn-danger" title="Eliminar datos marcados"
                                     data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash"></i>
                                 </button>
-                                <button type="button" class="btn btn-primary  bi bi-arrow-counterclockwise"
-                                    title="Recargar datos de la tabla" wire:click='recargarDatos'
-                                    wire:confirm="Are you sure you want to delete this post?"></button>
-                                <button type="button" class="btn btn-primary fas fa-circle"
-                                    title="Datos relacionados"></button>
-                                <button type="button" class="btn btn-primary fas fa-circle"
-                                    title="Sincronizar datos"></button>
+                                
+                                <button type="button" class="btn btn-warning  bi bi-database-down"
+                                    title="Recargar datos de la tabla" wire:click='actualizarMasivo'>
+                                </button>
+                                
+                                <button type="button" class="btn btn-primary bi bi-plus-lg"
+                                    title="Insertar">
+                                </button>
 
-                                <div class="btn-group btn-group-sm">
+                                <!--<div class="btn-group btn-group-sm">
                                     <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon"
                                         data-toggle="dropdown">
                                     </button>
@@ -38,7 +39,7 @@
                                         <a class="dropdown-item" href="#">Opción 1</a>
                                         <a class="dropdown-item" href="#">Opción 2</a>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
 
                             <br>
@@ -132,4 +133,7 @@
     @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
     @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
     @livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))
+    @livewire('modal-insertar-objeto', key('modal-insertar-objeto'))
+    @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
+    @livewire('modal-detalles-objeto', key('modal-detalles-objeto'))
 </section>

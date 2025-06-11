@@ -1,18 +1,17 @@
 <div class="modal fade" id="modalObjetoEliminado" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title">Datos eliminados !!!</h5>
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title bi bi-trash">&nbsp;&nbsp;&nbsp;Eliminar</h5>
                 <button type="button" class="close" data-dismiss="modal" title="Cerrar">
                     <span>&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Los datos con identificador {{$id}} se eliminaron satisfactoriamente.
+                Los datos han sido eliminados satisfactoriamente.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                {{-- <button type="button" class="btn btn-danger" data-dismiss="modal" wire:click="eliminarObjeto">Eliminar</button> --}}
+                <button type="button" class="btn btn-danger bi bi-check2-all" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Aceptar</button>
             </div>
         </div>
     </div>

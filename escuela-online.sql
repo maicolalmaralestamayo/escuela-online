@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 05-06-2025 a las 12:53:13
+-- Tiempo de generación: 11-06-2025 a las 17:15:25
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.2.28
 
@@ -29,6 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `actividads` (
   `id` bigint UNSIGNED NOT NULL,
+  `actividad` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `usuario_id` bigint UNSIGNED NOT NULL,
   `inicio` timestamp NOT NULL,
   `fin` timestamp NOT NULL,
@@ -42,10 +44,10 @@ CREATE TABLE `actividads` (
 -- Volcado de datos para la tabla `actividads`
 --
 
-INSERT INTO `actividads` (`id`, `usuario_id`, `inicio`, `fin`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 2, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 6, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+INSERT INTO `actividads` (`id`, `actividad`, `descripcion`, `usuario_id`, `inicio`, `fin`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Actividad 1', 'Realizar resumen del tema 3', 1, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(2, 'Actividad 2', 'Realizar resumen del tema 2', 2, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(3, 'Actividad 3', 'Realizar resumen del tema 1', 1, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,11 +152,11 @@ CREATE TABLE `actividad_contenidos` (
 --
 
 INSERT INTO `actividad_contenidos` (`id`, `actividad_id`, `contenido_id`, `orden`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 1, 2, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 2, 3, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 2, 4, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(5, 3, 5, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 1, 1, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(2, 1, 2, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(3, 2, 3, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(4, 2, 4, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(5, 3, 5, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -193,8 +195,8 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`id`, `usuario_id`, `aula_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 4, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 5, 2, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 4, 1, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 5, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -217,8 +219,8 @@ CREATE TABLE `alumno_tutors` (
 --
 
 INSERT INTO `alumno_tutors` (`id`, `alumno_id`, `tutor_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 1, 2, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 1, 1, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 1, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -242,9 +244,9 @@ CREATE TABLE `anuncios` (
 --
 
 INSERT INTO `anuncios` (`id`, `usuario_id`, `inicio`, `fin`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 2, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 6, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 1, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(2, 2, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(3, 6, '2025-05-01 14:00:00', '2025-05-31 14:00:00', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -330,11 +332,11 @@ CREATE TABLE `anuncio_contenidos` (
 --
 
 INSERT INTO `anuncio_contenidos` (`id`, `anuncio_id`, `contenido_id`, `orden`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 1, 2, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 2, 3, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 2, 4, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(5, 3, 5, 0, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 1, 1, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(2, 1, 2, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(3, 2, 3, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(4, 2, 4, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(5, 3, 5, 0, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -529,8 +531,8 @@ CREATE TABLE `asignaturas` (
 --
 
 INSERT INTO `asignaturas` (`id`, `asignatura`, `abreviatura`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Matemática', 'MAT', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'Inglés', 'ING', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'Matemática', 'MAT', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(2, 'Inglés', 'ING', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -553,8 +555,8 @@ CREATE TABLE `asignatura_grados` (
 --
 
 INSERT INTO `asignatura_grados` (`id`, `asignatura_id`, `grado_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 1, 2, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 1, 1, NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(2, 1, 2, NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -577,8 +579,8 @@ CREATE TABLE `aulas` (
 --
 
 INSERT INTO `aulas` (`id`, `grado_id`, `seccion_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 2, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 1, 1, NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(2, 2, 1, NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -602,10 +604,10 @@ CREATE TABLE `calificacions` (
 --
 
 INSERT INTO `calificacions` (`id`, `calificacion`, `abreviatura`, `descripcion`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'A', 'A', NULL, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'B', 'B', NULL, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 'C', 'C', NULL, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 'AD', 'AD', NULL, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'A', 'A', NULL, NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(2, 'B', 'B', NULL, NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(3, 'C', 'C', NULL, NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(4, 'AD', 'AD', NULL, NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -632,7 +634,6 @@ CREATE TABLE `calificacion_asignatura_alumnos` (
 
 CREATE TABLE `contactos` (
   `id` bigint UNSIGNED NOT NULL,
-  `usuario_id` bigint UNSIGNED NOT NULL,
   `correo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `celular` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `observacion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -645,9 +646,9 @@ CREATE TABLE `contactos` (
 -- Volcado de datos para la tabla `contactos`
 --
 
-INSERT INTO `contactos` (`id`, `usuario_id`, `correo`, `celular`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'roberto@gmail.com', '+51 000000000', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 2, 'diana@hotmail.com', '+51 000000001', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+INSERT INTO `contactos` (`id`, `correo`, `celular`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'roberto@gmail.com', '+51 000000000', NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 'diana@hotmail.com', '+51 000000001', NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -657,6 +658,7 @@ INSERT INTO `contactos` (`id`, `usuario_id`, `correo`, `celular`, `observacion`,
 
 CREATE TABLE `contenidos` (
   `id` bigint UNSIGNED NOT NULL,
+  `contenido` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `usuario_id` bigint UNSIGNED NOT NULL,
   `tipo_contenido_id` bigint UNSIGNED NOT NULL,
   `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -670,12 +672,12 @@ CREATE TABLE `contenidos` (
 -- Volcado de datos para la tabla `contenidos`
 --
 
-INSERT INTO `contenidos` (`id`, `usuario_id`, `tipo_contenido_id`, `path`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, '/public/contenido.txt', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 1, 2, '/public/contenido.mp3', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 2, 3, '/public/contenido.jpeg', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 2, 4, '/public/contenido.mp4', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(5, 6, 5, '/public/contenido.docx', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+INSERT INTO `contenidos` (`id`, `contenido`, `usuario_id`, `tipo_contenido_id`, `path`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Diagrama de inanición', 1, 1, '/public/contenido.txt', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(2, 'Río meridional del Ecuador', 1, 2, '/public/contenido.mp3', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(3, 'III Conferencia Mundial del Clima', 2, 3, '/public/contenido.jpeg', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(4, 'Discurso del presidente de la asociación', 2, 4, '/public/contenido.mp4', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL),
+(5, 'Actualización de los dispositivos', 6, 5, '/public/contenido.docx', NULL, '2025-06-11 20:08:33', '2025-06-11 20:08:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -686,6 +688,7 @@ INSERT INTO `contenidos` (`id`, `usuario_id`, `tipo_contenido_id`, `path`, `obse
 CREATE TABLE `directivos` (
   `id` bigint UNSIGNED NOT NULL,
   `usuario_id` bigint UNSIGNED NOT NULL,
+  `contacto_id` bigint UNSIGNED NOT NULL,
   `observacion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -696,8 +699,9 @@ CREATE TABLE `directivos` (
 -- Volcado de datos para la tabla `directivos`
 --
 
-INSERT INTO `directivos` (`id`, `usuario_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+INSERT INTO `directivos` (`id`, `usuario_id`, `contacto_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 2, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -708,6 +712,7 @@ INSERT INTO `directivos` (`id`, `usuario_id`, `observacion`, `created_at`, `upda
 CREATE TABLE `docentes` (
   `id` bigint UNSIGNED NOT NULL,
   `usuario_id` bigint UNSIGNED NOT NULL,
+  `contacto_id` bigint UNSIGNED NOT NULL,
   `aula_id` bigint UNSIGNED NOT NULL,
   `observacion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -719,9 +724,9 @@ CREATE TABLE `docentes` (
 -- Volcado de datos para la tabla `docentes`
 --
 
-INSERT INTO `docentes` (`id`, `usuario_id`, `aula_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 6, 2, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+INSERT INTO `docentes` (`id`, `usuario_id`, `contacto_id`, `aula_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 1, 1, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 6, 2, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -744,8 +749,8 @@ CREATE TABLE `generos` (
 --
 
 INSERT INTO `generos` (`id`, `genero`, `abreviatura`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'masculino', 'M', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'femenino', 'F', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'masculino', 'M', NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 'femenino', 'F', NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -768,12 +773,12 @@ CREATE TABLE `grados` (
 --
 
 INSERT INTO `grados` (`id`, `grado`, `abreviatura`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Primero', '1ro.', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'Segundo', '2do.', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 'Tercero', '3ro.', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 'Cuarto', '4to.', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(5, 'Quinto', '5to.', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(6, 'Sexto', '6to.', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'Primero', '1ro.', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(2, 'Segundo', '2do.', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(3, 'Tercero', '3ro.', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(4, 'Cuarto', '4to.', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(5, 'Quinto', '5to.', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(6, 'Sexto', '6to.', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -856,10 +861,10 @@ CREATE TABLE `rols` (
 --
 
 INSERT INTO `rols` (`id`, `rol`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Directivo', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'Docente', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 'Tutor', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 'Alumno', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'Directivo', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(2, 'Docente', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(3, 'Tutor', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(4, 'Alumno', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -881,9 +886,9 @@ CREATE TABLE `seccions` (
 --
 
 INSERT INTO `seccions` (`id`, `seccion`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'A', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'B', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 'C', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'A', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(2, 'B', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL),
+(3, 'C', NULL, '2025-06-11 20:08:31', '2025-06-11 20:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -905,11 +910,12 @@ CREATE TABLE `tipo_contenidos` (
 --
 
 INSERT INTO `tipo_contenidos` (`id`, `tipo`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'texto', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'audio', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 'imagen', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 'video', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(5, 'documento', NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'Documento', 'Documentos en formato .doc, .docx, .pdf y otros.', '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 'Presentación digital', 'Documentos en formato .ppt, .pptx y otros.', '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(3, 'Audio', 'Archivos de audio en formato .mp3. y otros', '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(4, 'Imagen', 'Archivos de imagen en formato .jpg, .jpeg, .png y otros.', '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(5, 'Video', 'Archivos de imagen en formato .mp4 y otros.', '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(6, 'Otro tipo de fichero', 'Otro tipo de ficheros.', '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -920,6 +926,7 @@ INSERT INTO `tipo_contenidos` (`id`, `tipo`, `observacion`, `created_at`, `updat
 CREATE TABLE `tutors` (
   `id` bigint UNSIGNED NOT NULL,
   `usuario_id` bigint UNSIGNED NOT NULL,
+  `contacto_id` bigint UNSIGNED NOT NULL,
   `observacion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -930,9 +937,9 @@ CREATE TABLE `tutors` (
 -- Volcado de datos para la tabla `tutors`
 --
 
-INSERT INTO `tutors` (`id`, `usuario_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 3, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 4, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+INSERT INTO `tutors` (`id`, `usuario_id`, `contacto_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 3, 1, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 4, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -960,12 +967,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre_1`, `nombre_2`, `apellido_1`, `apellido_2`, `dni`, `genero_id`, `rol_id`, `observacion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Roberto', 'David', 'González', 'Torres', '00000000', 1, 1, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(2, 'Diana', NULL, 'Fernández', 'López', '00000001', 2, 2, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(3, 'Sergio', NULL, 'Castañea', 'Portuondo', '00000002', 1, 3, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(4, 'Lola', NULL, 'Fonseca', 'Martínez', '00000003', 2, 4, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(5, 'Luis', NULL, 'Fonseca', 'Martínez', '00000004', 1, 4, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL),
-(6, 'Martín', NULL, 'Valdivia', 'Proenza', '00000005', 1, 2, NULL, '2025-06-05 16:49:52', '2025-06-05 16:49:52', NULL);
+(1, 'Roberto', 'David', 'González', 'Torres', '00000000', 1, 1, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(2, 'Diana', NULL, 'Fernández', 'López', '00000001', 2, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(3, 'Sergio', NULL, 'Castañea', 'Portuondo', '00000002', 1, 3, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(4, 'Lola', NULL, 'Fonseca', 'Martínez', '00000003', 2, 4, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(5, 'Luis', NULL, 'Fonseca', 'Martínez', '00000004', 1, 4, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL),
+(6, 'Martín', NULL, 'Valdivia', 'Proenza', '00000005', 1, 2, NULL, '2025-06-11 20:08:32', '2025-06-11 20:08:32', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -976,6 +983,8 @@ INSERT INTO `usuarios` (`id`, `nombre_1`, `nombre_2`, `apellido_1`, `apellido_2`
 --
 ALTER TABLE `actividads`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `actividads_actividad_unique` (`actividad`),
+  ADD UNIQUE KEY `actividads_descripcion_unique` (`descripcion`),
   ADD KEY `actividads_usuario_id_foreign` (`usuario_id`);
 
 --
@@ -1230,14 +1239,14 @@ ALTER TABLE `calificacion_asignatura_alumnos`
 ALTER TABLE `contactos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `contactos_correo_unique` (`correo`),
-  ADD UNIQUE KEY `contactos_celular_unique` (`celular`),
-  ADD KEY `contactos_usuario_id_foreign` (`usuario_id`);
+  ADD UNIQUE KEY `contactos_celular_unique` (`celular`);
 
 --
 -- Indices de la tabla `contenidos`
 --
 ALTER TABLE `contenidos`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `contenidos_contenido_unique` (`contenido`),
   ADD UNIQUE KEY `contenidos_path_unique` (`path`),
   ADD KEY `contenidos_usuario_id_foreign` (`usuario_id`),
   ADD KEY `contenidos_tipo_contenido_id_foreign` (`tipo_contenido_id`);
@@ -1247,7 +1256,8 @@ ALTER TABLE `contenidos`
 --
 ALTER TABLE `directivos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `directivos_usuario_id_foreign` (`usuario_id`);
+  ADD KEY `directivos_usuario_id_foreign` (`usuario_id`),
+  ADD KEY `directivos_contacto_id_foreign` (`contacto_id`);
 
 --
 -- Indices de la tabla `docentes`
@@ -1255,6 +1265,7 @@ ALTER TABLE `directivos`
 ALTER TABLE `docentes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `docentes_usuario_id_foreign` (`usuario_id`),
+  ADD KEY `docentes_contacto_id_foreign` (`contacto_id`),
   ADD KEY `docentes_aula_id_foreign` (`aula_id`);
 
 --
@@ -1305,7 +1316,8 @@ ALTER TABLE `tipo_contenidos`
 --
 ALTER TABLE `tutors`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `tutors_usuario_id_foreign` (`usuario_id`);
+  ADD KEY `tutors_usuario_id_foreign` (`usuario_id`),
+  ADD KEY `tutors_contacto_id_foreign` (`contacto_id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -1528,7 +1540,7 @@ ALTER TABLE `contenidos`
 -- AUTO_INCREMENT de la tabla `directivos`
 --
 ALTER TABLE `directivos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
@@ -1570,7 +1582,7 @@ ALTER TABLE `seccions`
 -- AUTO_INCREMENT de la tabla `tipo_contenidos`
 --
 ALTER TABLE `tipo_contenidos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tutors`
@@ -1796,12 +1808,6 @@ ALTER TABLE `calificacion_asignatura_alumnos`
   ADD CONSTRAINT `calificacion_asignatura_alumnos_calificacion_id_foreign` FOREIGN KEY (`calificacion_id`) REFERENCES `calificacions` (`id`);
 
 --
--- Filtros para la tabla `contactos`
---
-ALTER TABLE `contactos`
-  ADD CONSTRAINT `contactos_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
-
---
 -- Filtros para la tabla `contenidos`
 --
 ALTER TABLE `contenidos`
@@ -1812,6 +1818,7 @@ ALTER TABLE `contenidos`
 -- Filtros para la tabla `directivos`
 --
 ALTER TABLE `directivos`
+  ADD CONSTRAINT `directivos_contacto_id_foreign` FOREIGN KEY (`contacto_id`) REFERENCES `contactos` (`id`),
   ADD CONSTRAINT `directivos_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
@@ -1819,12 +1826,14 @@ ALTER TABLE `directivos`
 --
 ALTER TABLE `docentes`
   ADD CONSTRAINT `docentes_aula_id_foreign` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`id`),
+  ADD CONSTRAINT `docentes_contacto_id_foreign` FOREIGN KEY (`contacto_id`) REFERENCES `contactos` (`id`),
   ADD CONSTRAINT `docentes_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
 -- Filtros para la tabla `tutors`
 --
 ALTER TABLE `tutors`
+  ADD CONSTRAINT `tutors_contacto_id_foreign` FOREIGN KEY (`contacto_id`) REFERENCES `contactos` (`id`),
   ADD CONSTRAINT `tutors_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
