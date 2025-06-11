@@ -27,7 +27,7 @@ class Usuario extends Model
             ],
             'foraneos' => [
                 'genero' => ['genero' => 'Género'],
-                'rol' => ['rol' => 'Rol'],
+                // 'rol' => ['rol' => 'Rol'],
             ],
             'timeStamps' => [
                 'created_at' => 'Creación',

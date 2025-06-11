@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AsignaturaGradoSeeder::class);
         $this->call(SeccionSeeder::class);
         $this->call(AulaSeeder::class);
-        $this->call(RolSeeder::class);
+        // $this->call(RolSeeder::class);
         $this->call(GeneroSeeder::class);
         $this->call(UsuarioSeeder::class);
         $this->call(ContactoSeeder::class);

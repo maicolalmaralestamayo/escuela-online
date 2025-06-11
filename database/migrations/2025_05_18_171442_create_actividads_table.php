@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('usuario_id')->constrained();//creador de la actividad
             $table->timestamp('inicio');
             $table->timestamp('fin');
-            $table->foreignId('asignatura_grado_id')->nullable()->constrained()->default(null);
+            // $table->foreignId('asignatura_grado_id')->nullable()->constrained()->default(null);
            
             $table->string('observacion')->nullable();
             $table->timestamps();
