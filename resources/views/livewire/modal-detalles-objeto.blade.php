@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                mostrar los detalles aquí
+                @livewire('Detalles' . $modelo, key('detalles' . $modelo))
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-dismiss="modal" wire:click="confirmarInsertarObjeto" data-toggle="modal" data-target="#modalObjetoInsertado">Actualizar</button>    

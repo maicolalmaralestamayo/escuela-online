@@ -37,7 +37,7 @@
             
             <button type="button" class="btn btn-warning bi bi-database-down" title="Recargar" wire:click="actualizar"></button>
 
-            <button type="button" class="btn btn-primary bi bi-info-circle" title="Detalles" data-toggle="modal" data-target="#modalDetallesObjeto"></button>
+            <button type="button" class="btn btn-primary bi bi-info-circle" title="Detalles" data-toggle="modal" wire:click="detallesObjeto" data-target="#modalDetallesObjeto"></button>
             
             <!--<div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-dark dropdown-toggle dropdown-icon" data-toggle="dropdown">

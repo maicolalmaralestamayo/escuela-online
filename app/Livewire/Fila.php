@@ -55,6 +55,10 @@ class Fila extends Component
         $this->dispatch('refresh');
     }
 
+    public function detallesObjeto(){
+        $this->dispatch('setModelo', modelo: $this->modelo)->to(ModalDetallesObjeto::class);
+    }
+
     public function mount($campos, $modelo, $modeloString, $objeto, $estado)
     {
         $this->campos = $campos;
