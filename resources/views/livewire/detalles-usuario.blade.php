@@ -69,8 +69,7 @@
             <div class="form-group">
                 <label for="selectorGenero">Género</label>
                 <select class="custom-select rounded" id="selectorGenero">
-                    {{ $generos = 'App\Models\Genero'::all() }}
-
+                    {{ $generos = 'App\\Models\\Genero'::all() }}
                     @foreach ($generos as $genero)
                         <option @if ($id && $genero->id == $objeto->genero_id)
                             selected
