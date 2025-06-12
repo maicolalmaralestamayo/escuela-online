@@ -70,9 +70,8 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <label for="genero">Género {{ $genero_id }}</label>
+                <label for="genero">Género</label>
                 <select class="custom-select" id="genero" wire:model.live='genero_id'>
-                    {{ $generos = 'App\Models\Genero'::all() }}
                     @foreach ($generos as $genero)
                         <option value={{ $genero->id }}> {{$genero->genero}} </option>
                     @endforeach
@@ -83,7 +82,11 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="observacion">Observación</label>
-                <textarea id="observacion" class="form-control" rows="2" wire:model.live='observacion'>{{$observacion}}</textarea>
+                <textarea id="observacion" class="form-control" rows="2" wire:model.live='observacion'>
+                    @if ($id)
+                        {{$observacion}}
+                    @endif
+                </textarea>
             </div>
         </div>
     </div>
