@@ -23,6 +23,11 @@ class ModalDetallesObjeto extends Component
         $this->dispatch('solicitarEliminarObjeto', $this->id)->to(ModalEliminarObjeto::class);
     }
 
+    //OK
+    public function solicitarInsertarObjeto(){
+        $this->dispatch('insertar')->to(FormularioUsuario::class);
+    }
+
     public function mount($modelo='Usuario', $id=null){
         $this->modelo = $modelo;
         $this->id = $id;

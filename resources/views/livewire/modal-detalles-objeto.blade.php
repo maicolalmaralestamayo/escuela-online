@@ -21,7 +21,7 @@
 
                     <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto">&nbsp;&nbsp;&nbsp;Eliminar</button>
                 @else
-                    <button type="button" class="btn btn-primary bi bi-database-up" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Insertar</button>
+                    <button type="button" class="btn btn-primary bi bi-database-up" data-dismiss="modal" wire:click="solicitarInsertarObjeto" data-toggle="modal">&nbsp;&nbsp;&nbsp;Insertar</button>
                 @endif
                     
                 <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>

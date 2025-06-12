@@ -19,15 +19,15 @@
                         <div class="table-responsive">
                             {{-- botonera de acciones de la tabla --}}
                             <div class="btn-group mb-3">
-                                <button type="button" class="btn btn-danger" title="Eliminar datos marcados"
-                                    data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash"></i>
+                                <button type="button" class="btn btn-outline-danger" title="Eliminar datos marcados"
+                                    data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash-fill"></i>
                                 </button>
 
-                                <button type="button" class="btn btn-warning  bi bi-database-down"
+                                <button type="button" class="btn btn-outline-warning  bi bi-database-fill-down"
                                     title="Recargar datos de la tabla" wire:click='actualizarMasivo'>
                                 </button>
 
-                                <button type="button" class="btn btn-primary bi bi-plus-lg" title="Insertar"
+                                <button type="button" class="btn btn-outline-primary bi bi-plus-lg" title="Insertar"
                                     data-toggle="modal" wire:click="solicitarInsertarObjeto" data-target="#modalDetallesObjeto">
                                 </button>
 
