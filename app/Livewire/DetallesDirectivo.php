@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
-use App\Models\Genero;
+use App\Models\Directivo;
 use Livewire\Component;
 
-class DetallesGenero extends Component
+class DetallesDirectivo extends Component
 {
     public $objeto;
     public $id;
@@ -14,12 +14,12 @@ class DetallesGenero extends Component
         $this->id = $id;
 
         if ($id) {
-            $this->objeto = Genero::find($id);
+            $this->objeto = Directivo::find($id);
         }
     }
     
     public function render()
     {
-        return view('livewire.detalles-genero');
+        return view('livewire.detalles-directivo');
     }
 }

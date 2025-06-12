@@ -22,13 +22,13 @@
                                 <button type="button" class="btn btn-danger" title="Eliminar datos marcados"
                                     data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash"></i>
                                 </button>
-                                
+
                                 <button type="button" class="btn btn-warning  bi bi-database-down"
                                     title="Recargar datos de la tabla" wire:click='actualizarMasivo'>
                                 </button>
-                                
-                                <button type="button" class="btn btn-primary bi bi-plus-lg"
-                                    title="Insertar">
+
+                                <button type="button" class="btn btn-primary bi bi-plus-lg" title="Insertar"
+                                    data-toggle="modal" wire:click="solicitarInsertarObjeto" data-target="#modalDetallesObjeto">
                                 </button>
 
                                 <!--<div class="btn-group btn-group-sm">
@@ -57,25 +57,25 @@
 
                                         {{-- campos principales --}}
                                         @foreach ($campos['principales'] as $campoBd => $campoVista)
-                                            <th>
-                                                {{ $campoVista }}
-                                            </th>    
+                                        <th>
+                                            {{ $campoVista }}
+                                        </th>
                                         @endforeach
 
                                         {{-- campos foráneos --}}
                                         @foreach ($campos['foraneos'] as $relacion => $columnas)
-                                            @foreach ($columnas as $campoBd => $campoVista)
-                                                <th>
-                                                    {{ $campoVista }}
-                                                </th>
-                                            @endforeach
+                                        @foreach ($columnas as $campoBd => $campoVista)
+                                        <th>
+                                            {{ $campoVista }}
+                                        </th>
+                                        @endforeach
                                         @endforeach
 
                                         {{-- llaves timeStamps --}}
                                         @foreach ($campos['timeStamps'] as $campoBd => $campoVista)
-                                            <th>
-                                                {{ $campoVista }}
-                                            </th>
+                                        <th>
+                                            {{ $campoVista }}
+                                        </th>
                                         @endforeach
 
                                         {{-- operaciones --}}
@@ -85,16 +85,16 @@
 
                                 <tbody>
                                     @foreach ($objetosPaginados as $objeto)
-                                        @livewire( 'fila',
-                                            [
-                                            'campos' => $campos,
-                                            'modelo' => $modelo,
-                                            'modeloString' => $modeloString,
-                                            'objeto' => $objeto,
-                                            'estado' => $estadoFilas
-                                            ],
-                                            
-                                            key('fila-body' . $objeto->id . $estadoFilas) )
+                                    @livewire( 'fila',
+                                    [
+                                    'campos' => $campos,
+                                    'modelo' => $modelo,
+                                    'modeloString' => $modeloString,
+                                    'objeto' => $objeto,
+                                    'estado' => $estadoFilas
+                                    ],
+
+                                    key('fila-body' . $objeto->id . $estadoFilas . $totalObjetos) )
                                     @endforeach
                                 </tbody>
                             </table>
@@ -114,7 +114,8 @@
                             <span class="input-group-text bg-primary">Datos por página</span>
                         </div>
                         <input type="text" class="form-control text-center" value={{ $objetosPagina }}
-                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;" name='datos-por-pagina'>
+                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;"
+                            name='datos-por-pagina'>
                     </div>
 
                     <div class="input-group input-group-sm m-1" style="width: auto;">
@@ -122,7 +123,8 @@
                             <span class="input-group-text bg-primary">Total de datos</span>
                         </div>
                         <input type="text" class="form-control text-center" value={{ $totalObjetos }} readonly
-                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;" name='total-de-datos'>
+                            wire:keydown.enter="setObjetosPagina($event.target.value)" style="max-width: 50px;"
+                            name='total-de-datos'>
                     </div>
                 </div>
             </div>

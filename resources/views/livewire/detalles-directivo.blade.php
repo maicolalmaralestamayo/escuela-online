@@ -8,26 +8,6 @@
                     disabled>
             </div>
         </div>
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label>Género</label>
-                <input type="text" class="form-control" @if ($id) value={{ $objeto->genero }}
-                @else
-                {{-- --}}
-                @endif>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label>Abreviatura</label>
-                <input type="text" class="form-control" @if ($id) value={{ $objeto->abreviatura }}
-                @else
-                {{-- --}}
-                @endif>
-            </div>
-        </div>
     </div>
 
     <div class="row">

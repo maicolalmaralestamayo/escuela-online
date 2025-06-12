@@ -2,20 +2,29 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" >Detalles</h5>
+                @if ($id)
+                    <h5 class="modal-title bi bi-chevron-bar-expand">&nbsp;&nbsp;&nbsp;Detalles</h5>
+                @else
+                    <h5 class="modal-title bi bi-database-up">&nbsp;&nbsp;&nbsp;Insertar</h5>
+                @endif
+
                 <button type="button" class="close" data-dismiss="modal" title="Cerrar">
                     <span>&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                @livewire('Detalles' . $modelo, key('detalles' . $modelo))
+                @livewire('Detalles' . $modelo, ['id' => $id], key('detalles' . $modelo . $id))
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-dismiss="modal" wire:click="confirmarInsertarObjeto" data-toggle="modal" data-target="#modalObjetoInsertado">Actualizar</button>    
+                @if ($id)
+                    <button type="button" class="btn btn-warning bi bi-database-down" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Actualizar</button>
 
-                <button type="button" class="btn btn-danger" data-dismiss="modal" wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto">Eliminar</button>
-
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
+                    <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto">&nbsp;&nbsp;&nbsp;Eliminar</button>
+                @else
+                    <button type="button" class="btn btn-primary bi bi-database-up" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Insertar</button>
+                @endif
+                    
+                <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>
             </div>
         </div>
     </div>

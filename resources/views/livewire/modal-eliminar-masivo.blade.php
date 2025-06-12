@@ -12,8 +12,8 @@
                 ¿Realmente desea eliminar datos?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>
                 <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="confirmarEliminarMasivo" data-toggle="modal" data-target="#modalMasivoEliminado">&nbsp;&nbsp;&nbsp;Eliminar</button>
+                <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>
             </div>
         </div>
     </div>

@@ -34,12 +34,18 @@ class Tabla extends Component
     }
 
     //OK
+    public function solicitarInsertarObjeto(){
+        $this->dispatch('mount', modelo: $this->modelo, id: null)->to(ModalDetallesObjeto::class);
+    }
+
+    //OK
     public function solicitarEliminarMasivo(){
         $this->dispatch('solicitarEliminarMasivo', $this->objeto->id)->to(ModalEliminarMasivo::class);
     }
 
     //OK
     public function actualizarMasivo(){
+        $this->paginar();
         $this->dispatch('actualizar')->to(Fila::class);
     }
 
