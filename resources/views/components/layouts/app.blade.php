@@ -30,23 +30,23 @@
   <!-- Java Script -->
   <script src="admin-lte/plugins/jquery/jquery.min.js"></script>
   <script src="admin-lte/plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script>
-    $.widget.bridge('uibutton', $.ui.button)
-  </script>
   <script src="admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="admin-lte/plugins/chart.js/Chart.min.js"></script>
-  <script src="admin-lte/plugins/sparklines/sparkline.js"></script>
-  <script src="admin-lte/plugins/jquery-knob/jquery.knob.min.js"></script>
-  <script src="admin-lte/plugins/moment/moment.min.js"></script>
-  <script src="admin-lte/plugins/daterangepicker/daterangepicker.js"></script>
-  <script src="admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-  <script src="admin-lte/plugins/summernote/summernote-bs4.min.js"></script>
   <script src="admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <script src="admin-lte/dist/js/adminlte.js"></script>
+  
   {{-- activar solo cuantdo se utilice este tipo de componente --}}
+  
+  {{-- <script src="admin-lte/plugins/chart.js/Chart.min.js"></script> --}}
+  {{-- <script src="admin-lte/plugins/sparklines/sparkline.js"></script> --}}
+  {{-- <script src="admin-lte/plugins/jquery-knob/jquery.knob.min.js"></script> --}}
+  {{-- <script src="admin-lte/plugins/moment/moment.min.js"></script> --}}
+  {{-- <script src="admin-lte/plugins/daterangepicker/daterangepicker.js"></script> --}}
+  {{-- <script src="admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> --}}
+  {{-- <script src="admin-lte/plugins/summernote/summernote-bs4.min.js"></script> --}}
   {{-- <script src="admin-lte/dist/js/pages/dashboard.js"></script> --}}
   {{-- <script src="admin-lte/plugins/jqvmap/jquery.vmap.min.js"></script> --}}
   {{-- <script src="admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> --}}
+  
   @livewireScripts
 </body>
 

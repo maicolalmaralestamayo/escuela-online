@@ -13,11 +13,9 @@
 
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="nombre_1">Primer nombre</label>
-                <input type="text" id="nombre_1" class="form-control" @if ($id) value={{ $objeto->nombre_1 }}
-                @else
-                {{-- --}}
-                @endif>
+                <label for="nombre_1">Primer nombre {{ $nombre_1 }}</label>
+                {{-- <input type="text" class="form-control" wire:model="nombre_1" id="nombre_1"> --}}
+                <input type="text" id="nombre_1" class="form-control" wire:model='nombre_1'>
             </div>
         </div>
 
