@@ -14,6 +14,11 @@ class ModalDetallesObjeto extends Component
     ];
 
     //OK
+    public function solicitarActualizarObjeto(){
+        $this->dispatch('actualizar', $this->id)->to(FormularioUsuario::class);
+    }
+
+    //OK
     public function solicitarEliminarObjeto(){
         $this->dispatch('solicitarEliminarObjeto', $this->id)->to(ModalEliminarObjeto::class);
     }

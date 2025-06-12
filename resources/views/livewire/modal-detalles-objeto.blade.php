@@ -1,5 +1,5 @@
 <div class="modal fade" id="modalDetallesObjeto" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 @if ($id)
@@ -13,11 +13,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                @livewire('Detalles' . $modelo, ['id' => $id], key('detalles' . $modelo . $id))
+                @livewire('Formulario' . $modelo, ['id' => $id], key('detalles' . $modelo . $id))
             </div>
             <div class="modal-footer">
                 @if ($id)
-                    <button type="button" class="btn btn-warning bi bi-database-down" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Actualizar</button>
+                    <button type="button" class="btn btn-warning bi bi-database-down" data-dismiss="modal" wire:click='solicitarActualizarObjeto' data-toggle="modal" data-target="#modalObjetoActualizado">&nbsp;&nbsp;&nbsp;Actualizar</button>
 
                     <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto">&nbsp;&nbsp;&nbsp;Eliminar</button>
                 @else

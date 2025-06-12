@@ -138,4 +138,5 @@
     @livewire('modal-insertar-objeto', key('modal-insertar-objeto'))
     @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
     @livewire('modal-detalles-objeto', key('modal-detalles-objeto'))
+    @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
 </section>

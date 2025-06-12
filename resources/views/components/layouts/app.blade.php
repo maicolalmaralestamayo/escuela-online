@@ -33,6 +33,7 @@
   <script src="admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <script src="admin-lte/dist/js/adminlte.js"></script>
+  @livewireScripts
   
   {{-- activar solo cuantdo se utilice este tipo de componente --}}
   
@@ -46,8 +47,7 @@
   {{-- <script src="admin-lte/dist/js/pages/dashboard.js"></script> --}}
   {{-- <script src="admin-lte/plugins/jqvmap/jquery.vmap.min.js"></script> --}}
   {{-- <script src="admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> --}}
-  
-  @livewireScripts
+
 </body>
 
 </html>
