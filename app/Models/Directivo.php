@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\BelongsToRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,20 +23,18 @@ class Directivo extends Model
                 'observacion' => 'Observación'
             ],
             'foraneos' => [
-                'usuario' => [
-                    'nombre_1' => 'Nombre',
-                    'nombre_2' => 'Segundo Nombre',
-                    'apellido_1' => 'Apellido',
-                    'apellido_2' => 'Segundo Apellido',
-                    'dni' => 'DNI',
-                ],
-                'genero' => [
-                    'abreviatura' => 'Género',
-                ],
-                'contacto' => [
-                    'correo' => 'Correo',
-                    'celular' => 'Celular',
-                ],
+                // 'usuario' => [
+                //     'nombre_1' => 'Nombre',
+                    // 'nombre_2' => 'Segundo Nombre',
+                    // 'apellido_1' => 'Apellido',
+                    // 'apellido_2' => 'Segundo Apellido',
+                    // 'dni' => 'DNI',
+                // ],
+                'genero' => ['abreviatura' => 'Género'],
+                // 'contacto' => [
+                //     'correo' => 'Correo',
+                //     'celular' => 'Celular',
+                // ],
             ],
             'timeStamps' => [
                 // 'created_at' => 'Creación',
@@ -53,8 +52,8 @@ class Directivo extends Model
         return $this->belongsTo(Contacto::class);
     }
 
-    public function genero(){
-        return $this->usuario->genero();
+    public function genero(): BelongsToRelationship {
+        return $this->BelongsToRelationship();
     }
 
 }

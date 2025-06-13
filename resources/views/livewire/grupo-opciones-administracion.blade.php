@@ -14,12 +14,7 @@
             ['tituloOpcion' => 'Usuarios',
              'iconoOpcion' => 'people', 
              'tituloAreaTrabajo' => 'Área de Usuarios', 
-             'codigoAreaTrabajo' => '01'],
-             
-             ['tituloOpcion' => 'Roles',
-             'iconoOpcion' => 'person-check', 
-             'tituloAreaTrabajo' => 'Área de Roles', 
-             'codigoAreaTrabajo' => '03']]])
+             'codigoAreaTrabajo' => '01'],]])
     
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Otros nomencladores', 
