@@ -32,4 +32,9 @@ class Genero extends Model
             ]
         ];
     }
+
+    public function usuarios(): HasMany
+    {
+        return $this->hasMany(Usuario::class);
+    }
 }

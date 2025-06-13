@@ -94,7 +94,7 @@
                                     'estado' => $estadoFilas
                                     ],
 
-                                    key('fila-body' . $objeto->id . $estadoFilas . $totalObjetos) )
+                                    key('fila-body' . $objeto->id . $estadoFilas . $totalObjetos))
                                     @endforeach
                                 </tbody>
                             </table>

@@ -41,8 +41,8 @@ class Usuario extends Model
         return $this->belongsTo(Genero::class);
     }
 
-    public function rol(): BelongsTo
-    {
-        return $this->belongsTo(Rol::class);
-    }
+    // public function directivo(): HasOne
+    // {
+    //     return $this->hasone(Directivo::class);
+    // }
 }

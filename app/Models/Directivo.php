@@ -18,23 +18,24 @@ class Directivo extends Model
         return [
             'principales' => [
                 'id' => 'ID',
+                // 'observacion' => 'Observación'
             ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
+
             'foraneos' => [
-                // 'usuario' => [
-                //     'nombre_1' => 'Nombre',
+                'usuario' => [
+                    'nombre_1' => 'Nombre',
                     // 'nombre_2' => 'Segundo Nombre',
-                    // 'apellido_1' => 'Apellido',
+                    'apellido_1' => 'Apellido',
                     // 'apellido_2' => 'Segundo Apellido',
-                    // 'dni' => 'DNI',
-                // ],
+                    'dni' => 'DNI',
+                ],
+
                 'genero' => ['abreviatura' => 'Género'],
-                // 'contacto' => [
-                //     'correo' => 'Correo',
-                //     'celular' => 'Celular',
-                // ],
+                
+                'contacto' => [
+                    'correo' => 'Correo',
+                    'celular' => 'Celular',
+                ],
             ],
             'timeStamps' => [
                 // 'created_at' => 'Creación',
@@ -52,8 +53,8 @@ class Directivo extends Model
         return $this->belongsTo(Contacto::class);
     }
 
-    public function genero(): BelongsToRelationship {
-        return $this->BelongsToRelationship();
+    public function genero() {
+        return $this->usuario->genero();
     }
 
 }
