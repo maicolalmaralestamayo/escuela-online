@@ -134,7 +134,6 @@
     @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
     @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
     @livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))
-    @livewire('modal-insertar-objeto', key('modal-insertar-objeto'))
     @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
     @livewire('modal-detalles-objeto', key('modal-detalles-objeto'))
     @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
