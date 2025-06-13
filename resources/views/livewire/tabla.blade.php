@@ -23,11 +23,11 @@
                                     data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash-fill"></i>
                                 </button>
 
-                                <button type="button" class="btn btn-outline-warning  bi bi-database-fill-down"
+                                <button type="button" class="btn btn-outline-warning  bi bi-arrow-clockwise"
                                     title="Recargar datos de la tabla" wire:click='actualizarMasivo'>
                                 </button>
 
-                                <button type="button" class="btn btn-outline-primary bi bi-plus-lg" title="Insertar"
+                                <button type="button" class="btn btn-outline-success bi bi-plus-lg" title="Insertar"
                                     data-toggle="modal" wire:click="solicitarInsertarObjeto" data-target="#modalDetallesObjeto">
                                 </button>
 
@@ -106,8 +106,7 @@
             {{-- footer --}}
             <div class="card-footer">
                 <div class="d-flex flex-wrap justify-content-center align-items-center">
-                    @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key('paginador-' .
-                    $pagina . '-' . $objetosPagina. '-' . $totalObjetos))
+                    @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key($pagina . $objetosPagina. $totalObjetos))
 
                     <div class="input-group input-group-sm m-1" style="width: auto;">
                         <div class="input-group-prepend">

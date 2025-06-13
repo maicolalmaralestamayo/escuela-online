@@ -1,7 +1,7 @@
 <div class="modal fade" id="modalDetallesObjeto" tabindex="-1">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
+            <div class="modal-header @if ($id) bg-primary @else bg-success @endif">
                 @if ($id)
                     <h5 class="modal-title bi bi-chevron-bar-expand">&nbsp;&nbsp;&nbsp;Detalles</h5>
                 @else
@@ -21,7 +21,7 @@
 
                     <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto">&nbsp;&nbsp;&nbsp;Eliminar</button>
                 @else
-                    <button type="button" class="btn btn-primary bi bi-database-up" data-dismiss="modal" wire:click="solicitarInsertarObjeto" data-toggle="modal">&nbsp;&nbsp;&nbsp;Insertar</button>
+                    <button type="button" class="btn btn-success bi bi-database-up" data-dismiss="modal" wire:click="solicitarInsertarObjeto" data-toggle="modal" data-target="#modalObjetoInsertado">&nbsp;&nbsp;&nbsp;Insertar</button>
                 @endif
                     
                 <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>

@@ -35,7 +35,7 @@
                 wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto"><i class="bi bi-trash-fill"></i>
             </button>
             
-            <button type="button" class="btn btn-outline-warning bi bi-database-fill-down" title="Recargar" wire:click="actualizar"></button>
+            <button type="button" class="btn btn-outline-warning bi bi-arrow-clockwise" title="Recargar" wire:click="actualizar"></button>
 
             <button type="button" class="btn btn-outline-primary bi bi-chevron-bar-expand" title="Detalles" data-toggle="modal" wire:click="detallesObjeto" data-target="#modalDetallesObjeto"></button>
             

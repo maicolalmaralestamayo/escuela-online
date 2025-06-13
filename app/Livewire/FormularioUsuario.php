@@ -76,7 +76,7 @@ class FormularioUsuario extends Component
         $this->objeto = new Usuario();
         $this->formToObject();
         $this->objeto->save();
-        $this->dispatch('actualizar')->to(Fila::class);
+        $this->dispatch('actualizarMasivo')->to(Tabla::class);
 
         $this->reset();
         $this->inicializar(null);

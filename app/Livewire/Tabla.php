@@ -25,7 +25,8 @@ class Tabla extends Component
         'confirmarEliminarObjeto',
         'setPagina',
         'setTotalObjetos',
-        'paginar'
+        'paginar',
+        'actualizarMasivo'
     ];
 
     public function invertirEstadoFilas(){
