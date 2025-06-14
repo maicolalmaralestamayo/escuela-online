@@ -11,9 +11,12 @@ return new class extends Migration
         Schema::create('anuncios', function (Blueprint $table) {
             $table->id();
 
+            $table->string('anuncio')->unique();
+            $table->string('descripcion')->unique();
             $table->foreignId('usuario_id')->constrained();//creador del anuncio
-            $table->timestamp('inicio');
-            $table->timestamp('fin');
+            $table->timestamp('inicio')->nullable();
+            $table->timestamp('fin')->nullable();
+            $table->boolean('activo')->default(true);
            
             $table->string('observacion')->nullable();
             $table->timestamps();

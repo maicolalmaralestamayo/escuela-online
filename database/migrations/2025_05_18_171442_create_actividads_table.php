@@ -14,9 +14,9 @@ return new class extends Migration
             $table->string('actividad')->unique();
             $table->string('descripcion')->unique();//enunciado
             $table->foreignId('usuario_id')->constrained();//creador de la actividad
-            $table->timestamp('inicio');
-            $table->timestamp('fin');
-            // $table->foreignId('asignatura_grado_id')->nullable()->constrained()->default(null);
+            $table->timestamp('inicio')->nullable();
+            $table->timestamp('fin')->nullable();
+            $table->boolean('activa')->default(true);
            
             $table->string('observacion')->nullable();
             $table->timestamps();
