@@ -21,9 +21,9 @@ class Usuario extends Model
                 'apellido_1' => 'Apellido',
                 // 'apellido_2' => 'Segundo Apellido',
                 'dni' => 'DNI',
+                // 'observacion' => 'Observación'
             ],
             'secundarios' => [
-                'observacion' => 'Observación'
             ],
             'foraneos' => [
                 'genero' => ['abreviatura' => 'Género'],
@@ -40,9 +40,4 @@ class Usuario extends Model
     {
         return $this->belongsTo(Genero::class);
     }
-
-    // public function directivo(): HasOne
-    // {
-    //     return $this->hasone(Directivo::class);
-    // }
 }

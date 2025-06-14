@@ -20,6 +20,7 @@ class FormularioUsuario extends Component
     public $apellido_2;
     public $dni;
     public $genero_id;
+
     public $observacion;
     public $created_at;
     public $updated_at;
@@ -32,12 +33,14 @@ class FormularioUsuario extends Component
     //OK
     public function objectToForm(){
         $this->id = $this->objeto->id;
+
         $this->nombre_1 = $this->objeto->nombre_1;
         $this->nombre_2 = $this->objeto->nombre_2;
         $this->apellido_1 = $this->objeto->apellido_1;
         $this->apellido_2 = $this->objeto->apellido_2;
         $this->dni = $this->objeto->dni;
         $this->genero_id = $this->objeto->genero_id;
+
         $this->observacion = $this->objeto->observacion;
         $this->created_at = $this->objeto->created_at;
         $this->updated_at = $this->objeto->updated_at;
@@ -51,6 +54,7 @@ class FormularioUsuario extends Component
         $this->objeto->apellido_2 = $this->apellido_2;
         $this->objeto->dni = $this->dni;
         $this->objeto->genero_id = $this->genero_id;
+
         $this->objeto->observacion = $this->observacion == '' ? null : $this->observacion;
     }
 
@@ -79,7 +83,7 @@ class FormularioUsuario extends Component
         $this->dispatch('actualizarMasivo')->to(Tabla::class);
 
         $this->reset();
-        $this->inicializar(null);
+        // $this->inicializar(null);
     }
 
     //OK

@@ -28,17 +28,15 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label for="nombre_1">Nombre</label>
-                <input id="nombre_1" type="text" class="form-control" wire:model.live='nombre_1' @if ($id) value={{
-                    $nombre_1 }} @endif>
+                <label for="nombre_1">Nombre {{$nombre_1}}</label>
+                <input id="nombre_1" type="text" class="form-control" wire:model.live='nombre_1' value={{ $nombre_1 }}>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="nombre_2">Segundo nombre</label>
-                <input id="nombre_2" type="text" class="form-control" wire:model.live='nombre_2' @if ($id) value={{
-                    $nombre_2 }} @endif>
+                <input id="nombre_2" type="text" class="form-control" wire:model.live='nombre_2' value={{ $nombre_2 }}>
             </div>
         </div>
 

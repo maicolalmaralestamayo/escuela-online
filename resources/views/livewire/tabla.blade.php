@@ -28,7 +28,7 @@
                                 </button>
 
                                 <button type="button" class="btn btn-outline-success bi bi-plus-lg" title="Insertar"
-                                    data-toggle="modal" wire:click="solicitarInsertarObjeto" data-target="#modalDetallesObjeto">
+                                    data-toggle="modal" wire:click="solicitarInsertarObjeto" data-target="#modalInsertarObjeto">
                                 </button>
 
                                 <!--<div class="btn-group btn-group-sm">
@@ -137,4 +137,5 @@
     @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
     @livewire('modal-detalles-objeto', key('modal-detalles-objeto'))
     @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
+    @livewire('modal-insertar-objeto', key('modal-insertar-objeto'))
 </section>
