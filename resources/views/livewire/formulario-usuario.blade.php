@@ -43,16 +43,14 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="apellido_1">Apellido</label>
-                <input id="apellido_1" type="text" class="form-control" wire:model.live='apellido_1' @if ($id) value={{
-                    $apellido_1 }} @endif>
+                <input id="apellido_1" type="text" class="form-control" wire:model.live='apellido_1' value={{ $apellido_1 }}>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="apellido_2">Segundo apellido</label>
-                <input id="apellido_2" type="text" class="form-control" wire:model.live='apellido_2' @if ($id) value={{
-                    $apellido_2 }} @endif>
+                <input id="apellido_2" type="text" class="form-control" wire:model.live='apellido_2' value={{ $apellido_2 }}>
             </div>
         </div>
     </div>
@@ -61,8 +59,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="dni">DNI</label>
-                <input id="dni" type="text" class="form-control" wire:model.live='dni' @if ($id) value={{ $dni }}
-                    @endif>
+                <input id="dni" type="text" class="form-control" wire:model.live='dni' value={{ $dni }}>
             </div>
         </div>
 
@@ -80,11 +77,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="observacion">Observación</label>
-                <textarea id="observacion" class="form-control" rows="2" wire:model.live='observacion'>
-                    @if ($id)
-                        {{$observacion}}
-                    @endif
-                </textarea>
+                <textarea id="observacion" class="form-control" rows="2" wire:model.live='observacion'> {{$observacion}} </textarea>
             </div>
         </div>
     </div>

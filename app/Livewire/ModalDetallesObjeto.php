@@ -7,10 +7,10 @@ use Livewire\Component;
 class ModalDetallesObjeto extends Component
 {
     public $modelo;
-    public $id;//si está null, es insertar. si está con id es actualizar
+    public $id;//si está null, es insertar; si tiene un valor, es actualizar
 
     protected $listeners = [
-        'mount'
+        'setFormulario'
     ];
 
     //OK
@@ -28,7 +28,8 @@ class ModalDetallesObjeto extends Component
         $this->dispatch('insertar')->to(FormularioUsuario::class);
     }
 
-    public function mount($modelo='Usuario', $id=null){
+    //OK
+    public function setFormulario($modelo, $id){
         $this->modelo = $modelo;
         $this->id = $id;
     }

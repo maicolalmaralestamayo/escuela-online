@@ -83,21 +83,22 @@ class FormularioUsuario extends Component
         $this->dispatch('actualizarMasivo')->to(Tabla::class);
 
         $this->reset();
-        // $this->inicializar(null);
     }
 
-    //OK
-    public function inicializar($id){
+    //OK. Esta inicialización es obligatoria, taenga o no tenga ID, porque es solo para llenar los combos de llaves foráneas
+    public function inicializarRelaciones(){
         $generos = Genero::all();
         $this->generos = $generos;
         $this->genero_id = $generos->first()->id;
-        
-        $this->consultar($id);
     }
 
-    public function mount($id)
-    {
-        $this->inicializar($id);
+    //OK
+    public function mount($id=null) {
+        $this->inicializarRelaciones(); //siempre se inicializa, porque esta inicialización no depende ni del modelo, ni del ID.
+
+        if ($id) {
+            $this->consultar($id);
+        }
     }
     
     public function render()
