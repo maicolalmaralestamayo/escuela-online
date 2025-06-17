@@ -8,99 +8,80 @@ use Livewire\Component;
 
 class FormularioUsuario extends Component
 {
-    //objetos
-    public $objeto;//objeto principal
-    public $generos;//objeto relacionado
+    public $texto=null;
 
-    //formulario
-    public $id;
-    public $nombre_1;
-    public $nombre_2;
-    public $apellido_1;
-    public $apellido_2;
-    public $dni;
-    public $genero_id;
+    public function setTexto($texto){
+        $this->texto = $texto;
+        $this->render();
+    }
 
-    public $observacion;
-    public $created_at;
-    public $updated_at;
+    // //objetos relacionados
+    // public $generos;
 
-    protected $listeners = [
-        'actualizar',
-        'insertar',
-    ];
+    // //formulario
+    // public $id;
+    // public $nombre_1;
+    // public $nombre_2;
+    // public $apellido_1;
+    // public $apellido_2;
+    // public $dni;
+    // public $genero_id;
+
+    // public $observacion;
+    // public $created_at;
+    // public $updated_at;
+
+    // protected $listeners = [
+    //     // 'inicializar',
+    //     'actualizar',
+    //     'consultar',
+    //     // 'insertar',
+    //     // 'vaciarFormulario'
+    // ];
+
+    // //OK
+    // public function actualizar($id)
+    // {
+    //     $objeto = Usuario::find($id);
+
+    //     $objeto->nombre_1 = $this->nombre_1;
+    //     $objeto->nombre_2 = $this->nombre_2 == '' ? null : $this->nombre_2;
+    //     $objeto->apellido_1 = $this->apellido_1;
+    //     $objeto->apellido_2 = $this->apellido_2;
+    //     $objeto->dni = $this->dni;
+    //     $objeto->genero_id = $this->genero_id;
+    //     $objeto->observacion = $this->observacion == '' ? null : $this->observacion;
+
+    //     $objeto->save();
+
+    //     $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
+    // }
+
+    // //OK
+    // public function consultar($id)
+    // {
+    //     $objeto = Usuario::find($id);
+
+    //     $this->id = $objeto->id;
+    //     $this->nombre_1 = $objeto->nombre_1;
+    //     $this->nombre_2 = $objeto->nombre_2 == '' ? null : $this->nombre_2;
+    //     $this->apellido_1 = $objeto->apellido_1;
+    //     $this->apellido_2 = $objeto->apellido_2;
+    //     $this->dni = $objeto->dni;
+    //     $this->genero_id = $objeto->genero_id;
+
+    //     $this->observacion = $objeto->observacion == '' ? null : $this->observacion;
+    //     $this->created_at = $objeto->created_at;
+    //     $this->updated_at = $objeto->updated_at;
+    // }
 
     //OK
-    public function objectToForm(){
-        $this->id = $this->objeto->id;
+    // public function mount($id = null)
+    // {
+    //     //inicializar relaciones
+    //     // $this->generos = Genero::all();
+    // }
 
-        $this->nombre_1 = $this->objeto->nombre_1;
-        $this->nombre_2 = $this->objeto->nombre_2;
-        $this->apellido_1 = $this->objeto->apellido_1;
-        $this->apellido_2 = $this->objeto->apellido_2;
-        $this->dni = $this->objeto->dni;
-        $this->genero_id = $this->objeto->genero_id;
-
-        $this->observacion = $this->objeto->observacion;
-        $this->created_at = $this->objeto->created_at;
-        $this->updated_at = $this->objeto->updated_at;
-    }
-
-    //OK
-    public function formToObject(){
-        $this->objeto->nombre_1 = $this->nombre_1;
-        $this->objeto->nombre_2 = $this->nombre_2 == '' ? null : $this->nombre_2;
-        $this->objeto->apellido_1 = $this->apellido_1;
-        $this->objeto->apellido_2 = $this->apellido_2;
-        $this->objeto->dni = $this->dni;
-        $this->objeto->genero_id = $this->genero_id;
-
-        $this->objeto->observacion = $this->observacion == '' ? null : $this->observacion;
-    }
-
-    //OK
-    public function consultar($id){
-        $objeto = Usuario::find($id);
-        if ($objeto) {
-            $this->objeto = $objeto;
-            $this->objectToForm();
-        }
-    }
-
-    //OK
-    public function actualizar($id){
-        $this->objeto = Usuario::find($id);
-        $this->formToObject();
-        $this->objeto->update();
-        $this->dispatch('actualizar')->to(Fila::class);
-    }
-
-    //OK
-    public function insertar(){
-        $this->objeto = new Usuario();
-        $this->formToObject();
-        $this->objeto->save();
-        $this->dispatch('actualizarMasivo')->to(Tabla::class);
-
-        $this->reset();
-    }
-
-    //OK. Esta inicialización es obligatoria, taenga o no tenga ID, porque es solo para llenar los combos de llaves foráneas
-    public function inicializarRelaciones(){
-        $generos = Genero::all();
-        $this->generos = $generos;
-        $this->genero_id = $generos->first()->id;
-    }
-
-    //OK
-    public function mount($id=null) {
-        $this->inicializarRelaciones(); //siempre se inicializa, porque esta inicialización no depende ni del modelo, ni del ID.
-
-        if ($id) {
-            $this->consultar($id);
-        }
-    }
-    
     public function render()
     {
         return view('livewire.formulario-usuario');

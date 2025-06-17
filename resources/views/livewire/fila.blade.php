@@ -37,7 +37,7 @@
             
             <button type="button" class="btn btn-outline-warning bi bi-arrow-clockwise" title="Recargar" wire:click="actualizar"></button>
 
-            <button type="button" class="btn btn-outline-primary bi bi-chevron-bar-expand" title="Detalles" data-toggle="modal" wire:click="detallesObjeto" data-target="#modalDetallesObjeto"></button>
+            <button type="button" class="btn btn-outline-primary bi bi-chevron-bar-expand" title="Detalles" wire:click='verDetallesObjeto' data-toggle="modal" data-target="#modalDetallesObjeto"></button>
             
             <!--<div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-dark dropdown-toggle dropdown-icon" data-toggle="dropdown">

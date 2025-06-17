@@ -10,11 +10,11 @@
             </div>
             <div class="modal-body">
                 @if ($modelo)    
-                    @livewire('Formulario' . $modelo, key('insertar' . $modelo))
+                    @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' =>null], key($modelo . $id))
                 @endif
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success bi bi-database-up" data-dismiss="modal" wire:click="solicitarInsertarObjeto" data-toggle="modal" data-target="#modalObjetoInsertado">&nbsp;&nbsp;&nbsp;Insertar</button>
+                <button type="button" class="btn btn-success bi bi-database-up" wire:click="solicitarInsertarObjeto" data-dismiss="modal"  data-toggle="modal" data-target="#modalObjetoInsertado">&nbsp;&nbsp;&nbsp;Insertar</button>
                 <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>
             </div>
         </div>

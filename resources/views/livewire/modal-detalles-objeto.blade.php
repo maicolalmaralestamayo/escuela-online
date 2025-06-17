@@ -2,17 +2,15 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title bi bi-chevron-bar-expand">&nbsp;&nbsp;&nbsp;Detalles</h5>
+                <h5 class="modal-title bi bi-chevron-bar-expand">&nbsp;&nbsp;&nbsp;Detalles de {{$modelo}} </h5>
 
                 <button type="button" class="close" data-dismiss="modal" title="Cerrar">
                     <span>&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                {{-- Solamente llama al formulario si tiene un modelo. --}}
-                {{-- En este caso no se verifica el ID, porque siempre va a tener un ID cuando se invoca al modal de detalles. --}}
+            <div class="modal-body" wire:lazy>
                 @if ($modelo)
-                    @livewire('Formulario' . $modelo, ['id' => $id], key('detalles' . $modelo . $id))
+                    @livewire('Formulario' . $modelo, key($modelo . $id))
                 @endif
             </div>
             <div class="modal-footer">
