@@ -32,12 +32,12 @@ class FormularioUsuario extends Component
 
     public function formularioAlObjeto(&$objeto){
         $objeto->nombre_1 = $this->nombre_1;
-        $objeto->nombre_2 = $this->nombre_2 ?? null;
+        $objeto->nombre_2 = (empty($this->nombre_2) ? null : $this->nombre_2);
         $objeto->apellido_1 = $this->apellido_1;
         $objeto->apellido_2 = $this->apellido_2;
         $objeto->dni = $this->dni;
         $objeto->genero_id = $this->genero_id;
-        $objeto->observacion = $this->observacion ?? null;
+        $objeto->observacion = (empty($this->observacion) ? null : $this->observacion);
     }
 
     //OK
