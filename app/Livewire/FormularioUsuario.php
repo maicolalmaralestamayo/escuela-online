@@ -27,7 +27,30 @@ class FormularioUsuario extends Component
 
     protected $listeners = [
         'actualizar',
+        'insertar',
     ];
+
+    public function formularioAlObjeto(&$objeto){
+        $objeto->nombre_1 = $this->nombre_1;
+        $objeto->nombre_2 = $this->nombre_2 ?? null;
+        $objeto->apellido_1 = $this->apellido_1;
+        $objeto->apellido_2 = $this->apellido_2;
+        $objeto->dni = $this->dni;
+        $objeto->genero_id = $this->genero_id;
+        $objeto->observacion = $this->observacion ?? null;
+    }
+
+    //OK
+    public function insertar($modelo)
+    {
+        $modeloString = 'App\\Models\\' . $modelo;
+        $objeto =  new $modeloString;
+
+        $this->formularioAlObjeto($objeto);
+        $objeto->save();
+
+        $this->dispatch('actualizarMasivo')->to(Tabla::class);
+    }
 
     //OK
     public function actualizar($modelo, $id)
@@ -37,13 +60,7 @@ class FormularioUsuario extends Component
             $objeto = $modeloString::find($id);
     
             if ($objeto) {
-                $objeto->nombre_1 = $this->nombre_1;
-                $objeto->nombre_2 = $this->nombre_2;
-                $objeto->apellido_1 = $this->apellido_1;
-                $objeto->apellido_2 = $this->apellido_2;
-                $objeto->dni = $this->dni;
-                $objeto->genero_id = $this->genero_id;
-                $objeto->observacion = $this->observacion;
+                $this->formularioAlObjeto($objeto);
                 $objeto->update();
             }
     
@@ -76,6 +93,7 @@ class FormularioUsuario extends Component
     {
         //inicializar relaciones
         $this->generos = Genero::all();
+        $this->genero_id = $this->generos->first()->id;
 
         if ($id) {
             $this->consultar($modelo, $id);

@@ -16,7 +16,7 @@ class ModalInsertarObjeto extends Component
 
     //OK
     public function solicitarInsertarObjeto(){
-        $this->dispatch('insertar')->to('App\Livewire\Formulario' . $this->modelo);
+        $this->dispatch('insertar', $this->modelo)->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 
     //OK
