@@ -36,6 +36,18 @@ class Usuario extends Model
         ];
     }
 
+    static public function camposModificables(){
+        return [
+            'nombre_1',
+            'nombre_2',
+            'apellido_1',
+            'apellido_2',
+            'dni',
+            'genero_id',
+            'observacion',
+        ];
+    }
+
     public function genero(): BelongsTo
     {
         return $this->belongsTo(Genero::class);

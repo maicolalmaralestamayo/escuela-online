@@ -28,9 +28,13 @@ class FormularioUsuario extends Component
     protected $listeners = [
         'actualizar',
         'insertar',
+        'inicializar',
     ];
 
-    public function formularioAlObjeto(&$objeto){
+    public function formularioAlObjeto($modelo, &$objeto){
+        // $modeloString = 'App\\Models\\' . $modelo;
+        // $camposModificables = $modeloString::camposModificables();
+        
         $objeto->nombre_1 = $this->nombre_1;
         $objeto->nombre_2 = (empty($this->nombre_2) ? null : $this->nombre_2);
         $objeto->apellido_1 = $this->apellido_1;
@@ -46,7 +50,7 @@ class FormularioUsuario extends Component
         $modeloString = 'App\\Models\\' . $modelo;
         $objeto =  new $modeloString;
 
-        $this->formularioAlObjeto($objeto);
+        $this->formularioAlObjeto($modelo, $objeto);
         $objeto->save();
 
         $this->dispatch('actualizarMasivo')->to(Tabla::class);
@@ -60,7 +64,7 @@ class FormularioUsuario extends Component
             $objeto = $modeloString::find($id);
     
             if ($objeto) {
-                $this->formularioAlObjeto($objeto);
+                $this->formularioAlObjeto($modelo, $objeto);
                 $objeto->update();
             }
     
@@ -88,12 +92,26 @@ class FormularioUsuario extends Component
         }
     }
 
+    public function inicializar(){
+        $this->nombre_1 = null;
+        $this->nombre_2 = null;
+        $this->apellido_1 = null;
+        $this->apellido_2 = null;
+        $this->dni = null;
+        // $this->genero_id = null;
+
+        $this->observacion = null;
+        $this->created_at = null;
+        $this->updated_at = null;
+
+        $this->generos = Genero::all();
+        $this->genero_id = $this->generos->first()->id;
+    }
+
     //OK
     public function mount($modelo, $id)
     {
-        //inicializar relaciones
-        $this->generos = Genero::all();
-        $this->genero_id = $this->generos->first()->id;
+        $this->inicializar();        
 
         if ($id) {
             $this->consultar($modelo, $id);
