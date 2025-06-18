@@ -33,4 +33,17 @@ class TipoContenido extends Model
         ];
     }
 
+    static public function camposModificables(){
+        return [
+            'tipo',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
+        ];
+    }
 }

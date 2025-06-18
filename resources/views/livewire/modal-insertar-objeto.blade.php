@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h5 class="modal-title bi bi-database-up">&nbsp;&nbsp;&nbsp;Insertar {{$modelo}} </h5>
+                <h5 class="modal-title bi bi-database-up">&nbsp;&nbsp;&nbsp;Insertar</h5>
 
                 <button type="button" class="close" data-dismiss="modal" title="Cerrar">
                     <span>&times;</span>
