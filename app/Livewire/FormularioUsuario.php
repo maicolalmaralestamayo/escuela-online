@@ -43,7 +43,6 @@ class FormularioUsuario extends Component
             $objeto->dni = $this->dni;
             $objeto->genero_id = $this->genero_id;
             $objeto->observacion = $this->observacion;
-            dump($objeto);    
             $objeto->save();
         }
 

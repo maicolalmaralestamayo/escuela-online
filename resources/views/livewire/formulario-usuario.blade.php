@@ -28,29 +28,29 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label for="nombre_1">Nombre</label>
-                <input id="nombre_1" type="text" class="form-control" wire:model.live='nombre_1' value={{ $nombre_1 }}>
+                <label for="nombre_1">Nombre {{ $nombre_1 }}</label>
+                <input id="nombre_1" type="text" class="form-control" wire:model.live='nombre_1'>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="nombre_2">Segundo nombre</label>
-                <input id="nombre_2" type="text" class="form-control" wire:model.live='nombre_2' value={{ $nombre_2 }}>
+                <input id="nombre_2" type="text" class="form-control" wire:model.live='nombre_2'>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="apellido_1">Apellido</label>
-                <input id="apellido_1" type="text" class="form-control" wire:model.live='apellido_1' value={{ $apellido_1 }}>
+                <input id="apellido_1" type="text" class="form-control" wire:model.live='apellido_1'>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="apellido_2">Segundo apellido</label>
-                <input id="apellido_2" type="text" class="form-control" wire:model.live='apellido_2' value={{ $apellido_2 }}>
+                <input id="apellido_2" type="text" class="form-control" wire:model.live='apellido_2'>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="dni">DNI</label>
-                <input id="dni" type="text" class="form-control" wire:model.live='dni' value={{ $dni }}>
+                <input id="dni" type="text" class="form-control" wire:model.live='dni'>
             </div>
         </div>
 
