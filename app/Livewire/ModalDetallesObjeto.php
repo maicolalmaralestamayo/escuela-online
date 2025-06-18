@@ -15,7 +15,7 @@ class ModalDetallesObjeto extends Component
 
     //OK
     public function solicitarActualizarObjeto(){
-        $this->dispatch('actualizar', $this->modelo, $this->id)->to(FormularioUsuario::class);
+        $this->dispatch('actualizar', $this->modelo, $this->id)->to('App\Livewire\Formulario' . $this->modelo);
     }
 
     //OK
