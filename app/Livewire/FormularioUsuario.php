@@ -9,7 +9,6 @@ class FormularioUsuario extends Component
 {
     public $modelo;
     public $id;
-    public $modeloString;
 
     // //objetos relacionados
     public $generos;
@@ -44,6 +43,7 @@ class FormularioUsuario extends Component
             $objeto->dni = $this->dni;
             $objeto->genero_id = $this->genero_id;
             $objeto->observacion = $this->observacion;
+            dump($objeto);    
             $objeto->save();
         }
 
@@ -81,7 +81,6 @@ class FormularioUsuario extends Component
         }
 
         $this->modelo = $modelo;
-        $this->modeloString = 'App\\Models\\' . $modelo;
         $this->id = $id;
     }
 

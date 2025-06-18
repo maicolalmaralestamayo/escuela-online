@@ -24,7 +24,7 @@ class ModalDetallesObjeto extends Component
     }
 
     //OK
-    public function verDetallesObjeto($modelo=null, $id=null){
+    public function verDetallesObjeto($modelo, $id){
         $this->modelo = $modelo;
         $this->id = $id;
     }

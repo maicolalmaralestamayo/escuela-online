@@ -35,8 +35,8 @@ class Tabla extends Component
     }
 
     //OK
-    public function solicitarInsertarObjeto(){
-        $this->dispatch('setFormulario', modelo: $this->modelo, id: null)->to(ModalInsertarObjeto::class);
+    public function verInsertarObjeto(){
+        $this->dispatch('verInsertarObjeto', modelo: $this->modelo, id: null)->to(ModalInsertarObjeto::class);
     }
 
     //OK

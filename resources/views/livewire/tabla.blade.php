@@ -28,7 +28,7 @@
                                 </button>
 
                                 <button type="button" class="btn btn-outline-success bi bi-plus-lg" title="Insertar"
-                                    data-toggle="modal" wire:click="solicitarInsertarObjeto" data-target="#modalInsertarObjeto">
+                                    data-toggle="modal" wire:click="verInsertarObjeto" data-target="#modalInsertarObjeto">
                                 </button>
 
                                 <!--<div class="btn-group btn-group-sm">

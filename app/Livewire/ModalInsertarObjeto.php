@@ -7,10 +7,11 @@ use Livewire\Component;
 class ModalInsertarObjeto extends Component
 {
     public $modelo;
-    public $id = null;
+    public $id;
 
     protected $listeners = [
-        'setFormulario',
+        'solicitarInsertarObjeto',
+        'verInsertarObjeto'
     ];
 
     //OK
@@ -19,8 +20,9 @@ class ModalInsertarObjeto extends Component
     }
 
     //OK
-    public function setFormulario($modelo, $id){
-        $this->dispatch('inicializar', modelo: $this->modelo, id: null)->to('App\Livewire\Formulario' . $this->modelo);
+    public function verInsertarObjeto($modelo, $id){
+        $this->modelo = $modelo;
+        $this->id = $id;
     }
 
     public function render()
