@@ -32,21 +32,23 @@ class FormularioUsuario extends Component
     //OK
     public function actualizar($modelo, $id)
     {
-        $modeloString = 'App\\Models\\' . $modelo;
-        $objeto = $modeloString::find($id);
-
-        if ($objeto) {
-            $objeto->nombre_1 = $this->nombre_1;
-            $objeto->nombre_2 = $this->nombre_2;
-            $objeto->apellido_1 = $this->apellido_1;
-            $objeto->apellido_2 = $this->apellido_2;
-            $objeto->dni = $this->dni;
-            $objeto->genero_id = $this->genero_id;
-            $objeto->observacion = $this->observacion;
-            $objeto->save();
+        if ($id == $this->id) {
+            $modeloString = 'App\\Models\\' . $modelo;
+            $objeto = $modeloString::find($id);
+    
+            if ($objeto) {
+                $objeto->nombre_1 = $this->nombre_1;
+                $objeto->nombre_2 = $this->nombre_2;
+                $objeto->apellido_1 = $this->apellido_1;
+                $objeto->apellido_2 = $this->apellido_2;
+                $objeto->dni = $this->dni;
+                $objeto->genero_id = $this->genero_id;
+                $objeto->observacion = $this->observacion;
+                $objeto->update();
+            }
+    
+            $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
         }
-
-        $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
     }
 
     //OK
