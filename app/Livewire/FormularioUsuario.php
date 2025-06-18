@@ -8,28 +8,23 @@ use Livewire\Component;
 
 class FormularioUsuario extends Component
 {
-    public $texto=null;
-
-    public function setTexto($texto){
-        $this->texto = $texto;
-        $this->render();
-    }
+    public $modelo;
+    public $id;
 
     // //objetos relacionados
-    // public $generos;
+    public $generos;
 
-    // //formulario
-    // public $id;
-    // public $nombre_1;
-    // public $nombre_2;
-    // public $apellido_1;
-    // public $apellido_2;
-    // public $dni;
-    // public $genero_id;
+    //formulario
+    public $nombre_1;
+    public $nombre_2;
+    public $apellido_1;
+    public $apellido_2;
+    public $dni;
+    public $genero_id;
 
-    // public $observacion;
-    // public $created_at;
-    // public $updated_at;
+    public $observacion;
+    public $created_at;
+    public $updated_at;
 
     // protected $listeners = [
     //     // 'inicializar',
@@ -57,30 +52,39 @@ class FormularioUsuario extends Component
     //     $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
     // }
 
-    // //OK
-    // public function consultar($id)
-    // {
-    //     $objeto = Usuario::find($id);
+    //OK
+    public function consultar($modelo, $id)
+    {
+        $modeloString = 'App\\Models\\' . $modelo;
+        $objeto = $modeloString::find($id);
 
-    //     $this->id = $objeto->id;
-    //     $this->nombre_1 = $objeto->nombre_1;
-    //     $this->nombre_2 = $objeto->nombre_2 == '' ? null : $this->nombre_2;
-    //     $this->apellido_1 = $objeto->apellido_1;
-    //     $this->apellido_2 = $objeto->apellido_2;
-    //     $this->dni = $objeto->dni;
-    //     $this->genero_id = $objeto->genero_id;
-
-    //     $this->observacion = $objeto->observacion == '' ? null : $this->observacion;
-    //     $this->created_at = $objeto->created_at;
-    //     $this->updated_at = $objeto->updated_at;
-    // }
+        if ($objeto) {
+            $this->nombre_1 = $objeto->nombre_1;
+            $this->nombre_2 = $objeto->nombre_2 == '' ? null : $this->nombre_2;
+            $this->apellido_1 = $objeto->apellido_1;
+            $this->apellido_2 = $objeto->apellido_2;
+            $this->dni = $objeto->dni;
+            $this->genero_id = $objeto->genero_id;
+    
+            $this->observacion = $objeto->observacion == '' ? null : $this->observacion;
+            $this->created_at = $objeto->created_at;
+            $this->updated_at = $objeto->updated_at;
+        }
+    }
 
     //OK
-    // public function mount($id = null)
-    // {
-    //     //inicializar relaciones
-    //     // $this->generos = Genero::all();
-    // }
+    public function mount($modelo, $id)
+    {
+        //inicializar relaciones
+        $this->generos = Genero::all();
+
+        if ($id) {
+            $this->consultar($modelo, $id);
+        }
+
+        $this->modelo = $modelo;
+        $this->id = $id;
+    }
 
     public function render()
     {

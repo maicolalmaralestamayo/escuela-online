@@ -9,8 +9,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                @if ($modelo)    
-                    @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' =>null], key($modelo . $id))
+                @if ($modelo)
+                    @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' => null], key($modelo . $id))
                 @endif
             </div>
             <div class="modal-footer">

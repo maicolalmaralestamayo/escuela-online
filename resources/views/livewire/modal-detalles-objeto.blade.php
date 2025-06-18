@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body" wire:lazy>
                 @if ($modelo)
-                    @livewire('Formulario' . $modelo, key($modelo . $id))
+                    @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' => $id], key($modelo . $id))
                 @endif
             </div>
             <div class="modal-footer">

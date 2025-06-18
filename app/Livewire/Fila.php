@@ -55,6 +55,7 @@ class Fila extends Component
         $this->dispatch('refresh');
     }
 
+    //OK
     public function verDetallesObjeto(){
         $this->dispatch('verDetallesObjeto', modelo: $this->modelo, id: $this->objeto->id) ->to(ModalDetallesObjeto::class);
     }
