@@ -31,29 +31,28 @@ class FormularioUsuario extends Component
         'inicializar',
     ];
 
+    //OK
     public function formularioAlObjeto($modelo, &$objeto){
-        // $modeloString = 'App\\Models\\' . $modelo;
-        // $camposModificables = $modeloString::camposModificables();
-        
-        $objeto->nombre_1 = $this->nombre_1;
-        $objeto->nombre_2 = (empty($this->nombre_2) ? null : $this->nombre_2);
-        $objeto->apellido_1 = $this->apellido_1;
-        $objeto->apellido_2 = $this->apellido_2;
-        $objeto->dni = $this->dni;
-        $objeto->genero_id = $this->genero_id;
-        $objeto->observacion = (empty($this->observacion) ? null : $this->observacion);
+        $modeloString = 'App\\Models\\' . $modelo;
+        $camposModificables = $modeloString::camposModificables();
+
+        foreach ($camposModificables as $key => $campo) {
+            $objeto->$campo = (empty($this->$campo) ? null : $this->$campo);
+        }
     }
 
     //OK
     public function insertar($modelo)
     {
-        $modeloString = 'App\\Models\\' . $modelo;
-        $objeto =  new $modeloString;
-
-        $this->formularioAlObjeto($modelo, $objeto);
-        $objeto->save();
-
-        $this->dispatch('actualizarMasivo')->to(Tabla::class);
+        if (!$this->id) {
+            $modeloString = 'App\\Models\\' . $modelo;
+            $objeto =  new $modeloString;
+    
+            $this->formularioAlObjeto($modelo, $objeto);
+            $objeto->save();
+    
+            $this->dispatch('actualizarMasivo')->to(Tabla::class);
+        }
     }
 
     //OK
@@ -77,41 +76,42 @@ class FormularioUsuario extends Component
     {
         $modeloString = 'App\\Models\\' . $modelo;
         $objeto = $modeloString::find($id);
-
+        
         if ($objeto) {
-            $this->nombre_1 = $objeto->nombre_1;
-            $this->nombre_2 = $objeto->nombre_2;
-            $this->apellido_1 = $objeto->apellido_1;
-            $this->apellido_2 = $objeto->apellido_2;
-            $this->dni = $objeto->dni;
-            $this->genero_id = $objeto->genero_id;
-    
-            $this->observacion = $objeto->observacion;
-            $this->created_at = $objeto->created_at;
-            $this->updated_at = $objeto->updated_at;
+            $camposModificables = $modeloString::camposModificables();
+            foreach ($camposModificables as $key => $campo) {
+                $this->$campo = $objeto->$campo;
+            }
+
+            $camposNoModificables = $modeloString::camposNoModificables();
+            foreach ($camposNoModificables as $key => $campo) {
+                $this->$campo = $objeto->$campo;
+            }
         }
     }
 
-    public function inicializar(){
-        $this->nombre_1 = null;
-        $this->nombre_2 = null;
-        $this->apellido_1 = null;
-        $this->apellido_2 = null;
-        $this->dni = null;
-        // $this->genero_id = null;
-
-        $this->observacion = null;
-        $this->created_at = null;
-        $this->updated_at = null;
-
+    //OK
+    public function inicializarRelaciones(){
         $this->generos = Genero::all();
         $this->genero_id = $this->generos->first()->id;
     }
 
     //OK
+    public function inicializar($modelo){
+        $modeloString = 'App\\Models\\' . $modelo;
+        $camposModificables = $modeloString::camposModificables();
+
+        foreach ($camposModificables as $key => $campo) {
+            $this->$campo = null;
+        }
+
+        $this->inicializarRelaciones();
+    }
+
+    //OK
     public function mount($modelo, $id)
     {
-        $this->inicializar();        
+        $this->inicializar($modelo);        
 
         if ($id) {
             $this->consultar($modelo, $id);

@@ -48,6 +48,13 @@ class Usuario extends Model
         ];
     }
 
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
+        ];
+    }
+
     public function genero(): BelongsTo
     {
         return $this->belongsTo(Genero::class);

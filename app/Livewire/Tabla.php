@@ -17,7 +17,7 @@ class Tabla extends Component
     public $objetosPagina;//cantidad de objetos por página
 
     public $pagina;//número de la página mostrada
-    public $totalPaginas;//número de la última página coincide con el total de paginas)
+    public $totalPaginas;//número de la última página coincide con el total de paginas
 
     public $estadoFilas=false;
 
@@ -37,7 +37,7 @@ class Tabla extends Component
     //OK
     public function verInsertarObjeto(){
         $this->dispatch('verInsertarObjeto', modelo: $this->modelo, id: null)->to(ModalInsertarObjeto::class);
-        $this->dispatch('inicializar')->to(FormularioUsuario::class);//vacía el formulario
+        $this->dispatch('inicializar', $this->modelo)->to(FormularioUsuario::class);//vacía el formulario
     }
 
     //OK
