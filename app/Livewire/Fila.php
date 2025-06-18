@@ -57,7 +57,8 @@ class Fila extends Component
 
     //OK
     public function verDetallesObjeto(){
-        $this->dispatch('verDetallesObjeto', modelo: $this->modelo, id: $this->objeto->id) ->to(ModalDetallesObjeto::class);
+        $this->dispatch('verDetallesObjeto', modelo: $this->modelo, id: $this->objeto->id)->to(ModalDetallesObjeto::class);
+        $this->dispatch('consultar', modelo: $this->modelo, id: $this->objeto->id)->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 
     public function mount($campos, $modelo, $modeloString, $objeto, $estado)

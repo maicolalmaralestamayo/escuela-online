@@ -25,10 +25,12 @@ class FormularioUsuario extends Component
     public $created_at;
     public $updated_at;
 
+    //escuchadores
     protected $listeners = [
         'actualizar',
         'insertar',
         'inicializar',
+        'consultar',
     ];
 
     //OK
