@@ -2,24 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\Genero;
 use Livewire\Component;
 
-class FormularioUsuario extends Component
+class FormularioGenero extends Component
 {
     public $modelo;
     public $id;
 
-    //objetos relacionados
-    public $generos;
-
     //formulario
-    public $nombre_1;
-    public $nombre_2;
-    public $apellido_1;
-    public $apellido_2;
-    public $dni;
-    public $genero_id;
+    public $genero;
+    public $abreviatura;
     public $observacion;
 
     public $created_at;
@@ -94,8 +86,7 @@ class FormularioUsuario extends Component
 
     //OK
     public function inicializarRelaciones(){
-        $this->generos = Genero::all();
-        $this->genero_id = $this->generos->first()->id;
+        
     }
 
     //OK
@@ -125,6 +116,6 @@ class FormularioUsuario extends Component
 
     public function render()
     {
-        return view('livewire.formulario-usuario');
+        return view('livewire.formulario-genero');
     }
 }

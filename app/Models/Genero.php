@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Genero extends Model
@@ -30,6 +31,21 @@ class Genero extends Model
                 // 'updated_at' => 'Actualización',
                 // 'deleted_at' => 'Eliminación'
             ]
+        ];
+    }
+
+    static public function camposModificables(){
+        return [
+            'genero',
+            'abreviatura',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
         ];
     }
 
