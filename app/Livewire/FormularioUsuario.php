@@ -3,13 +3,13 @@
 namespace App\Livewire;
 
 use App\Models\Genero;
-use App\Models\Usuario;
 use Livewire\Component;
 
 class FormularioUsuario extends Component
 {
     public $modelo;
     public $id;
+    public $modeloString;
 
     // //objetos relacionados
     public $generos;
@@ -26,31 +26,29 @@ class FormularioUsuario extends Component
     public $created_at;
     public $updated_at;
 
-    // protected $listeners = [
-    //     // 'inicializar',
-    //     'actualizar',
-    //     'consultar',
-    //     // 'insertar',
-    //     // 'vaciarFormulario'
-    // ];
+    protected $listeners = [
+        'actualizar',
+    ];
 
-    // //OK
-    // public function actualizar($id)
-    // {
-    //     $objeto = Usuario::find($id);
+    //OK
+    public function actualizar($modelo, $id)
+    {
+        $modeloString = 'App\\Models\\' . $modelo;
+        $objeto = $modeloString::find($id);
 
-    //     $objeto->nombre_1 = $this->nombre_1;
-    //     $objeto->nombre_2 = $this->nombre_2 == '' ? null : $this->nombre_2;
-    //     $objeto->apellido_1 = $this->apellido_1;
-    //     $objeto->apellido_2 = $this->apellido_2;
-    //     $objeto->dni = $this->dni;
-    //     $objeto->genero_id = $this->genero_id;
-    //     $objeto->observacion = $this->observacion == '' ? null : $this->observacion;
+        if ($objeto) {
+            $objeto->nombre_1 = $this->nombre_1;
+            $objeto->nombre_2 = $this->nombre_2;
+            $objeto->apellido_1 = $this->apellido_1;
+            $objeto->apellido_2 = $this->apellido_2;
+            $objeto->dni = $this->dni;
+            $objeto->genero_id = $this->genero_id;
+            $objeto->observacion = $this->observacion;
+            $objeto->save();
+        }
 
-    //     $objeto->save();
-
-    //     $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
-    // }
+        $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
+    }
 
     //OK
     public function consultar($modelo, $id)
@@ -60,13 +58,13 @@ class FormularioUsuario extends Component
 
         if ($objeto) {
             $this->nombre_1 = $objeto->nombre_1;
-            $this->nombre_2 = $objeto->nombre_2 == '' ? null : $this->nombre_2;
+            $this->nombre_2 = $objeto->nombre_2;
             $this->apellido_1 = $objeto->apellido_1;
             $this->apellido_2 = $objeto->apellido_2;
             $this->dni = $objeto->dni;
             $this->genero_id = $objeto->genero_id;
     
-            $this->observacion = $objeto->observacion == '' ? null : $this->observacion;
+            $this->observacion = $objeto->observacion;
             $this->created_at = $objeto->created_at;
             $this->updated_at = $objeto->updated_at;
         }
@@ -83,6 +81,7 @@ class FormularioUsuario extends Component
         }
 
         $this->modelo = $modelo;
+        $this->modeloString = 'App\\Models\\' . $modelo;
         $this->id = $id;
     }
 
