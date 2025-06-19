@@ -16,20 +16,31 @@ class Aula extends Model
         return [
             'principales' => [
                 'id' => 'ID',
-                
-            ],
-            'secundarios' => [
-                'observacion' => 'Observación'
             ],
             'foraneos' => [
                 'grado' => ['grado' => 'Grado'],
                 'seccion' => ['seccion' => 'Sección'],
             ],
             'timeStamps' => [
-                // 'created_at' => 'Creación',
-                // 'updated_at' => 'Actualización',
+                'created_at' => 'Creación',
+                'updated_at' => 'Actualización',
                 // 'deleted_at' => 'Eliminación'
             ]
+        ];
+    }
+
+    static public function camposModificables(){
+        return [
+            'grado_id',
+            'seccion_id',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
         ];
     }
 
