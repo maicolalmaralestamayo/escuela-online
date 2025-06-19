@@ -5,27 +5,21 @@
             checked @endif>
     </td>
 
-    {{-- campos principales --}}
-    @foreach ($campos['principales'] as $key => $value)
+    {{-- valores --}}
+    @foreach ($campos as $campo)
     <td>
-        {{ $objeto->$key}}
+        @if ($campo[1] == 'at')
+            @foreach ($campo[2] as $encabezado)
+                {{$objeto->$encabezado}}
+            @endforeach
+        @elseif ($campo[1] == 'fk')
+            @foreach ($campo[2] as $fk => $encabezados)
+                @foreach ($encabezados as $encabezado)
+                    {{$objeto->$fk->$encabezado}}
+                @endforeach    
+            @endforeach
+        @endif
     </td>
-    @endforeach
-
-    {{-- datos de las relaciones extremo 1:m --}}
-    @foreach ($campos['foraneos'] as $relacion => $columnas)
-        @foreach ($columnas as $campoBd => $campoVista)
-            <td>
-                {{ $objeto->$relacion[$campoBd] }}
-            </td>
-        @endforeach
-    @endforeach
-
-    {{-- campos timeStamps --}}
-    @foreach ($campos['timeStamps'] as $campoBd => $campoVista)
-        <td>
-            {{ $objeto->$campoBd }}
-        </td>
     @endforeach
 
     {{-- botonera de operaciones --}}
@@ -38,15 +32,6 @@
             <button type="button" class="btn btn-outline-warning bi bi-arrow-clockwise" title="Recargar" wire:click="actualizar"></button>
 
             <button type="button" class="btn btn-outline-primary bi bi-chevron-bar-expand" title="Detalles" wire:click='verDetallesObjeto' data-toggle="modal" data-target="#modalDetallesObjeto"></button>
-            
-            <!--<div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-dark dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Opción 1</a>
-                    <a class="dropdown-item" href="#">Opción 2</a>
-                </div>
-            </div>-->
         </div>
     </td>
 </tr>

@@ -11,26 +11,12 @@ class Calificacion extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'calificacion' => 'Calificación',
-                'abreviatura' => 'Abreviatura',
-            ],
-            'secundarios' => [
-                'descripcion' => 'Descripcion',
-                'observacion' => 'Observación'
-            ],
-            'foraneos' => [
-                // 'genero' => ['Género' => 'genero'],
-                // 'rol' => ['Rol' => 'rol'],
-            ],
-            'timeStamps' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Calificación', 'at', ['calificacion']],
+            ['Abreviatura', 'at', ['abreviatura']],
+            ['Observación', 'at', ['observacion']],
         ];
     }
 

@@ -11,25 +11,11 @@ class TipoContenido extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'tipo' => 'Tipo de contenido',
-                'observacion' => 'Observación',
-            ],
-            'secundarios' => [
-                // 'observacion' => 'Observación'
-            ],
-            'foraneos' => [
-                // 'genero' => ['genero' => 'Género'],
-                // 'rol' => ['rol' => 'Rol'],
-            ],
-            'timeStamps' => [
-                // 'created_at' => 'Creación',
-                // 'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Tipo', 'at', ['tipo']],
+            ['Observación', 'at', ['observacion']],
         ];
     }
 

@@ -12,23 +12,11 @@ class AsignaturaGrado extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-            ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
-            'foraneos' => [
-                'asignatura' => ['asignatura' => 'Asignatura'],
-                'grado' => ['grado' => 'Grado'],
-            ],
-            'timeStamps' => [
-                // 'created_at' => 'Creación',
-                // 'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Asigantura', 'fk', ['asignatura' => ['asignatura'], 'grado' => ['abreviatura']]],
+            ['Observación', 'at', ['observacion']],
         ];
     }
 

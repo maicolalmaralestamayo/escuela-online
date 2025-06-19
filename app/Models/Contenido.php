@@ -12,21 +12,14 @@ class Contenido extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'contenido' => 'Recurso',
-            ],
-            'foraneos' => [
-                'tipoContenido' => [
-                    'tipo' => 'Tipo de fichero',],
-            ],
-            'timeStamps' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Recurso', 'at', ['contenido']],
+            ['Tipo de recurso', 'fk', ['tipoContenido' => ['tipo']]],
+            ['Creado', 'at', ['created_at']],
+            ['Actualizado', 'at', ['updated_at']],
+            ['Creador', 'fk', ['usuario' => ['nombre_1', 'apellido_1']]],
         ];
     }
 

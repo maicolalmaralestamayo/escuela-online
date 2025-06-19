@@ -12,25 +12,12 @@ class Genero extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'genero' => 'Género',
-                'abreviatura' => 'Abreviatura'
-            ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
-            'foraneos' => [
-                /* 'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'], */
-            ],
-            'timeStamps' => [
-                // 'created_at' => 'Creación',
-                // 'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Género', 'at', ['genero']],
+            ['Abreviatura', 'at', ['abreviatura']],
+            ['Observación', 'at', ['observacion']],
         ];
     }
 

@@ -12,29 +12,14 @@ class Actividad extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'actividad' => 'Actividad',
-                'descripcion' => 'Descripción',
-                'inicio' => 'Comienza',
-                'fin' => 'Termina'
-            ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
-            'foraneos' => [
-                'usuario' => [
-                    'nombre_1' => 'Nombre',
-                    'apellido_1' => 'Apellido',
-                ],
-            ],
-            'timeStamps' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Título', 'at', ['actividad']],
+            ['Descripción', 'at', ['descripcion']],
+            ['Comienza', 'at', ['inicio']],
+            ['Termina', 'at', ['fin']],
+            ['Creador', 'fk', ['usuario' => ['nombre_1', 'apellido_1']]],
         ];
     }
 

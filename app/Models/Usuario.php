@@ -10,24 +10,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Usuario extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    use SoftDeletes; 
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'nombre_1' => 'Nombre',
-                'apellido_1' => 'Apellido',
-                'dni' => 'DNI',
-            ],
-            'foraneos' => [
-                'genero' => ['abreviatura' => 'Género'],
-            ],
-            'timeStamps' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Usuario', 'at', ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']],
+            ['DNI', 'at', ['dni']],
+            ['Género', 'fk', ['genero' => ['genero']]],
+            ['Creado', 'at', ['created_at']],
+            ['Actualizado', 'at', ['updated_at']],
         ];
     }
 

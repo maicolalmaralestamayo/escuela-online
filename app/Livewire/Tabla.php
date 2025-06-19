@@ -87,6 +87,10 @@ class Tabla extends Component
         $this->objetosPaginados = $this->modeloString::all()->forPage($this->pagina,$this->objetosPagina);
     }
 
+    public function setEncabezados(){
+
+    }
+
     public function mount($titulo, $modelo, $pagina, $objetosPagina)
     {
         $this->titulo = $titulo;
@@ -97,7 +101,7 @@ class Tabla extends Component
         
         $this->modeloString = 'App\\Models\\' . $modelo;
         $this->totalObjetos = $this->modeloString::count();
-        $this->campos = $this->modeloString::vistaCampos();
+        $this->campos = $this->modeloString::camposTabla();
         
         $this->paginar();
     }

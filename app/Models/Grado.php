@@ -11,21 +11,12 @@ class Grado extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'grado' => 'Grado',
-                'abreviatura' => 'Abreviatura',
-            ],
-            'foraneos' => [
-               
-            ],
-            'timeStamps' => [
-                // 'created_at' => 'Creación',
-                // 'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Grado', 'at', ['grado']],
+            ['Abreviatura', 'at', ['abreviatura']],
+            ['Observación', 'at', ['observacion']],
         ];
     }
 

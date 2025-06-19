@@ -12,20 +12,12 @@ class Aula extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos(){
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-            ],
-            'foraneos' => [
-                'grado' => ['grado' => 'Grado'],
-                'seccion' => ['seccion' => 'Sección'],
-            ],
-            'timeStamps' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Grado', 'fk', ['grado' => ['grado']]],
+            ['Sección', 'fk', ['seccion' => ['seccion']]],
+            ['Observación', 'at', ['observacion']],
         ];
     }
 

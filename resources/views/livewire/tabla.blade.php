@@ -55,30 +55,14 @@
                                             </button>
                                         </td>
 
-                                        {{-- campos principales --}}
-                                        @foreach ($campos['principales'] as $campoBd => $campoVista)
+                                        {{-- encabezados --}}
+                                        @foreach ($campos as $campo)
                                         <th>
-                                            {{ $campoVista }}
+                                            {{$campo[0]}}
                                         </th>
                                         @endforeach
 
-                                        {{-- campos foráneos --}}
-                                        @foreach ($campos['foraneos'] as $relacion => $columnas)
-                                        @foreach ($columnas as $campoBd => $campoVista)
-                                        <th>
-                                            {{ $campoVista }}
-                                        </th>
-                                        @endforeach
-                                        @endforeach
-
-                                        {{-- llaves timeStamps --}}
-                                        @foreach ($campos['timeStamps'] as $campoBd => $campoVista)
-                                        <th>
-                                            {{ $campoVista }}
-                                        </th>
-                                        @endforeach
-
-                                        {{-- operaciones --}}
+                                        {{-- encabezado Operaciones --}}
                                         <th style="width: 40px">Operaciones</th>
                                     </tr>
                                 </thead>
