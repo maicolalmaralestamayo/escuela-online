@@ -33,4 +33,20 @@ class Calificacion extends Model
             ]
         ];
     }
+
+    static public function camposModificables(){
+        return [
+            'calificacion',
+            'abreviatura',
+            'descripcion',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
+        ];
+    }
 }
