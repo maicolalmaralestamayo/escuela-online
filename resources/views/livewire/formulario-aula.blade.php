@@ -1,4 +1,4 @@
-<form>
+<form class="">
     @if ($id)
         @livewire('CamposNoModificables', ['id' => $id, 'created_at' => $created_at, 'updated_at' => $updated_at], key($modelo . $id . $created_at . $updated_at))
     @endif

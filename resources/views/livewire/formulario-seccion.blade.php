@@ -3,7 +3,7 @@
         @livewire('CamposNoModificables', ['id' => $id, 'created_at' => $created_at, 'updated_at' => $updated_at], key($modelo . $id . $created_at . $updated_at))
     @endif
 
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col-md-3">
             <div class="form-group">
                 <label for="seccion">Sección</label>
