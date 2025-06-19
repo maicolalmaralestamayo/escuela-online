@@ -4,17 +4,33 @@ namespace Database\Seeders;
 
 use App\Models\Docente;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DocenteSeeder extends Seeder
 {
     public function run(): void
     {
-        $docentes = [
-            ['id' => 1, 'usuario_id' => 2, 'correo' => 'docente00@escuela.pe', 'celular' => '+51 00 000 0000'],
-            ['id' => 2, 'usuario_id' => 6, 'correo' => 'docente01@escuela.pe', 'celular' => '+51 00 000 0001']];
+        $faker = Faker::create();
 
-        foreach ($docentes as $docente) {
-            Docente::Create($docente);
+        for ($i = 0; $i < 30; $i++) {
+            $male = $faker->randomElement([1, 2]);
+            $nombre_2 = $faker->randomElement([true, false]);
+            $observacion = $faker->randomElement([true, false]);
+            $nombre_1 = $male == 1 ? $faker->firstNameMale() : $faker->firstNameFemale();
+
+            $alumno = [
+                'nombre_1' => $nombre_1,
+                'nombre_2' =>  $nombre_2 == true ? ($male == 1 ? $faker->firstNameMale() : $faker->firstNameFemale()) : null,
+                'apellido_1' => $faker->lastName(),
+                'apellido_2' => $faker->lastName(),
+                'genero_id' => $male,
+                'dni' => rand(10000000, 99999999),
+                'observacion' => $observacion == true ? $faker->sentence() : null,
+                'correo' => strtolower($nombre_1 . '_') . rand(10, 99) . '@piura.edu.pe',
+                'celular' => '+51 ' . rand(10, 99) . ' ' . rand(100, 999) . ' ' . rand(1000, 9999),
+            ];
+
+            Docente::Create($alumno);
         }
     }
 }

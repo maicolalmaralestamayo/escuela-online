@@ -15,9 +15,11 @@ class Tutor extends Model
     static public function camposTabla(){
         return [
             ['ID', 'at', ['id']],
-            ['Nombres y apellidos', 'fk', ['usuario' => ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']]],
+            ['Nombres y apellidos', 'at', ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']],
             ['Correo', 'at', ['correo']],
-            ['Celular', 'at', ['celular']],
+            ['Teléfono', 'at', ['celular']],
+            ['Creado', 'at', ['created_at']],
+            ['Actualizado', 'at', ['updated_at']],
         ];
     }
 

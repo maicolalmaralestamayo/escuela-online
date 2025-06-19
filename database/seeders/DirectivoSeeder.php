@@ -4,17 +4,33 @@ namespace Database\Seeders;
 
 use App\Models\Directivo;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DirectivoSeeder extends Seeder
 {
     public function run(): void
     {
-        $directivos = [
-            ['id' => 1, 'usuario_id' => 1, 'correo' => 'correo_00@dominio.subdminio', 'celular' => '+51 00 000 0000'],
-            ['id' => 2, 'usuario_id' => 2, 'correo' => 'correo_01@dominio.subdminio', 'celular' => '+51 00 000 0001'],];
+        $faker = Faker::create();
 
-        foreach ($directivos as $directivo) {
-            Directivo::Create($directivo);
+        for ($i = 0; $i < 5; $i++) {
+            $male = $faker->randomElement([1, 2]);
+            $nombre_2 = $faker->randomElement([true, false]);
+            $observacion = $faker->randomElement([true, false]);
+            $nombre_1 = $male == 1 ? $faker->firstNameMale() : $faker->firstNameFemale();
+
+            $alumno = [
+                'nombre_1' => $nombre_1,
+                'nombre_2' =>  $nombre_2 == true ? ($male == 1 ? $faker->firstNameMale() : $faker->firstNameFemale()) : null,
+                'apellido_1' => $faker->lastName(),
+                'apellido_2' => $faker->lastName(),
+                'genero_id' => $male,
+                'dni' => rand(10000000, 99999999),
+                'observacion' => $observacion == true ? $faker->sentence() : null,
+                'correo' => strtolower($nombre_1 . '_') . rand(10, 99) . '@piura.edu.pe',
+                'celular' => '+51 ' . rand(10, 99) . ' ' . rand(100, 999) . ' ' . rand(1000, 9999),
+            ];
+
+            Directivo::Create($alumno);
         }
     }
 }

@@ -10,9 +10,13 @@ return new class extends Migration
     {
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
-            
-            $table->foreignId('usuario_id')->constrained()->unique();
-            $table->foreignId('aula_id')->constrained();
+
+            $table->string('nombre_1');
+            $table->string('nombre_2')->nullable();
+            $table->string('apellido_1');
+            $table->string('apellido_2');
+            $table->string('dni', 8)->unique();
+            $table->foreignId('genero_id')->constrained();
 
             $table->string('observacion')->nullable();
             $table->timestamps();

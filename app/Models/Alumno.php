@@ -15,8 +15,7 @@ class Alumno extends Model
     static public function camposTabla(){
         return [
             ['ID', 'at', ['id']],
-            ['Nombres y apellidos', 'fk', ['usuario' => ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']]],
-            ['Aula', 'fk', ['grado' => ['abreviatura'], 'seccion' => ['seccion']]],
+            ['Nombres y apellidos', 'at', ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']],
             ['Creado', 'at', ['created_at']],
             ['Actualizado', 'at', ['updated_at']],
         ];
