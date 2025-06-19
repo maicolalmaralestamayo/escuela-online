@@ -23,6 +23,27 @@ class Tutor extends Model
         ];
     }
 
+    static public function camposModificables(){
+        return [
+            'nombre_1',
+            'nombre_2',
+            'apellido_1',
+            'apellido_2',
+            'dni',
+            'genero_id',
+            'correo',
+            'celular',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
+        ];
+    }
+
     public function usuario(): BelongsTo {
         return $this->belongsTo(Usuario::class);
     }

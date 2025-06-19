@@ -23,7 +23,7 @@
 
             ['tituloOpcion' => 'Tutores',
              'iconoOpcion' => 'person-check', 
-             'tituloAreaTrabajo' => 'Área de Docentes', 
+             'tituloAreaTrabajo' => 'Área de Tutores', 
              'codigoAreaTrabajo' => '13'],
 
             ['tituloOpcion' => 'Alumnos',
