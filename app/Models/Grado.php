@@ -18,18 +18,29 @@ class Grado extends Model
                 'grado' => 'Grado',
                 'abreviatura' => 'Abreviatura',
             ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
             'foraneos' => [
-                /* 'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'], */
+               
             ],
             'timeStamps' => [
                 // 'created_at' => 'Creación',
                 // 'updated_at' => 'Actualización',
                 // 'deleted_at' => 'Eliminación'
             ]
+        ];
+    }
+
+    static public function camposModificables(){
+        return [
+            'grado',
+            'abreviatura',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
         ];
     }
 }
