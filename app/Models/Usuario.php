@@ -17,13 +17,8 @@ class Usuario extends Model
             'principales' => [
                 'id' => 'ID',
                 'nombre_1' => 'Nombre',
-                // 'nombre_2' => 'Segundo Nombre',
                 'apellido_1' => 'Apellido',
-                // 'apellido_2' => 'Segundo Apellido',
                 'dni' => 'DNI',
-                // 'observacion' => 'Observación'
-            ],
-            'secundarios' => [
             ],
             'foraneos' => [
                 'genero' => ['abreviatura' => 'Género'],

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contenido extends Model
@@ -17,18 +16,11 @@ class Contenido extends Model
         return [
             'principales' => [
                 'id' => 'ID',
-                'contenido' => 'Contenido',
-            ],
-            'secundarios' => [
-                'observacion' => 'Observación'
+                'contenido' => 'Recurso',
             ],
             'foraneos' => [
-                'tipoContenido' => [ 'tipo' => 'Tipo de contenido'],
-                
-                'usuario' => [
-                    'nombre_1' => 'Nombre',
-                    'apellido_1' => 'Apellido',
-                ],
+                'tipoContenido' => [
+                    'tipo' => 'Tipo de fichero',],
             ],
             'timeStamps' => [
                 'created_at' => 'Creación',
@@ -38,6 +30,22 @@ class Contenido extends Model
         ];
     }
 
+    static public function camposModificables(){
+        return [
+            'contenido',
+            'tipo_contenido_id',
+            'observacion',
+            'usuario_id',
+            'path',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
+        ];
+    }
     public function usuario(): BelongsTo {
         return $this->belongsTo(Usuario::class);
     }
