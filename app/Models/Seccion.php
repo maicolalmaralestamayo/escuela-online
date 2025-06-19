@@ -17,18 +17,28 @@ class Seccion extends Model
                 'id' => 'ID',
                 'seccion' => 'Sección',
             ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
             'foraneos' => [
-                /* 'genero' => ['Género' => 'genero'],
-                'rol' => ['Rol' => 'rol'], */
+                
             ],
             'timeStamps' => [
                 // 'created_at' => 'Creación',
                 // 'updated_at' => 'Actualización',
                 // 'deleted_at' => 'Eliminación'
             ]
+        ];
+    }
+
+    static public function camposModificables(){
+        return [
+            'seccion',
+            'observacion',
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
         ];
     }
 }
