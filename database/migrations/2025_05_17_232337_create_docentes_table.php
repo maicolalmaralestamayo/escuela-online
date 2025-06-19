@@ -11,10 +11,9 @@ return new class extends Migration
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
             
-            
             $table->foreignId('usuario_id')->constrained()->unique();
-            $table->foreignId('contacto_id')->constrained()->unique();
-            $table->foreignId('aula_id')->constrained()->unique();
+            $table->string('correo')->unique()->nullable();
+            $table->string('celular')->unique()->nullable();
 
             $table->string('observacion')->nullable();
             $table->timestamps();

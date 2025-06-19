@@ -12,32 +12,12 @@ class Directivo extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos()
-    {
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-                'correo' => 'Correo',
-                'celular' => 'Celular',
-                // 'observacion' => 'Observación'
-            ],
-
-            'foraneos' => [
-                'usuario' => [
-                    'nombre_1' => 'Nombre',
-                    // 'nombre_2' => 'Segundo Nombre',
-                    'apellido_1' => 'Apellido',
-                    // 'apellido_2' => 'Segundo Apellido',
-                    'dni' => 'DNI',
-                ],
-
-                'genero' => ['abreviatura' => 'Género'],
-            ],
-            'timeStamps' => [
-                // 'created_at' => 'Creación',
-                // 'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Nombres y apellidos', 'fk', ['usuario' => ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']]],
+            ['Correo', 'at', ['correo']],
+            ['Celular', 'at', ['celular']],
         ];
     }
 

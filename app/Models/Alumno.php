@@ -12,38 +12,13 @@ class Alumno extends Model
     use HasFactory;
     use SoftDeletes;
 
-    static public function vistaCampos()
-    {
+    static public function camposTabla(){
         return [
-            'principales' => [
-                'id' => 'ID',
-            ],
-            'secundarios' => [
-                'observacion' => 'Observación'
-            ],
-            'foraneos' => [
-                'usuario' => [
-                    'nombre_1' => 'Nombre',
-                    'nombre_2' => 'Segundo Nombre',
-                    'apellido_1' => 'Apellido',
-                    'apellido_2' => 'Segundo Apellido',
-                    'dni' => 'DNI',
-                ],
-                'genero' => [
-                    'abreviatura' => 'Género',
-                ],
-                'grado' => [
-                    'grado' => 'Grado',
-                ],
-                'seccion' => [
-                    'seccion' => 'Sección',
-                ],
-            ],
-            'timeStamps' => [
-                'created_at' => 'Creación',
-                'updated_at' => 'Actualización',
-                // 'deleted_at' => 'Eliminación'
-            ]
+            ['ID', 'at', ['id']],
+            ['Nombres y apellidos', 'fk', ['usuario' => ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']]],
+            ['Aula', 'fk', ['grado' => ['abreviatura'], 'seccion' => ['seccion']]],
+            ['Creado', 'at', ['created_at']],
+            ['Actualizado', 'at', ['updated_at']],
         ];
     }
 
