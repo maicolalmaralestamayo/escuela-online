@@ -23,6 +23,24 @@ class Actividad extends Model
         ];
     }
 
+    static public function camposModificables(){
+        return [
+            'actividad',
+            'descripcion',
+            'inicio',
+            'fin',
+            'usuario_id',
+            'observacion'
+        ];
+    }
+
+    static public function camposNoModificables(){
+        return [
+            'created_at',
+            'updated_at',
+        ];
+    }
+
     public function usuario(): BelongsTo {
         return $this->belongsTo(Usuario::class);
     }
