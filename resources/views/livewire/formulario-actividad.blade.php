@@ -14,14 +14,30 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <label for="actividad">Título</label>
+                <label for="actividad"> Título </label>
                 <input id="actividad" type="text" class="form-control" wire:model.live='actividad'>
             </div>
         </div>
 
-        {{-- <div class="col-md-3">
-            @livewire('CampoFechaHora', ['fechaHora' => $inicio])
-        </div> --}}
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="inicio">Comienza {{$inicio}} </label>
+
+                <div class="input-group date inicializar" id="picker-date-time-inicio" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" id="inicio"
+                        data-target="#picker-date-time-inicio" data-toggle="datetimepicker" wire:model.live='inicio'/>
+                    <div class="input-group-append" data-target="#picker-date-time-inicio" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="bi bi-calendar"></i></div>
+                    </div>
+                </div>
+        
+                @script
+                    <script>
+                        inicializarDateTimePicker('#picker-date-time-inicio');
+                    </script>
+                @endscript
+            </div>
+        </div>
 
         <div class="col-md-3">
             <div class="form-group">

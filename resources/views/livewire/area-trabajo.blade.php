@@ -33,12 +33,9 @@
         @break
 
         @case('03')
-            {{-- @livewire('tabla', 
-                ['titulo' => 'Tabla Roles',
-                'modelo' => 'Rol',
-                'pagina' => 1, 
-                'objetosPagina' => 5]) --}}
+            {{-- DISPONIBLE --}}
         @break
+        
         @case('04')
             @livewire('tabla', 
                 ['titulo' => 'Tabla Grados',

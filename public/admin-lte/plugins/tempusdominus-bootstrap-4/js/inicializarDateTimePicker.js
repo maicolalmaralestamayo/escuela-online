@@ -1,16 +1,16 @@
-window.inicializarDateTimePicker = function () {
-    $(".inicializar").datetimepicker({
+window.inicializarDateTimePicker = function(containerId) {
+    $(containerId).datetimepicker({
         format: "YYYY-MM-DD HH:mm:ss",
         icons: {
             time: "bi bi-clock",
             date: "bi bi-calendar",
-            up: "bi bi-chevron-double-up",
-            down: "bi bi-chevron-double-down",
-            previous: "bi bi-chevron-double-left",
-            next: "bi bi-chevron-double-right",
+            up: "bi bi-chevron-up",
+            down: "bi bi-chevron-down",
+            previous: "bi bi-chevron-left",
+            next: "bi bi-chevron-right",
             today: "bi bi-check",
             clear: "bi bi-trash",
-            close: "bi bi-x-lg",
-        },
+            close: "bi bi-x",
+        }
     });
 };
