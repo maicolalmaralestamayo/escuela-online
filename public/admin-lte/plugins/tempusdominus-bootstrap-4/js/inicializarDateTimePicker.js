@@ -1,5 +1,5 @@
-$(function () {
-    $(".ok").datetimepicker({
+window.inicializarDateTimePicker = function () {
+    $(".inicializar").datetimepicker({
         format: "YYYY-MM-DD HH:mm:ss",
         icons: {
             time: "bi bi-clock",
@@ -13,4 +13,4 @@ $(function () {
             close: "bi bi-x-lg",
         },
     });
-});
+};

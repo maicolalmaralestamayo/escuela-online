@@ -121,8 +121,6 @@ class FormularioUsuario extends Component
 
         $this->modelo = $modelo;
         $this->id = $id;
-
-        $this->dispatch('inicializarDatetimepicker');
     }
 
     public function render()

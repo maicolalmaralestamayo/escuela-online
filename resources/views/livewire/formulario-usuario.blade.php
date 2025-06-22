@@ -1,6 +1,15 @@
 <form>
-    @livewire('CampoFechaHora')
-    
+    <div class="form-group">
+        <label for="input-picker-date-time">Fecha y Hora</label>
+        <div class="input-group date inicializar" id="picker-date-time" data-target-input="nearest">
+            <input type="text" class="form-control datetimepicker-input" id="input-picker-date-time"
+                data-target="#picker-date-time" data-toggle="datetimepicker"/>
+            <div class="input-group-append" data-target="#picker-date-time" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="bi bi-calendar"></i></div>
+            </div>
+        </div>
+    </div>
+
     @if ($id)
         @livewire('CamposNoModificables', ['id' => $id, 'created_at' => $created_at, 'updated_at' => $updated_at], key($modelo . $id . $created_at . $updated_at))
     @endif
@@ -62,3 +71,9 @@
         </div>
     </div>
 </form>
+
+@script
+    <script>
+        inicializarDateTimePicker();
+    </script>
+@endscript
