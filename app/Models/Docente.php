@@ -18,6 +18,7 @@ class Docente extends Model
             ['Nombres y apellidos', 'at', ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']],
             ['Correo', 'at', ['correo']],
             ['Celular', 'at', ['celular']],
+            ['Aula', 'fk', ['grado' => ['abreviatura'], 'seccion' => ['seccion']]],
         ];
     }
 
@@ -32,6 +33,7 @@ class Docente extends Model
             'observacion',
             'correo',
             'celular',
+            'aula_id'
         ];
     }
 
@@ -52,5 +54,17 @@ class Docente extends Model
 
     public function genero(){
         return $this->usuario->genero();
+    }
+
+    public function aula(): BelongsTo{
+        return $this->belongsTo(Aula::class);
+    }
+
+    public function grado() {
+        return $this->aula->grado();
+    }
+
+    public function seccion() {
+        return $this->aula->seccion();
     }
 }
