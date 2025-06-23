@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('apellido_2');
             $table->string('dni', 8)->unique();
             $table->foreignId('genero_id')->constrained();
+            $table->foreignId('aula_id')->nullable()->constrained()->default(null); 
+            $table->boolean('activo')->default(false);
 
             $table->string('correo')->unique()->nullable();
             $table->string('celular')->unique()->nullable();
