@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Aula;
 use App\Models\Genero;
 use Livewire\Component;
 
@@ -12,6 +13,7 @@ class FormularioDocente extends Component
 
     //objetos relacionados
     public $generos;
+    public $aulas;
 
     //formulario
     public $nombre_1;
@@ -19,10 +21,13 @@ class FormularioDocente extends Component
     public $apellido_1;
     public $apellido_2;
     public $dni;
-    public $genero_id;
     public $correo;
     public $celular;
+    
     public $observacion;
+    
+    public $genero_id;
+    public $aula_id;
 
     public $created_at;
     public $updated_at;
@@ -98,6 +103,9 @@ class FormularioDocente extends Component
     public function inicializarRelaciones(){
         $this->generos = Genero::all();
         $this->genero_id = $this->generos->first()->id;
+
+        $this->aulas = Aula::all();
+        $this->aula_id = $this->aulas->first()->id;
     }
 
     //OK
