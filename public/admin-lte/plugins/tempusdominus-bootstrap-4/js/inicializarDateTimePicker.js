@@ -1,6 +1,6 @@
 window.inicializarDateTimePicker = function(groupSelector) {
-    const $group = $(groupSelector); // Esto apunta al input-group (el contenedor)
-    const $input = $group.find('input').get(0); // El campo de texto real dentro del grupo
+    const $group = $(groupSelector);
+    const $input = $group.find('input').get(0);
 
     $group.datetimepicker({
         format: "YYYY-MM-DD HH:mm:ss",
@@ -18,6 +18,7 @@ window.inicializarDateTimePicker = function(groupSelector) {
         },
         // inline: true,
         sideBySide: true,
+        useCurrent: true,
     });
 
     $group.on('hide.datetimepicker', function () {

@@ -23,17 +23,17 @@
             <div class="form-group">
                 <label for="inicio"> Comienza </label>
 
-                <div class="input-group date inicializar" id="picker-date-time-inicio" data-target-input="nearest">
+                <div class="input-group date inicializar" id="picker-date-time-inicio{{$id}}" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" id="inicio"
-                        data-target="#picker-date-time-inicio" data-toggle="datetimepicker" wire:model.live='inicio'/>
-                    <div class="input-group-append" data-target="#picker-date-time-inicio" data-toggle="datetimepicker">
+                        data-target="#picker-date-time-inicio{{$id}}" data-toggle="datetimepicker" wire:model.live='inicio'/>
+                    <div class="input-group-append" data-target="#picker-date-time-inicio{{$id}}" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="bi bi-calendar4-week"></i></div>
                     </div>
                 </div>
         
                 @script
                     <script>
-                        inicializarDateTimePicker('#picker-date-time-inicio');
+                        inicializarDateTimePicker("#picker-date-time-inicio{{$id}}");
                     </script>
                 @endscript
             </div>
@@ -43,17 +43,17 @@
             <div class="form-group">
                 <label for="fin"> Termina </label>
 
-                <div class="input-group date inicializar" id="picker-date-time-fin" data-target-input="nearest">
+                <div class="input-group date inicializar" id="picker-date-time-fin{{$id}}" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" id="fin"
-                        data-target="#picker-date-time-fin" data-toggle="datetimepicker" wire:model.live='fin'/>
-                    <div class="input-group-append" data-target="#picker-date-time-fin" data-toggle="datetimepicker">
+                        data-target="#picker-date-time-fin{{$id}}" data-toggle="datetimepicker" wire:model.live='fin'/>
+                    <div class="input-group-append" data-target="#picker-date-time-fin{{$id}}" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="bi bi-calendar4-week"></i></div>
                     </div>
                 </div>
         
                 @script
                     <script>
-                        inicializarDateTimePicker('#picker-date-time-fin');
+                        inicializarDateTimePicker("#picker-date-time-fin{{$id}}");
                     </script>
                 @endscript
             </div>

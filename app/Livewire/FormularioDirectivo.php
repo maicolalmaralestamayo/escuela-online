@@ -2,24 +2,26 @@
 
 namespace App\Livewire;
 
-use App\Models\Usuario;
+use App\Models\Genero;
 use Livewire\Component;
 
-class FormularioActividad extends Component
+class FormularioDirectivo extends Component
 {
     public $modelo;
     public $id;
 
     //objetos relacionados
-    public $usuarios;
-    public $creador;
+    public $generos;
 
     //formulario
-    public $actividad;
-    public $descripcion;
-    public $inicio;
-    public $fin;
-    public $usuario_id;
+    public $nombre_1;
+    public $nombre_2;
+    public $apellido_1;
+    public $apellido_2;
+    public $dni;
+    public $genero_id;
+    public $correo;
+    public $celular;
     public $observacion;
 
     public $created_at;
@@ -89,22 +91,13 @@ class FormularioActividad extends Component
             foreach ($camposNoModificables as $key => $campo) {
                 $this->$campo = $objeto->$campo;
             }
-
-            $this->creador = $objeto->usuario->nombre_1 . ' ' . $objeto->usuario->nombre_2 . ' ' . $objeto->usuario->apellido_1 . ' ' . $objeto->usuario->apellido_2;
         }
     }
 
     //OK
     public function inicializarRelaciones(){
-        $usuarios = Usuario::all();
-        $this->usuarios = $usuarios;
-
-        $usuario = $usuarios->first();
-        $this->usuario_id = $usuario->id;
-        $this->creador = $usuario->nombre_1 . ' ' . $usuario->nombre_2 . ' ' . $usuario->apellido_1 . ' ' . $usuario->apellido_2;
-
-        $this->inicio = now()->format('Y-m-d H:i:s');
-        $this->fin = now()->format('Y-m-d H:i:s');
+        $this->generos = Genero::all();
+        $this->genero_id = $this->generos->first()->id;
     }
 
     //OK
@@ -134,6 +127,6 @@ class FormularioActividad extends Component
 
     public function render()
     {
-        return view('livewire.formulario-actividad');
+        return view('livewire.formulario-directivo');
     }
 }

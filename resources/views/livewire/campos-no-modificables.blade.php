@@ -1,22 +1,31 @@
 <div class="row d-flex justify-content-center">
-    <div class="col-md-3">
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input id="id" type="text" class="form-control" disabled value={{ $id }}>
+    <div class="col-md-2">
+        <label for="id">ID</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi bi-123"></i></span>
+            </div>
+            <input type="text-center" id="id" class="form-control" disabled value="{{$id}}">
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="form-group">
-            <label for="created_at">Creado</label>
-            <input id="created_at" type="text" class="form-control" disabled value={{ $created_at }}>
+        <label for="created_at">Creado</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi-calendar4-week"></i></span>
+            </div>
+            <input type="text" id="created_at" class="form-control" disabled wire:model.live='created_at'>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="form-group">
-            <label for="updated_at">Actualizado</label>
-            <input id="updated_at" type="text" class="form-control" disabled value={{ $updated_at }}>
+        <label for="updated_at">Actualizado</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bi-calendar4-week"></i></span>
+            </div>
+            <input type="text" id="updated_at" class="form-control" disabled wire:model.live='updated_at'>
         </div>
     </div>
 </div>
