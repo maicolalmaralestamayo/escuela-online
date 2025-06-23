@@ -92,13 +92,6 @@
                         <option value={{ $aula->id }}>{{$aula->grado->grado}} {{$aula->seccion->seccion}}</option>
                     @endforeach
                 </select>
-                @script
-                    <script>
-                        $(function () {
-                            $('#aula{{$id}}').select2()
-                        })
-                    </script>
-                @endscript
             </div>
         </div>
 
