@@ -102,6 +102,9 @@ class FormularioActividad extends Component
         $usuario = $usuarios->first();
         $this->usuario_id = $usuario->id;
         $this->creador = $usuario->nombre_1 . ' ' . $usuario->nombre_2 . ' ' . $usuario->apellido_1 . ' ' . $usuario->apellido_2;
+
+        $this->inicio = now()->format('Y-m-d H:i:s');
+         $this->fin = now()->format('Y-m-d H:i:s');
     }
 
     //OK

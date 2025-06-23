@@ -21,9 +21,9 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
-  <div class="preloader flex-column justify-content-center align-items-center">
+  {{-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src='admin-lte/dist/img/logo.png' height="60" width="60">
-  </div>
+  </div> --}}
 
   <livewire:html />
 

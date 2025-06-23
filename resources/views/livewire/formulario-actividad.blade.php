@@ -21,13 +21,13 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <label for="inicio">Comienza {{$inicio}} </label>
+                <label for="inicio"> Comienza </label>
 
                 <div class="input-group date inicializar" id="picker-date-time-inicio" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" id="inicio"
                         data-target="#picker-date-time-inicio" data-toggle="datetimepicker" wire:model.live='inicio'/>
                     <div class="input-group-append" data-target="#picker-date-time-inicio" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="bi bi-calendar"></i></div>
+                        <div class="input-group-text"><i class="bi bi-calendar4-week"></i></div>
                     </div>
                 </div>
         
@@ -41,8 +41,21 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <label for="fin">Termina</label>
-                <input id="fin" type="text" class="form-control" wire:model.live='fin'>
+                <label for="fin"> Termina </label>
+
+                <div class="input-group date inicializar" id="picker-date-time-fin" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" id="fin"
+                        data-target="#picker-date-time-fin" data-toggle="datetimepicker" wire:model.live='fin'/>
+                    <div class="input-group-append" data-target="#picker-date-time-fin" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="bi bi-calendar4-week"></i></div>
+                    </div>
+                </div>
+        
+                @script
+                    <script>
+                        inicializarDateTimePicker('#picker-date-time-fin');
+                    </script>
+                @endscript
             </div>
         </div>
 
@@ -58,57 +71,8 @@
             <div class="form-group">
                 <label for="observacion">Observación</label>
                 <textarea id="observacion" class="form-control" rows="2"
-                    wire:model.live='descripcion'> {{$observacion}} </textarea>
-            </div>
-        </div>
-
-        {{-- <div class="col-md-3">
-            <div class="form-group">
-                <label for="nombre_2">Segundo nombre</label>
-                <input id="nombre_2" type="text" class="form-control" wire:model.live='nombre_2'>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="apellido_1">Apellido</label>
-                <input id="apellido_1" type="text" class="form-control" wire:model.live='apellido_1'>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="apellido_2">Segundo apellido</label>
-                <input id="apellido_2" type="text" class="form-control" wire:model.live='apellido_2'>
-            </div>
-        </div> --}}
-    </div>
-
-    {{-- <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="dni">DNI</label>
-                <input id="dni" type="text" class="form-control" wire:model.live='dni'>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="genero">Género</label>
-                <select class="custom-select" id="genero" wire:model.live='genero_id'>
-                    @foreach ($generos as $genero)
-                    <option value={{ $genero->id }}> {{$genero->genero}} </option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="observacion">Observación</label>
-                <textarea id="observacion" class="form-control" rows="2"
                     wire:model.live='observacion'> {{$observacion}} </textarea>
             </div>
         </div>
-    </div> --}}
+    </div>
 </form>
