@@ -93,6 +93,13 @@
                     @endforeach
                 </select>
             </div>
+            @script
+                <script>
+                    $(function () {
+                        $('#aula{{$id}}').select2()
+                    })
+                </script>
+            @endscript
         </div>
 
         <div class="col-md-6">
