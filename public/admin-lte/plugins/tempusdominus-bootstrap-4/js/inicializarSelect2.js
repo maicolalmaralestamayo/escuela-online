@@ -9,4 +9,3 @@ window.inicializarSelect2 = function(id) {
         $select.get(0).dispatchEvent(new Event('change'));
     });
 };
-
