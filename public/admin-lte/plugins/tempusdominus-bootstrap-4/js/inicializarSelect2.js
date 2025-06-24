@@ -1,7 +1,7 @@
 window.inicializarSelect2 = function(id) {
     const $select = $(id);
     $select.select2({
-        dropdownParent: $select.closest('.modal')
+        dropdownParent: $select.closest('form')
     });
 
     $select.on("select2:select", function () {
