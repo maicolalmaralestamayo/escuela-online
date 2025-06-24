@@ -13,11 +13,13 @@
                 {{$objeto->$encabezado}}
             @endforeach
         @elseif ($campo[1] == 'fk')
-            @foreach ($campo[2] as $fk => $encabezados)
-                @foreach ($encabezados as $encabezado)
-                    {{$objeto->$fk->$encabezado}}
-                @endforeach    
-            @endforeach
+            @if ($objeto[$campo[3]] != null)
+                @foreach ($campo[2] as $fk => $encabezados)
+                    @foreach ($encabezados as $encabezado)
+                      {{$objeto->$fk->$encabezado}}
+                    @endforeach    
+                @endforeach
+            @endif
         @endif
     </td>
     @endforeach

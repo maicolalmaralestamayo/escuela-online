@@ -18,7 +18,7 @@ class Docente extends Model
             ['Nombres y apellidos', 'at', ['nombre_1', 'nombre_2', 'apellido_1', 'apellido_2']],
             ['Correo', 'at', ['correo']],
             ['Celular', 'at', ['celular']],
-            ['Aula', 'fk', ['grado' => ['abreviatura'], 'seccion' => ['seccion']]],
+            ['Aula', 'fk', ['grado' => ['abreviatura'], 'seccion' => ['seccion']], 'aula_id',],
         ];
     }
 

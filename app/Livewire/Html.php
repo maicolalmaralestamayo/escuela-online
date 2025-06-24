@@ -7,7 +7,7 @@ use Livewire\Component;
 class Html extends Component
 {
     public $tituloAreaTrabajo = 'Bienvenidos';
-    public $codigoAreaTrabajo = '16';
+    public $codigoAreaTrabajo = '12';
     
     protected $listeners = [ 'setAreaTrabajo' ];
 

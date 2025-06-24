@@ -39,13 +39,14 @@
     </div> --}}
   
     <livewire:html />
-  
+
     <!-- jQuery -->
     <script src="admin-lte/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
     <script src="admin-lte/plugins/select2/js/select2.full.min.js"></script>
+    <script src="admin-lte/plugins/tempusdominus-bootstrap-4/js/inicializarSelect2.js"></script>
     <!-- Bootstrap4 Duallistbox -->
     <script src="admin-lte/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <!-- InputMask -->
@@ -57,6 +58,7 @@
     <script src="admin-lte/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="admin-lte/plugins/tempusdominus-bootstrap-4/js/inicializarDateTimePicker.js"></script>
     <!-- Bootstrap Switch -->
     <script src="admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
     <!-- BS-Stepper -->
@@ -66,6 +68,7 @@
     <!-- AdminLTE App -->
     <script src="admin-lte/dist/js/adminlte.min.js"></script>
 
-    {{-- @livewireScripts --}}
+    @livewireScripts
+</script>
   </body>
 </html>

@@ -73,33 +73,16 @@
             </div>
         </div>
 
-        {{-- <div class="col-md-3">
+        <div class="col-md-3">
             <div class="form-group">
-                <label for="aula">Aula</label>
-                <select class="custom-select" id="aula" wire:model.live='aula_id'>
+                <label for="aula{{$id}}">Aula</label>
+                <select class="form-control select2bs4 inicializarSelect2" style="width: 100%;" id="aula{{$id}}" wire:model='aula_id'>
+                    <option value={{null}}>Sin asignar aula</option>
                     @foreach ($aulas as $aula)
-                        <option value={{ $aula->id }}> {{$aula->grado->grado}} {{$aula->seccion->seccion}} </option>
+                        <option value={{ $aula->id }} {{ $aula->id == $aula_id ? 'selected' : '' }}> {{$aula->grado->grado}} {{$aula->seccion->seccion}} </option>
                     @endforeach
                 </select>
             </div>
-        </div> --}}
-
-        <div class="col-md-6">
-            <div class="form-group" wire:ignore>
-                <label for="aula">Aula</label>
-                <select class="form-control select2" style="width: 100%;" id="aula{{$id}}" wire:model.live='aula_id'>
-                    @foreach ($aulas as $aula)
-                        <option value={{ $aula->id }}>{{$aula->grado->grado}} {{$aula->seccion->seccion}}</option>
-                    @endforeach
-                </select>
-            </div>
-            @script
-                <script>
-                    $(function () {
-                        $('#aula{{$id}}').select2()
-                    })
-                </script>
-            @endscript
         </div>
 
         <div class="col-md-6">
@@ -110,3 +93,9 @@
         </div>
     </div>
 </form>
+
+@script
+    <script>
+        inicializarSelect2('#aula{{$id}}');
+    </script>
+@endscript

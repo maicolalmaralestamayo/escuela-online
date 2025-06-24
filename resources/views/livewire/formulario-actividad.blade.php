@@ -22,7 +22,6 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="inicio"> Comienza </label>
-
                 <div class="input-group date inicializar" id="picker-date-time-inicio{{$id}}" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" id="inicio"
                         data-target="#picker-date-time-inicio{{$id}}" data-toggle="datetimepicker" wire:model.live='inicio'/>

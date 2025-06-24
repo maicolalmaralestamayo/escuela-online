@@ -42,8 +42,6 @@
                                 </div>-->
                             </div>
 
-                            <br>
-
                             <table class="table table-bordered table-sm mx-auto">
                                 <thead>
                                     <tr>

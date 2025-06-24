@@ -105,7 +105,7 @@ class FormularioDocente extends Component
         $this->genero_id = $this->generos->first()->id;
 
         $this->aulas = Aula::all();
-        $this->aula_id = $this->aulas->first()->id;
+        $this->aula_id = null;
     }
 
     //OK

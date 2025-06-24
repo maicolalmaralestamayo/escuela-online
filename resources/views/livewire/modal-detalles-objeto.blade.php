@@ -8,7 +8,7 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <div class="modal-body" wire:lazy>
+            <div class="modal-body">
                 @if ($modelo)
                     @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' => $id], key($modelo . $id))
                 @endif
