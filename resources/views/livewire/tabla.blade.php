@@ -20,7 +20,8 @@
                             {{-- botonera de acciones de la tabla --}}
                             <div class="btn-group mb-3">
                                 <button type="button" class="btn btn-outline-danger" title="Eliminar datos marcados"
-                                    data-toggle="modal" data-target="#modalEliminarMasivo"><i class="bi bi-trash-fill"></i>
+                                    data-toggle="modal" data-target="#modalEliminarMasivo"><i
+                                        class="bi bi-trash-fill"></i>
                                 </button>
 
                                 <button type="button" class="btn btn-outline-warning  bi bi-arrow-clockwise"
@@ -28,7 +29,8 @@
                                 </button>
 
                                 <button type="button" class="btn btn-outline-success bi bi-plus-lg" title="Insertar"
-                                    data-toggle="modal" wire:click="verInsertarObjeto" data-target="#modalInsertarObjeto">
+                                    data-toggle="modal" wire:click="verInsertarObjeto"
+                                    data-target="#modalInsertarObjeto">
                                 </button>
                             </div>
 
@@ -45,9 +47,9 @@
 
                                         {{-- encabezados --}}
                                         @foreach ($campos as $campo)
-                                        <th>
-                                            {{$campo[0]}}
-                                        </th>
+                                            <th>
+                                                {{ $campo[0] }}
+                                            </th>
                                         @endforeach
 
                                         {{-- encabezado Operaciones --}}
@@ -57,16 +59,18 @@
 
                                 <tbody>
                                     @foreach ($objetosPaginados as $objeto)
-                                    @livewire( 'fila',
-                                    [
-                                    'campos' => $campos,
-                                    'modelo' => $modelo,
-                                    'modeloString' => $modeloString,
-                                    'objeto' => $objeto,
-                                    'estado' => $estadoFilas
-                                    ],
-
-                                    key('fila-body' . $objeto->id . $estadoFilas . $totalObjetos))
+                                        @livewire(
+                                            'fila',
+                                            [
+                                                'campos' => $campos,
+                                                'modelo' => $modelo,
+                                                'modeloString' => $modeloString,
+                                                'objeto' => $objeto,
+                                                'estado' => $estadoFilas,
+                                            ],
+                                        
+                                            key('fila-body' . $objeto->id . $estadoFilas . $totalObjetos)
+                                        )
                                     @endforeach
                                 </tbody>
                             </table>
@@ -78,7 +82,7 @@
             {{-- footer --}}
             <div class="card-footer">
                 <div class="d-flex flex-wrap justify-content-center align-items-center">
-                    @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key($pagina . $objetosPagina. $totalObjetos))
+                    @livewire('paginador', ['pagina' => $pagina, 'totalPaginas' => $totalPaginas], key($pagina . $objetosPagina . $totalObjetos))
 
                     <div class="input-group input-group-sm m-1" style="width: auto;">
                         <div class="input-group-prepend">
@@ -101,19 +105,16 @@
             </div>
         </div>
     </div>
-    
-    @livewire('modal-detalles-objeto', ['modelo' => $modelo], key('modal-detalles-objeto'))
-    
-    {{-- modales --}}
-    <div>
-        {{-- @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' => null], key($modelo)) --}}
 
-        {{-- @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
-        @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
-        @livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))
-        @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
-        @livewire('modal-detalles-objeto', key('modal-detalles-objeto'))
-        @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
-        @livewire('modal-insertar-objeto', key('modal-insertar-objeto')) --}}
-    </div>
+    @livewire('modal-detalles-objeto', ['modelo' => $modelo], key('modal-detalles-objeto'))
+    @livewire('modal-insertar-objeto', ['modelo' => $modelo], key('modal-insertar-objeto'))
+    
+    @livewire('modal-eliminar-objeto', key('modal-eliminar-objeto'))
+    @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
+
+    @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
+    @livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))
+
+    @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
+    @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
 </section>

@@ -112,6 +112,7 @@ class FormularioTutor extends Component
         }
 
         $this->inicializarRelaciones();
+        $this->id = null;
     }
 
     //OK

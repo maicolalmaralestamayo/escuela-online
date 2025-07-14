@@ -100,6 +100,7 @@ class FormularioTipoContenido extends Component
         }
 
         $this->inicializarRelaciones();
+        $this->id = null;
     }
 
     //OK

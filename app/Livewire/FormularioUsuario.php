@@ -110,6 +110,7 @@ class FormularioUsuario extends Component
         }
 
         $this->inicializarRelaciones();
+        $this->id = null;
     }
 
     //OK

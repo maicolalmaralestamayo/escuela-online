@@ -112,6 +112,7 @@ class FormularioDirectivo extends Component
         }
 
         $this->inicializarRelaciones();
+        $this->id = null;
     }
 
     //OK

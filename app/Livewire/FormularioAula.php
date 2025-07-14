@@ -113,6 +113,7 @@ class FormularioAula extends Component
         }
 
         $this->inicializarRelaciones();
+        $this->id = null;
     }
 
     //OK

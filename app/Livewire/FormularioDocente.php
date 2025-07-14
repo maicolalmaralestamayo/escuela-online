@@ -120,6 +120,7 @@ class FormularioDocente extends Component
         }
 
         $this->inicializarRelaciones();
+        $this->id = null;
     }
 
     //OK
