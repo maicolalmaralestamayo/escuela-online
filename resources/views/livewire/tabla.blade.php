@@ -30,16 +30,6 @@
                                 <button type="button" class="btn btn-outline-success bi bi-plus-lg" title="Insertar"
                                     data-toggle="modal" wire:click="verInsertarObjeto" data-target="#modalInsertarObjeto">
                                 </button>
-
-                                <!--<div class="btn-group btn-group-sm">
-                                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon"
-                                        data-toggle="dropdown">
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Opción 1</a>
-                                        <a class="dropdown-item" href="#">Opción 2</a>
-                                    </div>
-                                </div>-->
                             </div>
 
                             <table class="table table-bordered table-sm mx-auto">
@@ -111,16 +101,19 @@
             </div>
         </div>
     </div>
-
+    
+    @livewire('modal-detalles-objeto', ['modelo' => $modelo], key('modal-detalles-objeto'))
+    
     {{-- modales --}}
-    <div wire:lazy.visible>
-        @livewire('modal-eliminar-objeto', key('modal-eliminar-objeto'))
-        @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
+    <div>
+        {{-- @livewire('Formulario' . $modelo, ['modelo' => $modelo, 'id' => null], key($modelo)) --}}
+
+        {{-- @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
         @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
         @livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))
         @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
         @livewire('modal-detalles-objeto', key('modal-detalles-objeto'))
         @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
-        @livewire('modal-insertar-objeto', key('modal-insertar-objeto'))
+        @livewire('modal-insertar-objeto', key('modal-insertar-objeto')) --}}
     </div>
 </section>

@@ -87,6 +87,8 @@ class FormularioAula extends Component
             foreach ($camposNoModificables as $key => $campo) {
                 $this->$campo = $objeto->$campo;
             }
+
+            $this->id = $id;
         }
     }
 

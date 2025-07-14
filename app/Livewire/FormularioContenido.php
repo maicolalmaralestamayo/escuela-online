@@ -94,6 +94,7 @@ class FormularioContenido extends Component
                 $this->$campo = $objeto->$campo;
             }
 
+            $this->id = $id;
             $this->propietario = $objeto->usuario->nombre_1 . ' ' . $objeto->usuario->nombre_2 . ' ' . $objeto->usuario->apellido_1 . ' ' . $objeto->usuario->apellido_2;   
         }
     }

@@ -47,7 +47,7 @@
                 <label for="genero">Género</label>
                 <select class="custom-select" id="genero" wire:model.live='genero_id'>
                     @foreach ($generos as $genero)
-                        <option value={{ $genero->id }}> {{$genero->genero}} </option>
+                        <option value={{ $genero->id }}> {{ $genero->genero }} </option>
                     @endforeach
                 </select>
             </div>
@@ -76,7 +76,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="observacion">Observación</label>
-                <textarea id="observacion" class="form-control" rows="2" wire:model.live='observacion'> {{$observacion}} </textarea>
+                <textarea id="observacion" class="form-control" rows="2" wire:model.live='observacion'> {{ $observacion }} </textarea>
             </div>
         </div>
     </div>

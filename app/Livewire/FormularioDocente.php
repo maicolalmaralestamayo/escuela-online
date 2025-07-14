@@ -96,6 +96,8 @@ class FormularioDocente extends Component
             foreach ($camposNoModificables as $key => $campo) {
                 $this->$campo = $objeto->$campo;
             }
+
+            $this->id = $id;
         }
     }
 
