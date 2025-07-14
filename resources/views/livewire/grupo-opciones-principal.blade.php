@@ -29,7 +29,8 @@
             ['tituloOpcion' => 'Alumnos',
              'iconoOpcion' => 'person-check', 
              'tituloAreaTrabajo' => 'Área de Alumno', 
-             'codigoAreaTrabajo' => '14'],]])
+             'codigoAreaTrabajo' => '14'],]]
+    )
 
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Estructura escolar', 
@@ -48,8 +49,10 @@
              ['tituloOpcion' => 'Aulas',
              'iconoOpcion' => 'person-workspace', 
              'tituloAreaTrabajo' => 'Área de Aulas', 
-             'codigoAreaTrabajo' => '06']]])
+             'codigoAreaTrabajo' => '06']]]
+    )
 
+    
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Estructura curricular', 
         'iconoSubmenu' => 'backpack2', 
@@ -72,8 +75,10 @@
              ['tituloOpcion' => 'Calificaciones (Cursos)',
              'iconoOpcion' => 'journal-check', 
              'tituloAreaTrabajo' => 'Área de Calificaciones por cursos', 
-             'codigoAreaTrabajo' => '10']]])
+             'codigoAreaTrabajo' => '10']]]
+    )
 
+    
     @livewire('Submenu', 
         ['tituloSubmenu' => 'Evaluación', 
         'iconoSubmenu' => 'speedometer2', 
@@ -86,5 +91,7 @@
             ['tituloOpcion' => 'Recursos',
              'iconoOpcion' => 'collection-play-fill', 
              'tituloAreaTrabajo' => 'Área de Recursos', 
-             'codigoAreaTrabajo' => '17'],]])
+             'codigoAreaTrabajo' => '17'],]]
+    )
+
 </li>

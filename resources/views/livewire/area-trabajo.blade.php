@@ -11,9 +11,7 @@
 
     @switch($codigoAreaTrabajo)
         @case('00')
-            <div>
-                En construcción
-            </div>
+            @livewire('PanelesDocencia')
         @break
         
         @case('01')
