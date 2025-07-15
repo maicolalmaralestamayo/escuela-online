@@ -11,6 +11,7 @@ class Fila extends Component
     public $modeloString;
     public $objeto;
     public $estado;
+
     protected $listeners = [
         'confirmarEliminarObjeto',
         'confirmarEliminarMasivo',
@@ -29,7 +30,7 @@ class Fila extends Component
 
     //OK
     public function solicitarEliminarObjeto(){
-        $this->dispatch('solicitarEliminarObjeto', $this->objeto->id)->to(ModalEliminarObjeto::class);
+        $this->dispatch('solicitarEliminarObjeto', modelo: $this->modelo, id: $this->objeto->id)->to(CuerpoEliminarObjeto::class);
     }
 
     //OK
@@ -57,7 +58,6 @@ class Fila extends Component
 
     //OK
     public function verDetallesObjeto(){
-        // $this->dispatch('verDetallesObjeto', modelo: $this->modelo, id: $this->objeto->id)->to(ModalDetallesObjeto::class);
         $this->dispatch('consultar', modelo: $this->modelo, id: $this->objeto->id)->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 
