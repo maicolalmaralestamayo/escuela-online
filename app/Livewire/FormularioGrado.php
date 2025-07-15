@@ -46,6 +46,13 @@ class FormularioGrado extends Component
             $objeto =  new $modeloString;
     
             $this->formularioAlObjeto($modelo, $objeto);
+            
+            $objeto->grado = $this->grado;
+            $objeto->abreviatura = $this->abreviatura;
+            
+            dump($objeto);
+
+
             $objeto->save();
     
             $this->dispatch('actualizarMasivo')->to(Tabla::class);
