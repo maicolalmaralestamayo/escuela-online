@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label for="grado">Grado</label>
+                <label for="grado">Grado {{ $grado }} </label>
                 <input id="grado" type="text" class="form-control" wire:model.live='grado'>
             </div>
         </div>

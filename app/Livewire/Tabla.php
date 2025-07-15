@@ -40,8 +40,8 @@ class Tabla extends Component
     }
 
     //OK
-    public function solicitarEliminarMasivo(){
-        $this->dispatch('solicitarEliminarMasivo', $this->objeto->id)->to(ModalEliminarMasivo::class);
+    public function eliminarMasivo(){
+        $this->dispatch('eliminarMasivo')->to(Fila::class);
     }
 
     //OK

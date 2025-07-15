@@ -11,9 +11,10 @@ class Fila extends Component
     public $modeloString;
     public $objeto;
     public $estado;
+
     protected $listeners = [
-        'confirmarEliminarObjeto',
-        'confirmarEliminarMasivo',
+        'eliminarFila',
+        'eliminarMasivo',
         'setEstadoFila',
         'actualizar'
     ];
@@ -28,25 +29,16 @@ class Fila extends Component
     }
 
     //OK
-    public function solicitarEliminarObjeto(){
-        $this->dispatch('solicitarEliminarObjeto', $this->objeto->id)->to(ModalEliminarObjeto::class);
+    public function eliminarFila(){
+        $this->objeto->delete();
+        $this->dispatch('paginar')->to(Tabla::class);
     }
 
     //OK
-    public function confirmarEliminarObjeto($idObjeto){
-        if ($this->objeto->id == $idObjeto) {
-            $objeto = $this->modeloString::find($idObjeto);
-            $objeto->delete();
-            $this->dispatch('paginar')->to(Tabla::class);
-        }
-    }
-
-    //OK
-    public function confirmarEliminarMasivo()
+    public function eliminarMasivo()
     {
         if ($this->estado == true) {
-            $objeto = $this->modeloString::find($this->objeto->id);
-            $objeto->delete();
+            $this->eliminarFila();
         }
     }
 
@@ -57,7 +49,6 @@ class Fila extends Component
 
     //OK
     public function verDetallesObjeto(){
-        // $this->dispatch('verDetallesObjeto', modelo: $this->modelo, id: $this->objeto->id)->to(ModalDetallesObjeto::class);
         $this->dispatch('consultar', modelo: $this->modelo, id: $this->objeto->id)->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 

@@ -6,20 +6,24 @@ use Livewire\Component;
 
 class ModalEliminarObjeto extends Component
 {
-    public $idObjeto;
-    
+    public $modelo;
+    public $id;
+
     protected $listeners = [
         'solicitarEliminarObjeto'
     ];
 
-    public function solicitarEliminarObjeto($idObjeto){
-        $this->idObjeto = $idObjeto;
+    //OK
+    public function solicitarEliminarObjeto($modelo, $id){
+        $this->modelo = $modelo;
+        $this->id = $id;
     }
 
-    public function confirmarEliminarObjeto(){
-        $this->dispatch('confirmarEliminarObjeto', $this->idObjeto)->to(Fila::class);
+    //OK
+    public function eliminarFila(){
+        $this->dispatch('eliminarFila', modelo: $this->modelo, id: $this->id)->to(Fila::class);
     }
-    
+
     public function render()
     {
         return view('livewire.modal-eliminar-objeto');
