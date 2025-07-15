@@ -17,7 +17,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="confirmarEliminarObjeto" data-toggle="modal" data-target="#modalObjetoEliminado">&nbsp;&nbsp;&nbsp;Eliminar</button>
+                <button type="button" class="btn btn-danger bi bi-trash" data-dismiss="modal" wire:click="eliminarFila" data-toggle="modal" data-target="#modalObjetoEliminado">&nbsp;&nbsp;&nbsp;Eliminar</button>
                 <button type="button" class="btn btn-secondary bi bi-x-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cancelar</button>
             </div>
         </div>

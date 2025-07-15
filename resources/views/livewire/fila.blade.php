@@ -28,7 +28,7 @@
     <td>
         <div class="btn-group">
             <button type="button" class="btn btn-outline-danger" title="Eliminar" data-toggle="modal"
-                wire:click="solicitarEliminarObjeto" data-toggle="modal" data-target="#modalEliminarObjeto"><i class="bi bi-trash-fill"></i>
+                wire:click="eliminarFila"><i class="bi bi-trash-fill"></i>
             </button>
             
             <button type="button" class="btn btn-outline-warning bi bi-arrow-clockwise" title="Recargar" wire:click="actualizar"></button>

@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class ModalEliminarObjeto extends Component
 {
+    public $modelo;
     public $id;
 
     protected $listeners = [
@@ -13,13 +14,14 @@ class ModalEliminarObjeto extends Component
     ];
 
     //OK
-    public function solicitarEliminarObjeto($id){
+    public function solicitarEliminarObjeto($modelo, $id){
+        $this->modelo = $modelo;
         $this->id = $id;
     }
 
     //OK
-    public function confirmarEliminarObjeto(){
-        $this->dispatch('confirmarEliminarObjeto', idObjeto: $this->id)->to(Fila::class);
+    public function eliminarFila(){
+        $this->dispatch('eliminarFila', modelo: $this->modelo, id: $this->id)->to(Fila::class);
     }
 
     public function render()

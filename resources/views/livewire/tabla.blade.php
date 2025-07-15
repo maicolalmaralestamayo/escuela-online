@@ -20,7 +20,7 @@
                             {{-- botonera de acciones de la tabla --}}
                             <div class="btn-group mb-3">
                                 <button type="button" class="btn btn-outline-danger" title="Eliminar datos marcados"
-                                    data-toggle="modal" data-target="#modalEliminarMasivo"><i
+                                    wire:click="eliminarMasivo"><i
                                         class="bi bi-trash-fill"></i>
                                 </button>
 
