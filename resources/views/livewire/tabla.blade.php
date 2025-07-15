@@ -107,11 +107,7 @@
     </div>
 
     @livewire('modal-detalles-objeto', ['modelo' => $modelo], key('modal-detalles-objeto' . $modelo))
-    @livewire('modal-objeto-actualizado', key('modal-objeto-actualizado'))
 
     @livewire('modal-insertar-objeto', ['modelo' => $modelo], key('modal-insertar-objeto' . $modelo))
     @livewire('modal-objeto-insertado', key('modal-objeto-insertado'))
-    
-    @livewire('modal-eliminar-objeto', ['modelo' => $modelo], key('modal-eliminar-objeto' . $modelo))
-    @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
 </section>

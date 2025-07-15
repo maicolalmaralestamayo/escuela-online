@@ -73,17 +73,16 @@ class FormularioDirectivo extends Component
     }
 
     //OK
-    public function actualizar($modelo, $id)
+    public function actualizar()
     {
-        if ($id == $this->id) {
-            $modeloString = 'App\\Models\\' . $modelo;
-            $objeto = $modeloString::find($id);
-    
-            if ($objeto) {
-                $this->formularioAlObjeto($modelo, $objeto);
-                $objeto->update();
-            }
-    
+        dump('ok');
+        $modeloString = 'App\\Models\\' . $this->modelo;
+        $objeto = $modeloString::find($this->id);
+
+        if ($objeto) {
+            $this->formularioAlObjeto($this->modelo, $objeto);
+            $objeto->update();
+
             $this->dispatch('actualizar', $objeto->id)->to(Fila::class);
         }
     }

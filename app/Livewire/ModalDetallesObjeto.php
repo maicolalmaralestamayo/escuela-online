@@ -29,6 +29,11 @@ class ModalDetallesObjeto extends Component
         $this->dispatch('eliminar')->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 
+    //OK
+    public function actualizar(){
+        $this->dispatch('actualizar')->to('App\\Livewire\\Formulario' . $this->modelo);
+    }
+
     public function render()
     {
         return view('livewire.modal-detalles-objeto');
