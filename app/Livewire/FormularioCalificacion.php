@@ -24,7 +24,20 @@ class FormularioCalificacion extends Component
         'insertar',
         'inicializar',
         'consultar',
+        'eliminar',
     ];
+
+    //OK
+    public function eliminar()
+    {
+        $modeloString = 'App\\Models\\' . $this->modelo;
+        $objeto = $modeloString::find($this->id);
+
+        if ($objeto) {
+            $objeto->delete();
+            $this->dispatch('eliminarFila2', id: $this->id)->to(Fila::class);
+        }
+    }
 
     //OK
     public function formularioAlObjeto($modelo, &$objeto){

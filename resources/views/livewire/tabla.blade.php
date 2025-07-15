@@ -114,7 +114,4 @@
     
     @livewire('modal-eliminar-objeto', ['modelo' => $modelo], key('modal-eliminar-objeto' . $modelo))
     @livewire('modal-objeto-eliminado', key('modal-objeto-eliminado'))
-
-    @livewire('modal-eliminar-masivo', key('modal-eliminar-masivo'))
-    @livewire('modal-masivo-eliminado', key('modal-masivo-eliminado'))
 </section>

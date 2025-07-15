@@ -15,18 +15,18 @@ class ModalDetallesObjeto extends Component
 
     //OK
     public function solicitarActualizarObjeto(){
-        $this->dispatch('actualizar', $this->modelo, $this->id)->to('App\Livewire\Formulario' . $this->modelo);
-    }
-
-    //OK
-    public function solicitarEliminarObjeto(){
-        $this->dispatch('solicitarEliminarObjeto', $this->id)->to(ModalEliminarObjeto::class);
+        $this->dispatch('actualizar', $this->modelo, $this->id)->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 
     //OK
     public function verDetallesObjeto($modelo, $id){
         $this->modelo = $modelo;
         $this->id = $id;
+    }
+
+    //OK
+    public function eliminar(){
+        $this->dispatch('eliminar')->to('App\\Livewire\\Formulario' . $this->modelo);
     }
 
     public function render()

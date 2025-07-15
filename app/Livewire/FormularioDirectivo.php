@@ -33,7 +33,20 @@ class FormularioDirectivo extends Component
         'insertar',
         'inicializar',
         'consultar',
+        'eliminar',
     ];
+
+    //OK
+    public function eliminar()
+    {
+        $modeloString = 'App\\Models\\' . $this->modelo;
+        $objeto = $modeloString::find($this->id);
+
+        if ($objeto) {
+            $objeto->delete();
+            $this->dispatch('eliminarFila2', id: $this->id)->to(Fila::class);
+        }
+    }
 
     //OK
     public function formularioAlObjeto($modelo, &$objeto){
@@ -97,13 +110,15 @@ class FormularioDirectivo extends Component
     }
 
     //OK
-    public function inicializarRelaciones(){
+    public function inicializarRelaciones()
+    {
         $this->generos = Genero::all();
         $this->genero_id = $this->generos->first()->id;
     }
 
     //OK
-    public function inicializar($modelo){
+    public function inicializar($modelo)
+    {
         $modeloString = 'App\\Models\\' . $modelo;
         $camposModificables = $modeloString::camposModificables();
 

@@ -14,6 +14,7 @@ class Fila extends Component
 
     protected $listeners = [
         'eliminarFila',
+        'eliminarFila2',
         'eliminarMasivo',
         'setEstadoFila',
         'actualizar'
@@ -32,6 +33,13 @@ class Fila extends Component
     public function eliminarFila(){
         $this->objeto->delete();
         $this->dispatch('paginar')->to(Tabla::class);
+    }
+
+    //OK
+    public function eliminarFila2($id){
+        if ($id == $this->objeto->id) {
+            $this->eliminarFila();
+        }
     }
 
     //OK
